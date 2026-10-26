@@ -12,6 +12,18 @@
     rv.forEach(function(el){io.observe(el)});
   } else rv.forEach(function(el){el.classList.add('in')});
 
+  // every other section: hidden until you reach it, then its parts glide in one by one
+  var secs=document.querySelectorAll('main > section:not(.story)');
+  secs.forEach(function(sec){
+    sec.classList.add('reveal');
+    var parts=sec.querySelectorAll('.rv, .sh-track, .tk-sec .tk-head');
+    var k=0;parts.forEach(function(el){el.classList.remove('rv');el.setAttribute('data-s','');el.style.setProperty('--i',Math.min(k++,7))});
+  });
+  if('IntersectionObserver' in window && !reduce){
+    var rio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    secs.forEach(function(s){rio.observe(s)});
+  } else secs.forEach(function(s){s.classList.add('in')});
+
   // story mode
   var stories=document.querySelectorAll('.story');
   stories.forEach(function(s){s.querySelectorAll('[data-s]').forEach(function(el,i){el.style.setProperty('--i',i)})});
@@ -19,11 +31,13 @@
     var sio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.3});
     stories.forEach(function(s){sio.observe(s)});
   } else stories.forEach(function(s){s.classList.add('in')});
-  var dots=document.querySelectorAll('.story-dots a');
+  var dots=document.querySelectorAll('.story-dots a'), thumb=document.querySelector('.sd-thumb'), trackH=64, thumbH=20;
   function storyState(){
     var vh=innerHeight, mid=vh/2, cur=null, last=stories[stories.length-1];
     stories.forEach(function(s){var r=s.getBoundingClientRect();if(r.top<=mid&&r.bottom>mid)cur=s.id});
     dots.forEach(function(d){d.classList.toggle('on',d.dataset.for===cur)});
+    // smooth thumb: follows scroll continuously from the first to the last story section
+    if(thumb){var a=stories[0].offsetTop, z=last.offsetTop+last.offsetHeight-vh, p=Math.min(1,Math.max(0,(scrollY-a)/Math.max(1,z-a)));thumb.style.transform='translateY('+(p*(trackH-thumbH))+'px)'}
     root.classList.toggle('out-of-story',!cur);
     root.classList.toggle('past-intro',scrollY>vh*.3);
   }
