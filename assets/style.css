@@ -728,3 +728,22 @@ html{background:var(--bg)}
 body{background:transparent}
 .bg-aura{position:fixed;inset:0;z-index:-1;pointer-events:none;background:#08080a url(bg-aura.svg) center/cover no-repeat}
 .tk-sec{background:transparent}
+/* tools: let the page aura show through, no own glow or black fades */
+.tk-sec::after,.tk-glow{display:none}
+#tools::before{display:none}
+.tk-sec .wrap{max-width:var(--max)}
+/* tools: faint dotted square grid behind the content, fading at the edges */
+.tk-sec .wrap{position:relative;isolation:isolate}
+.tk-sec .wrap::before{content:"";position:absolute;inset:-40px -24px;z-index:-1;pointer-events:none;
+  background-image:
+    radial-gradient(circle at 0 0,rgba(255,255,255,.14) 1px,transparent 1.4px),
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:28px 28px,28px 28px,28px 28px;background-position:-1px -1px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 70% at 50% 50%,#000 30%,transparent 100%);
+          mask-image:radial-gradient(ellipse 75% 70% at 50% 50%,#000 30%,transparent 100%)}
+/* cosmic headings: plain label above, artistic title below */
+.sec-head .tk-eyebrow,.faq-head .tk-eyebrow{margin-bottom:14px}
+.faq-head .tk-eyebrow{justify-content:center}
+.faq-head .tk-eyebrow::before{display:none}
+#about .sec-head{align-items:flex-end}
