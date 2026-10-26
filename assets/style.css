@@ -693,3 +693,10 @@ main,html{overflow-x:clip}
 #faq::before{left:-8%;top:10%}
 #contact::before{right:2%;top:-10%;background-image:var(--cB);opacity:.3}
 @media (max-width:700px){#services::before,#work::before,#shots::before,#results::before,#faq::before,#contact::before{opacity:.25;width:110vw}}
+
+/* hero: remove gradient overlays that caused visible banding on dark screens */
+.hero-bg.stars{background:none}
+.hero-bg.stars::after{background:linear-gradient(180deg,transparent 0%,transparent 78%,var(--bg) 100%)}
+@media (max-width:700px){.hero-bg.stars{background:none}}
+/* no overlay gradients at all in the hero: fading is done inside the canvas */
+.hero-bg.stars::after{content:none;display:none}
