@@ -116,7 +116,7 @@
       shots.forEach(function(s,i){
         var meta=(window.SHOTS||[])[i]||null, card=document.createElement('article');card.className='sh-card';
         var b=document.createElement('button');b.type='button';b.className='shot sk';b.setAttribute('aria-label','Open design shot '+(i+1)+(meta?': '+meta[1]:''));
-        var img=document.createElement('img');img.alt='Design shot '+(i+1);img.loading='lazy';img.decoding='async';
+        var img=document.createElement('img');img.alt='Design shot '+(i+1);img.loading=i<3?'eager':'lazy';img.decoding='async';if(i<3)img.fetchPriority='high';
         img.onload=function(){b.classList.remove('sk')};
         img.onerror=function(){if(img.dataset.full){b.remove();return}img.dataset.full='1';img.src=s.src};
         img.src=s.src.replace('assets/shots/','assets/shots/thumbs/');
@@ -128,7 +128,9 @@
         track.appendChild(card);
       });
     }
-    if('IntersectionObserver' in window){var shio=new IntersectionObserver(function(es){if(es[0].isIntersecting){shio.disconnect();next(1)}},{rootMargin:'800px 0px'});shio.observe(track)} else next(1);
+    // known shots come from window.SHOTS: no file probing, so cards appear instantly
+    function start(){var n=(window.SHOTS||[]).length;if(n){for(var i=1;i<=n;i++)shots.push({src:'assets/shots/shot-'+i+'.webp'});finish()}else next(1)}
+    if('IntersectionObserver' in window){var shio=new IntersectionObserver(function(es){if(es[0].isIntersecting){shio.disconnect();start()}},{rootMargin:'1200px 0px'});shio.observe(track)} else start();
     function page(dir){track.scrollBy({left:dir*track.clientWidth*.8,behavior:'smooth'})}
     document.getElementById('sh-prev').addEventListener('click',function(){page(-1)});
     document.getElementById('sh-next').addEventListener('click',function(){page(1)});
