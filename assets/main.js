@@ -24,6 +24,51 @@
     secs.forEach(function(s){rio.observe(s)});
   } else secs.forEach(function(s){s.classList.add('in')});
 
+  // hero constellation: soft glowing points, faint links between neighbours, slow drift
+  var cv=document.getElementById('stars');
+  if(cv && cv.getContext){
+    var ctx=cv.getContext('2d'), W=0,H=0,dpr=1, pts=[], mx=0,my=0, tx=0,ty=0, raf=0, running=false;
+    function size(){
+      var r=cv.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=r.width;H=r.height;
+      cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+      var n=Math.round(Math.min(90,Math.max(36,W*H/14000)));pts=[];
+      for(var i=0;i<n;i++){
+        // bias toward the right side so the headline stays clean
+        var x=W*(.25+.75*Math.pow(Math.random(),.7)), y=H*Math.random();
+        pts.push({x:x,y:y,vx:(Math.random()-.5)*.08,vy:(Math.random()-.5)*.08,r:Math.random()*1.1+.5,d:Math.random()*.6+.4,t:Math.random()*6.28,big:Math.random()<.08});
+      }
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      tx+=(mx-tx)*.04;ty+=(my-ty)*.04;
+      var L=Math.min(150,W*.12);
+      for(var i=0;i<pts.length;i++){var p=pts[i];
+        p.x+=p.vx;p.y+=p.vy;p.t+=.012;
+        if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+        p.sx=p.x+tx*p.d*14;p.sy=p.y+ty*p.d*14;
+      }
+      ctx.lineWidth=.6;
+      for(var a=0;a<pts.length;a++)for(var b=a+1;b<pts.length;b++){
+        var A=pts[a],B=pts[b],dx=A.sx-B.sx,dy=A.sy-B.sy,dd=dx*dx+dy*dy;
+        if(dd<L*L){var o=(1-Math.sqrt(dd)/L)*.18;ctx.strokeStyle='rgba(190,198,255,'+o+')';ctx.beginPath();ctx.moveTo(A.sx,A.sy);ctx.lineTo(B.sx,B.sy);ctx.stroke()}
+      }
+      for(var k=0;k<pts.length;k++){var q=pts[k],tw=.55+.45*Math.sin(q.t);
+        ctx.shadowColor='rgba(170,180,255,.9)';ctx.shadowBlur=q.big?14:6;
+        ctx.fillStyle='rgba(255,255,255,'+(q.big?.95:.7*tw+.15)+')';
+        ctx.beginPath();ctx.arc(q.sx,q.sy,q.big?q.r+1.1:q.r,0,6.283);ctx.fill();
+      }
+      ctx.shadowBlur=0;
+      if(running)raf=requestAnimationFrame(draw);
+    }
+    size();addEventListener('resize',function(){size();if(!running)draw()});
+    var hero=document.querySelector('.hero');
+    hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5});
+    if(reduce){draw()}
+    else if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){es.forEach(function(e){running=e.isIntersecting;cancelAnimationFrame(raf);if(running)draw()})}).observe(cv);
+    } else {running=true;draw()}
+  }
+
   // story mode
   var stories=document.querySelectorAll('.story');
   stories.forEach(function(s){s.querySelectorAll('[data-s]').forEach(function(el,i){el.style.setProperty('--i',i)})});
@@ -70,14 +115,14 @@
       track.innerHTML='';
       shots.forEach(function(s,i){
         var b=document.createElement('button');b.type='button';b.className='shot sk';b.setAttribute('aria-label','Open design shot '+(i+1));
-        var img=document.createElement('img');img.alt='Design shot '+(i+1);img.loading=i<4?'eager':'lazy';img.decoding='async';
+        var img=document.createElement('img');img.alt='Design shot '+(i+1);img.loading='lazy';img.decoding='async';
         img.onload=function(){b.classList.remove('sk')};
-        img.onerror=function(){b.remove()};
-        img.src=s.src;
+        img.onerror=function(){if(img.dataset.full){b.remove();return}img.dataset.full='1';img.src=s.src};
+        img.src=s.src.replace('assets/shots/','assets/shots/thumbs/');
         b.appendChild(img);b.addEventListener('click',function(){if(!moved)openLb(i)});track.appendChild(b);
       });
     }
-    next(1);
+    if('IntersectionObserver' in window){var shio=new IntersectionObserver(function(es){if(es[0].isIntersecting){shio.disconnect();next(1)}},{rootMargin:'800px 0px'});shio.observe(track)} else next(1);
     function page(dir){track.scrollBy({left:dir*track.clientWidth*.8,behavior:'smooth'})}
     document.getElementById('sh-prev').addEventListener('click',function(){page(-1)});
     document.getElementById('sh-next').addEventListener('click',function(){page(1)});
