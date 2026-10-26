@@ -114,12 +114,18 @@
       if(!shots.length){document.getElementById('shots').hidden=true;var l=document.querySelector('a[href="#shots"]');if(l)l.hidden=true;return}
       track.innerHTML='';
       shots.forEach(function(s,i){
-        var b=document.createElement('button');b.type='button';b.className='shot sk';b.setAttribute('aria-label','Open design shot '+(i+1));
+        var meta=(window.SHOTS||[])[i]||null, card=document.createElement('article');card.className='sh-card';
+        var b=document.createElement('button');b.type='button';b.className='shot sk';b.setAttribute('aria-label','Open design shot '+(i+1)+(meta?': '+meta[1]:''));
         var img=document.createElement('img');img.alt='Design shot '+(i+1);img.loading='lazy';img.decoding='async';
         img.onload=function(){b.classList.remove('sk')};
         img.onerror=function(){if(img.dataset.full){b.remove();return}img.dataset.full='1';img.src=s.src};
         img.src=s.src.replace('assets/shots/','assets/shots/thumbs/');
-        b.appendChild(img);b.addEventListener('click',function(){if(!moved)openLb(i)});track.appendChild(b);
+        if(meta)img.alt=meta[1]+' – '+meta[2];
+        b.appendChild(img);b.addEventListener('click',function(){if(!moved)openLb(i)});card.appendChild(b);
+        if(meta){var cap=document.createElement('div');cap.className='sh-cap';
+          cap.innerHTML='<div><span class="chip">'+meta[0]+'</span><h3>'+meta[1]+'</h3><p>'+meta[2]+'</p></div><button type="button" class="sh-open" aria-label="Expand '+meta[1]+'" title="View full size"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h5v5M9 20H4v-5M20 4l-6 6M4 20l6-6"/></svg></button>';
+          cap.querySelector('.sh-open').addEventListener('click',function(){openLb(i)});card.appendChild(cap)}
+        track.appendChild(card);
       });
     }
     if('IntersectionObserver' in window){var shio=new IntersectionObserver(function(es){if(es[0].isIntersecting){shio.disconnect();next(1)}},{rootMargin:'800px 0px'});shio.observe(track)} else next(1);

@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<div class="bg-aura" aria-hidden="true"></div>
 <a class="skip" href="#work">Skip to projects</a>
 
 <header class="nav">
@@ -161,17 +162,45 @@
 
 <section class="sec" id="shots" aria-labelledby="shots-title">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div><h2 id="shots-title">Design <span class="dim">Shots</span></h2><p>Small explorations, UI details and visual ideas. Tap any shot to see it larger.</p></div>
+    <div class="sh-head rv">
+      <div>
+        <span class="tk-eyebrow">Selected explorations</span>
+        <h2 id="shots-title">Design <span class="tk-grad">shots</span></h2>
+        <p>Small explorations, UI details and visual ideas. Tap any shot to see it larger.</p>
+      </div>
       <div class="sh-nav">
-        <button type="button" class="pm-btn" id="sh-prev" aria-label="Previous shots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
-        <button type="button" class="pm-btn" id="sh-next" aria-label="Next shots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button type="button" class="pm-btn" id="sh-prev" aria-label="Previous shots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5m5-5-5 5 5 5"/></svg></button>
+        <button type="button" class="pm-btn" id="sh-next" aria-label="Next shots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button>
       </div>
     </div>
   </div>
   <div class="sh-track" id="sh-track" tabindex="0" aria-label="Design shots carousel"></div>
   <noscript><div class="wrap"><p>Enable JavaScript to see the design shots.</p></div></noscript>
 </section>
+<script>
+/* Design shot captions, in the same order as assets/shots/shot-1, shot-2, ...
+   To add one: upload shot-19.webp and add a line here. */
+window.SHOTS=[
+ ["Real Estate","Villa Tälerblick","A modern property website with elegant visuals and clear information architecture."],
+ ["Education","StudyToring","A tutoring platform landing page focused on trust, clarity and conversion."],
+ ["E-commerce","Organic Grocery","A clean and friendly online store for fresh and organic food."],
+ ["SaaS","Campus Admin Suite","A landing page for an academic admin platform, turning complex features into clear benefits."],
+ ["Event","Lighting Fair","An event page with bold neon visuals, key numbers and a clear call to visit."],
+ ["Web3 · Game","Quack Land","A playful Web3 game site with characters, story and a world map."],
+ ["Personal Brand","Business Coach","A coaching landing page with a warm tone, social proof and simple packages."],
+ ["Concept","Sneaker Launch","An unofficial concept for a bold sneaker drop page with strong product focus."],
+ ["NFT Marketplace","Marketter","A dark NFT marketplace with live auctions, collections and creator profiles."],
+ ["EdTech","Kuest Landing","A landing page for an interactive learning platform with chat, video and integrations."],
+ ["EdTech · Dashboard","Kuest Dashboard","A gamified student dashboard with ranks, mini games, quests and leaderboards."],
+ ["Real Estate","Hypestate","A dark, premium housing website built around big photography and short stories."],
+ ["Concept","Racing News","An unofficial concept for a motorsport news, standings and race schedule page."],
+ ["SaaS · Marketing","DirectMail 2.0","A SaaS landing page that shows the real product dashboard to explain value fast."],
+ ["Concept","Investor Day","An unofficial concept for a corporate event page: agenda, speakers and live Q&A."],
+ ["Mobile App","Recipe App","A recipe app with quick search, ratings and clear step-by-step cooking."],
+ ["E-commerce","Chonky Bois","A cookie shop with a friendly mascot, warm colors and an easy order flow."],
+ ["Education","Career Center","An alumni career portal that connects fresh graduates with jobs and training."]
+];
+</script>
 
 <dialog class="lb" id="lb" aria-label="Design shot">
   <button type="button" class="pm-btn lb-close" id="lb-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>

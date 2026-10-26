@@ -700,3 +700,31 @@ main,html{overflow-x:clip}
 @media (max-width:700px){.hero-bg.stars{background:none}}
 /* no overlay gradients at all in the hero: fading is done inside the canvas */
 .hero-bg.stars::after{content:none;display:none}
+
+/* ===== Design shots v2: framed cards with captions ===== */
+.sh-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,44px)}
+.sh-head h2{font-size:clamp(44px,6vw,80px);letter-spacing:-.055em;line-height:.95;font-weight:700}
+.sh-head p{color:var(--text2);font-size:clamp(16px,1.5vw,19px);margin-top:16px;max-width:40ch}
+.sh-head .tk-eyebrow{margin-bottom:18px}
+.sh-nav .pm-btn{width:52px;height:52px;background:rgba(255,255,255,.03)}
+.sh-track{gap:clamp(16px,2vw,28px);align-items:stretch}
+.sh-card{flex:0 0 auto;width:clamp(290px,31vw,520px);scroll-snap-align:start;display:flex;flex-direction:column;gap:18px;position:relative;padding-right:clamp(16px,2vw,28px);border-right:1px solid var(--line)}
+.sh-card:last-child{border-right:0}
+.sh-card .shot,.sh-card .shot.sk{width:100%;height:auto;aspect-ratio:4/3;padding:8px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--line2);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.sh-card .shot img{border-radius:12px;width:100%;height:100%;object-fit:cover}
+.sh-card .shot:hover{transform:translateY(-4px)}
+.sh-cap{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:0 4px}
+.sh-cap > div{min-width:0}
+.sh-cap .chip{background:transparent;border-color:var(--line2);color:var(--text2)}
+.sh-cap h3{font-size:clamp(19px,1.7vw,24px);letter-spacing:-.03em;margin-top:12px}
+.sh-cap p{color:var(--muted);font-size:14.5px;margin-top:6px;max-width:38ch}
+.sh-open{flex-shrink:0;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:transparent;color:var(--text);display:grid;place-items:center;cursor:pointer;transition:background-color .2s,color .2s}
+.sh-open:hover{background:var(--text);color:var(--bg)}
+.sh-open svg{width:16px;height:16px}
+@media (max-width:600px){.sh-card{width:84vw;border-right:0;padding-right:0}.sh-head h2{font-size:clamp(42px,12vw,56px)}}
+
+/* ===== page aura: deep navy glow on black, one light SVG with built-in grain (prevents banding) ===== */
+html{background:var(--bg)}
+body{background:transparent}
+.bg-aura{position:fixed;inset:0;z-index:-1;pointer-events:none;background:#08080a url(bg-aura.svg) center/cover no-repeat}
+.tk-sec{background:transparent}
