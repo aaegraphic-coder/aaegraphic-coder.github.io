@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EDVORA case study – Angga Ady Ermawan</title>
+<meta name="description" content="How I designed EDVORA, a SaaS that helps Indonesian training centres get every student to Japan on time.">
+<meta property="og:title" content="EDVORA case study – Angga Ady Ermawan">
+<meta property="og:image" content="https://aaegraphic.com/assets/og.png">
+<meta name="theme-color" content="#08080A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2308080A'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-weight='700' font-size='24' fill='%23F5F5F6'%3EAE%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#problem">Skip to case study</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="mark">AE</span>Angga Ady Ermawan</a>
+    <nav class="links" aria-label="Main">
+      <a class="opt" href="index.html#work">Work</a>
+      <a class="opt" href="index.html#about">About</a>
+      <a class="btn sm" href="index.html#contact">Let's talk</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="case-hero">
+  <div class="wrap">
+    <a class="back" href="index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5m5-5-5 5 5 5"/></svg>All projects</a>
+    <h1>EDVORA: getting every student to Japan on time</h1>
+    <p class="lede">Training centres in Indonesia (LPK) prepare thousands of people to work in Japan. Most of them run on spreadsheets and chat groups, and one missing document can delay a departure. I founded EDVORA and designed it from the first interview to a launch-ready product.</p>
+    <div class="facts">
+      <div><small>My role</small><b>Founder & Product Designer</b></div>
+      <div><small>Team</small><b>Me, a CTO and a CMO</b></div>
+      <div><small>Platform</small><b>Multi-tenant web app</b></div>
+      <div><small>Status</small><b>Launch-ready, early outreach</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <figure class="cover shot rv"><img src="assets/edv-dashboard.webp" alt="EDVORA home dashboard: active students, placement track, branches and average exam score" width="1390" height="905"></figure>
+</div>
+
+<div class="wrap case-body">
+  <nav class="toc" aria-label="On this page">
+    <a href="#problem" class="on">Problem</a>
+    <a href="#research">Research</a>
+    <a href="#solution">Solution</a>
+    <a href="#design">Design</a>
+    <a href="#impact">Impact</a>
+    <a href="#learned">What I learned</a>
+  </nav>
+
+  <div>
+    <section class="chapter" id="problem">
+      <span class="eyebrow">Problem</span>
+      <h2>One missing document can delay a whole departure</h2>
+      <p>Every student going to Japan moves through the same long journey: registration, language classes, exams, documents, placement and finally departure. Each step has its own paperwork and deadlines.</p>
+      <p>Training centres track all of this in spreadsheets and chat groups. Staff spend their days chasing students for passports, medical checks and visas, and owners have no clear view of what is late across their branches.</p>
+      <div class="callout"><small>The question I started with</small><b>How might training centres see, at a glance, who is ready to fly and who needs help this week?</b></div>
+    </section>
+
+    <section class="chapter" id="research">
+      <span class="eyebrow">Research</span>
+      <h2>Mapping the market before drawing a screen</h2>
+      <p>I didn't want to design for a guess. I mapped and scored the official sending organisations to understand who they are, how big they are and which ones feel this pain the most.</p>
+      <div class="grid3">
+        <div class="box"><span class="big">591</span><b>Organisations mapped</b><p>Every official sending organisation, scored on size and fit.</p></div>
+        <div class="box"><span class="big">1</span><b>First target segment</b><p>The scoring showed which centres to design for first.</p></div>
+        <div class="box"><span class="big">4</span><b>Pricing tiers</b><p>Plans shaped around how centres actually grow.</p></div>
+      </div>
+      <p style="margin-top:28px">The most important finding was simple: documents and deadlines cause more stress than anything else. That decided the core of the product.</p>
+    </section>
+
+    <section class="chapter" id="solution">
+      <span class="eyebrow">Solution</span>
+      <h2>One place for the whole student journey</h2>
+      <p>EDVORA follows each student from the day they register to the day they fly. Every stage lives in one place, and the departure stage is the heart of the product.</p>
+      <div class="journey" role="list" aria-label="Student journey">
+        <div role="listitem"><small>Stage 1</small><b>Registration</b></div>
+        <div role="listitem"><small>Stage 2</small><b>Learning</b></div>
+        <div role="listitem"><small>Stage 3</small><b>Exams</b></div>
+        <div role="listitem" class="core"><small>Core feature</small><b>Documents</b></div>
+        <div role="listitem"><small>Stage 5</small><b>Placement</b></div>
+        <div role="listitem" class="core"><small>Core feature</small><b>Departure</b></div>
+      </div>
+      <div class="grid2">
+        <div class="box"><b>Departure document tracking</b><p>Every required document per student, with status and due dates, and reminders before anything becomes late.</p></div>
+        <div class="box"><b>Multi-branch monitoring</b><p>Owners see every branch in one dashboard, so problems show up before they delay a flight.</p></div>
+        <div class="box"><b>Subscription billing</b><p>Centres pay by virtual account or QRIS, the payment methods they already use.</p></div>
+        <div class="box"><b>Built for many centres</b><p>A multi-tenant setup, so each centre and branch keeps its own data.</p></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="design">
+      <span class="eyebrow">Design</span>
+      <h2>Making the checklist the main character</h2>
+      <p>Staff don't need another table. They need to know who to call today. So each student gets one clear checklist with a status for every document, and the dashboard rolls these up into simple numbers: ready, due this week and late.</p>
+      <div class="checklist">
+        <div class="hd"><div><b>Departure documents</b><small>Rizky P., batch 14 to Nagoya</small></div><span class="chip mint">5 of 6 ready</span></div>
+        <ul>
+          <li><span class="t"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>Passport<span>Verified</span></li>
+          <li><span class="t"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>Medical check<span>Verified</span></li>
+          <li><span class="t"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>Certificate of Eligibility<span>Received</span></li>
+          <li><span class="t"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>Japanese test (JLPT N4)<span>Passed</span></li>
+          <li><span class="t"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>Visa<span>Approved</span></li>
+          <li class="due"><span class="t"></span>Flight ticket<span>Due in 3 days</span></li>
+        </ul>
+      </div>
+      <figure class="shot-fig"><img src="assets/edv-departure.webp" alt="Departure requirements for one student: accepted by company, 8 of 11 documents, departure date, plus uploaded and missing documents" loading="lazy" width="1600" height="860"><figcaption>The departure view in the real product: what is done, what is missing, and one button when everything is ready.</figcaption></figure>
+      <figure class="shot-fig"><img src="assets/edv-skills.webp" alt="Student profile with a radar chart of six skill dimensions and an assessment draft" loading="lazy" width="1600" height="858"><figcaption>Skills assessment per student. Dimensions that are not assessed yet stay empty instead of counting as zero.</figcaption></figure>
+      <p style="margin-top:28px">I wrote the technical specification and built an interactive prototype first, so the CTO and I could test the flows before any code was written. Then I worked with engineering through five delivery phases.</p>
+    </section>
+
+    <section class="chapter" id="impact">
+      <span class="eyebrow">Impact</span>
+      <h2>From an idea to a launch-ready product</h2>
+      <div class="grid3">
+        <div class="box"><span class="big">5</span><b>Delivery phases</b><p>Shipped with Next.js, React, Prisma and MySQL.</p></div>
+        <div class="box"><span class="big">319</span><b>Automated tests</b><p>All passing, so the product is ready for real customers.</p></div>
+        <div class="box"><span class="big">3</span><b>People on the team</b><p>Me, a CTO and a CMO, plus a ready sales pipeline, outreach messages and video scripts.</p></div>
+      </div>
+      <p style="margin-top:28px">EDVORA is now in early customer outreach. The next step is onboarding the first centres and measuring how much time staff save and how many departures leave on schedule.</p>
+    </section>
+
+    <section class="chapter" id="learned">
+      <span class="eyebrow">What I learned</span>
+      <h2>Designing the business, not only the screens</h2>
+      <p>Founding a product made me own decisions I usually hand to others: who to sell to, how to price, what to build first. It made me a better product designer, because every screen now has to earn its place.</p>
+      <p>It also taught me to design with engineers from day one. Writing the spec myself meant fewer surprises, and the 319 tests mean the design we agreed on is the design that ships.</p>
+    </section>
+
+    <div class="next rv">
+      <div><span class="eyebrow">See it live</span><h3>EDVORA is live at edvora.pro</h3></div>
+      <a class="btn primary" href="https://edvora.pro" target="_blank" rel="noopener">Visit edvora.pro <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px"><span>© 2026 Angga Ady Ermawan · Yogyakarta, Indonesia</span><span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="mailto:aaegraphic@gmail.com">aaegraphic@gmail.com</a></span></div>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>
