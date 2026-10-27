@@ -910,3 +910,8 @@ html{scroll-padding-top:76px}
 .nav.solid .mark.mark-a{width:30px;height:30px}
 .nav.solid .logo-name{height:27px}
 @media (max-width:820px){.mark.mark-a{width:32px;height:32px}.logo-name{height:27px}.nav.solid .mark.mark-a{width:28px;height:28px}.nav.solid .logo-name{height:25px}}
+/* popup video (Funnelish Smart Payment Routing) */
+.pm-video{margin:14px 0 22px}
+.pm-video video{display:block;width:100%;height:auto;aspect-ratio:1280/860;border-radius:14px;border:1px solid var(--line);background:#f7f8fb}
+.pm-video figcaption{margin-top:10px;font-size:13px;color:var(--text2)}
+.pm-video figcaption a{color:var(--text);text-underline-offset:3px}
