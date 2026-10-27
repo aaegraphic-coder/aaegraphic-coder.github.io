@@ -901,3 +901,12 @@ html{scroll-padding-top:76px}
   .menu-btn[aria-expanded="true"] .mb-ic span:first-child{transform:rotate(45deg)}
   .menu-btn[aria-expanded="true"] .mb-ic span:last-child{transform:rotate(-45deg)}
 }
+/* logo: square mark with the signature "A", then the signature name */
+.logo{gap:10px}
+.mark.mark-a{width:34px;height:34px;border-radius:10px;transition:width .35s var(--ease),height .35s var(--ease)}
+.mark.mark-a img{width:72%;height:72%;display:block}
+.logo-name{display:block;height:30px;width:auto;transition:height .35s var(--ease),opacity .2s}
+.logo:hover .logo-name{opacity:.85}
+.nav.solid .mark.mark-a{width:30px;height:30px}
+.nav.solid .logo-name{height:27px}
+@media (max-width:820px){.mark.mark-a{width:32px;height:32px}.logo-name{height:27px}.nav.solid .mark.mark-a{width:28px;height:28px}.nav.solid .logo-name{height:25px}}
