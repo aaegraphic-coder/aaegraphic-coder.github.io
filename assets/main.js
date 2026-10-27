@@ -233,3 +233,22 @@
   hero.addEventListener('pointerleave',function(){px=0;req()});
   draw();
 })();
+
+/* navigation: hamburger panel on mobile, active link on desktop */
+(function(){
+  var nav=document.querySelector('.nav'),btn=document.querySelector('.menu-btn'),menu=document.getElementById('m-menu');
+  if(nav&&btn&&menu){
+    menu.hidden=false;menu.setAttribute('aria-hidden','true');menu.inert=true;
+    function set(o){nav.classList.toggle('open',o);document.documentElement.classList.toggle('menu-open',o);btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Close menu':'Open menu');menu.setAttribute('aria-hidden',!o);menu.inert=!o;if(o){var f=menu.querySelector('a');if(f)setTimeout(function(){f.focus({preventScroll:true})},60)}}
+    btn.addEventListener('click',function(){set(!nav.classList.contains('open'))});
+    menu.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+    addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){set(false);btn.focus()}});
+    matchMedia('(min-width:821px)').addEventListener('change',function(m){if(m.matches)set(false)});
+  }
+  var opts=[].slice.call(document.querySelectorAll('.links a.opt[href^="#"]'));
+  if(opts.length&&'IntersectionObserver' in window){
+    var map={};opts.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s)map[s.id]=a});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){opts.forEach(function(a){a.classList.remove('on')});map[e.target.id].classList.add('on')}})},{rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(map).forEach(function(id){io.observe(document.getElementById(id))});
+  }
+})();
