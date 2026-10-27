@@ -813,3 +813,45 @@ body{background:transparent}
 .mtn::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40px;background:linear-gradient(180deg,rgba(8,8,10,0),var(--bg))}
 .hero .wrap,.hero .scroll-cue{z-index:1}
 @media (max-width:700px){.mtn{height:clamp(120px,20vh,180px);-webkit-mask-image:none;mask-image:none}}
+
+/* Talentvis thumbnail v2: before -> after redesign, click "Join now", Gen Z sign-ups rise +40% (8s loop) */
+.m-tv{flex:1;min-height:0;display:grid;grid-template-columns:1.65fr 1fr;gap:8px}
+.tv-win{flex:1;min-height:0;display:flex;flex-direction:column;border-radius:10px;background:#1b1b20;border:1px solid var(--line);overflow:hidden}
+.tv-bar{display:flex;align-items:center;gap:4px;padding:6px 8px;border-bottom:1px solid var(--line);background:#18181c}
+.tv-bar i{width:6px;height:6px;border-radius:50%;background:var(--card3)}
+.tv-bar span{margin-left:6px;font-size:9px;color:var(--text3,#77777f);background:#111114;border-radius:4px;padding:1px 8px}
+.tv-page{position:relative;flex:1;min-height:0}
+.tv-old,.tv-new{position:absolute;inset:0;padding:9px 12px;display:flex;flex-direction:column;gap:6px;overflow:hidden}
+.tv-old .bar{height:7px;background:#2a2a30}
+.tv-boxes{display:flex;gap:5px;margin-top:auto}.tv-boxes i{flex:1;height:22px;border-radius:4px;background:#25252a}
+.tv-new{background:linear-gradient(135deg,#1e2140,#1b1b20 70%);clip-path:inset(0 100% 0 0)}
+.tv-lbl{align-self:flex-start;font-size:8.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:999px;background:#2a2a30;color:var(--text2)}
+.tv-lbl.on{background:var(--mint-soft);color:var(--mint)}
+.tv-new h4{font-size:13px;line-height:1.08;letter-spacing:-.03em;color:var(--text);max-width:16ch;margin:0}
+.tv-new p{font-size:9.5px;margin:0;color:var(--text2)}
+.tv-cta{position:relative;align-self:flex-start;margin-top:2px}
+.tv-go{display:inline-block;padding:5px 11px;border-radius:999px;background:var(--text);color:var(--bg);font-size:10px;font-weight:600}
+.tv-cur{position:absolute;left:68%;top:55%;width:14px;height:14px;opacity:0;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
+.tv-cur path{fill:#fff;stroke:#111;stroke-width:1}
+.tv-stat{display:flex;flex-direction:column;justify-content:space-between;gap:8px;padding:10px;border-radius:10px;background:#1b1b20;border:1px solid var(--line)}
+.tv-stat small{display:block;font-size:9px;color:var(--text2)}
+.tv-stat b{display:block;margin-top:2px;font-size:22px;line-height:1.1;color:var(--mint);letter-spacing:-.02em}
+.tv-stat svg{width:100%;height:auto;overflow:visible}
+.tv-stat path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tv-base{stroke:#3a3a42;stroke-width:2.4}
+.tv-line{stroke:var(--mint);stroke-width:3;stroke-dasharray:100;stroke-dashoffset:100}
+.tv-dot{fill:var(--mint);opacity:0}
+[data-p="talentvis"] .tv-new{animation:tvWipe 8s var(--ease) infinite}
+[data-p="talentvis"] .tv-cur{animation:tvCur 8s var(--ease) infinite}
+[data-p="talentvis"] .tv-go{animation:tvGo 8s var(--ease) infinite}
+[data-p="talentvis"] .tv-line{animation:tvLine 8s var(--ease) infinite}
+[data-p="talentvis"] .tv-dot{animation:tvDot 8s var(--ease) infinite}
+[data-p="talentvis"] .tv-stat b{animation:tvNum 8s var(--ease) infinite}
+@keyframes tvWipe{0%,12%{clip-path:inset(0 100% 0 0)}24%,92%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 100% 0 0)}}
+@keyframes tvCur{0%,26%{opacity:0;transform:translate(110px,10px)}30%{opacity:1;transform:translate(110px,10px)}40%{opacity:1;transform:translate(0,0)}43%{transform:translate(0,0) scale(.85)}46%,80%{opacity:1;transform:translate(0,0)}86%,100%{opacity:0;transform:translate(0,0)}}
+@keyframes tvGo{0%,42%{transform:none;box-shadow:0 0 0 0 rgba(255,255,255,0)}44%{transform:scale(.94);box-shadow:0 0 0 0 rgba(255,255,255,.55)}52%{transform:none;box-shadow:0 0 0 9px rgba(255,255,255,0)}100%{transform:none}}
+@keyframes tvLine{0%,46%{stroke-dashoffset:100}66%,92%{stroke-dashoffset:0}100%{stroke-dashoffset:100}}
+@keyframes tvDot{0%,64%{opacity:0;transform:scale(.4)}68%{opacity:1;transform:scale(1.5)}72%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes tvNum{0%,62%{opacity:.25;transform:translateY(3px)}68%{opacity:1;transform:scale(1.12)}72%,92%{opacity:1;transform:none}100%{opacity:.25}}
+.tv-dot{transform-box:fill-box;transform-origin:center}
+@media (prefers-reduced-motion:reduce){[data-p="talentvis"] .tv-new{clip-path:none}[data-p="talentvis"] .tv-line{stroke-dashoffset:0}[data-p="talentvis"] .tv-dot{opacity:1}}
