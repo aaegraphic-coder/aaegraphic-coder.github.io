@@ -797,3 +797,19 @@ body{background:transparent}
 @keyframes flDash{to{stroke-dashoffset:-22}}
 @keyframes flPop{0%{opacity:0;transform:scale(.3)}65%{opacity:1;transform:scale(1.15)}100%{opacity:1;transform:scale(1)}}
 @keyframes flTw{50%{opacity:.45}}
+
+/* hero: abstract faceted ridgelines as a light accent, with parallax */
+.mtn{position:absolute;left:0;right:0;bottom:0;height:clamp(150px,28vh,280px);pointer-events:none;z-index:0;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%)}
+.mtn .m{position:absolute;left:-3%;width:106%;bottom:0;height:100%;display:block;overflow:visible;will-change:transform}
+.mtn .a{fill:url(#ma)}
+.mtn .l{fill:none;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.mtn .m0 .l{stroke:rgba(165,175,255,.16);stroke-width:1}
+.mtn .m1 .l{stroke:rgba(165,175,255,.26);stroke-width:1;stroke-dasharray:3 5}
+.mtn .m2 .l{stroke:rgba(190,195,255,.42);stroke-width:1.2}
+.mtn .m1 .a{opacity:.6}.mtn .m2 .a{opacity:.35}
+.mtn .d circle{fill:#dfe2ff;filter:drop-shadow(0 0 4px rgba(170,180,255,.9))}
+.mtn .m1 .d circle{opacity:.55}
+.mtn::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40px;background:linear-gradient(180deg,rgba(8,8,10,0),var(--bg))}
+.hero .wrap,.hero .scroll-cue{z-index:1}
+@media (max-width:700px){.mtn{height:clamp(120px,20vh,180px);-webkit-mask-image:none;mask-image:none}}

@@ -218,3 +218,18 @@
     Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)io2.observe(s)});
   }
 })();
+
+/* hero mountains: scroll + pointer parallax, only while the hero is on screen */
+(function(){
+  var box=document.querySelector('.mtn');if(!box)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var L=box.querySelectorAll('.m'),sp=[.22,.12,.04],mx=[6,14,26],px=0,tx=0,raf=0,hero=box.parentNode;
+  function draw(){raf=0;var y=scrollY,h=hero.offsetHeight;if(y>h)return;tx+=(px-tx)*.08;
+    for(var i=0;i<L.length;i++)L[i].style.transform='translate3d('+(tx*mx[i]).toFixed(2)+'px,'+(y*sp[i]).toFixed(1)+'px,0)';
+    if(Math.abs(px-tx)>.002)req()}
+  function req(){if(!raf)raf=requestAnimationFrame(draw)}
+  addEventListener('scroll',req,{passive:true});
+  if(matchMedia('(pointer:fine)').matches)hero.addEventListener('pointermove',function(e){px=(e.clientX/innerWidth-.5)*-1;req()});
+  hero.addEventListener('pointerleave',function(){px=0;req()});
+  draw();
+})();
