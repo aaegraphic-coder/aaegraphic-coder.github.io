@@ -915,3 +915,89 @@ html{scroll-padding-top:76px}
 .pm-video video{display:block;width:100%;height:auto;aspect-ratio:1280/860;border-radius:14px;border:1px solid var(--line);background:#f7f8fb}
 .pm-video figcaption{margin-top:10px;font-size:13px;color:var(--text2)}
 .pm-video figcaption a{color:var(--text);text-underline-offset:3px}
+
+/* ===== Funnelish AI overview: low-fidelity recreated product loop (14s) =====
+   1 describe the product -> 2 AI plans and builds 3 pages -> 3 published -> 4 edit with AI */
+.fa{container-type:inline-size;width:100%;--fa-t:14s}
+.thumb .mock .fa{flex:1;min-height:0;display:flex;align-items:center}
+.fa-win{width:100%;aspect-ratio:16/10;display:flex;flex-direction:column;border-radius:2.4cqw;background:#1b1b20;border:1px solid var(--line);overflow:hidden;font-size:2.3cqw;color:var(--text2)}
+.fa-bar{display:flex;align-items:center;gap:.9cqw;padding:1.4cqw 1.8cqw;border-bottom:1px solid var(--line);background:#18181c}
+.fa-bar i{width:1.3cqw;height:1.3cqw;border-radius:50%;background:var(--card3)}
+.fa-pill{margin-left:1.4cqw;padding:.4cqw 1.6cqw;border-radius:99px;background:#232329;font-size:2cqw;color:var(--text2)}
+.fa-pill b{color:var(--peri)}
+.fa-body{flex:1;min-height:0;display:grid;grid-template-columns:34% 1fr}
+.fa-side{display:flex;flex-direction:column;gap:1.4cqw;padding:1.8cqw;border-right:1px solid var(--line)}
+.fa-plan{flex:1;display:flex;flex-direction:column;gap:1.2cqw}
+.fa-ph{font-size:2.1cqw;color:var(--text);opacity:0}
+.fa-step{display:flex;align-items:center;gap:1.2cqw;font-size:2.1cqw;opacity:0}
+.fa-step i{position:relative;flex:none;width:2.6cqw;height:2.6cqw;border-radius:50%;border:.35cqw solid #3a3a44}
+.fa-step i::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--mint);transform:scale(0)}
+.fa-src{display:flex;gap:.8cqw}
+.fa-src span{padding:.3cqw 1.2cqw;border-radius:99px;border:1px solid var(--line2);font-size:1.8cqw}
+.fa-prompt{position:relative;display:flex;align-items:center;min-height:6.4cqw;padding:1.2cqw 6cqw 1.2cqw 1.4cqw;border-radius:1.6cqw;background:#232329;border:1px solid rgba(154,166,255,.35);font-size:2.1cqw;color:var(--text);line-height:1.2}
+.fa-type{display:inline-block;white-space:nowrap;overflow:hidden;max-width:100%;clip-path:inset(0 100% 0 0)}
+.fa-send{position:absolute;right:1.2cqw;top:50%;width:3.6cqw;height:3.6cqw;margin-top:-1.8cqw;border-radius:1cqw;background:var(--text)}
+.fa-send::after{content:"";position:absolute;left:50%;top:50%;width:1.2cqw;height:1.2cqw;margin:-.6cqw 0 0 -.85cqw;border-top:.4cqw solid var(--bg);border-right:.4cqw solid var(--bg);transform:rotate(45deg)}
+.fa-canvas{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:1.6cqw;padding:2cqw;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.4px);background-size:2.6cqw 2.6cqw}
+.fa-page{display:flex;flex-direction:column;gap:1cqw;padding:1.4cqw;border-radius:1.4cqw;background:#222227;border:1px solid var(--line);opacity:0;transform:translateY(2cqw)}
+.fa-page small{font-size:1.7cqw;color:var(--text3,#77777f)}
+.fa-page > div{border-radius:.6cqw;background:#2e2e36;transform-origin:left;transform:scaleX(0)}
+.fa-img{height:9cqw}
+.fa-h{height:2.4cqw;width:90%;position:relative}
+.fa-l{height:1.2cqw;width:100%}.fa-l.s{width:65%}
+.fa-in{height:2.6cqw;width:100%;background:transparent!important;border:1px solid #34343c}
+.fa-page .fa-btn{height:3cqw;width:100%;margin-top:auto;background:var(--text);opacity:.85}
+.fa-pub{position:absolute;left:50%;top:50%;width:46%;padding:2.4cqw;border-radius:2cqw;background:#26262c;border:1px solid var(--line2);box-shadow:0 2cqw 5cqw rgba(0,0,0,.5);display:flex;flex-direction:column;align-items:center;gap:1.2cqw;opacity:0;transform:translate(-50%,-40%) scale(.92)}
+.fa-pub b{font-size:2.6cqw;color:var(--text)}
+.fa-ok{width:6cqw;height:6cqw;border-radius:50%;background:var(--mint-soft);border:.4cqw solid var(--mint);position:relative}
+.fa-ok::after{content:"";position:absolute;left:1.6cqw;top:1.3cqw;width:2.4cqw;height:1.2cqw;border-left:.5cqw solid var(--mint);border-bottom:.5cqw solid var(--mint);transform:rotate(-45deg)}
+.fa-url{width:80%;height:2.6cqw;border-radius:.8cqw;background:#1b1b20;border:1px solid var(--line)}
+.fa-edit{position:absolute;left:5%;top:58%;width:44%;padding:1.4cqw;border-radius:1.4cqw;background:#26262c;border:1px solid rgba(154,166,255,.45);box-shadow:0 1.6cqw 4cqw rgba(0,0,0,.45);font-size:2cqw;color:var(--text);opacity:0;transform:translateY(1.5cqw)}
+.fa-edit div{display:flex;gap:.8cqw;margin-top:1cqw}
+.fa-edit i{font-style:normal;font-size:1.7cqw;padding:.3cqw 1.1cqw;border-radius:99px;border:1px solid var(--line2);color:var(--text2)}
+.fa-type2{display:inline-block;white-space:nowrap;clip-path:inset(0 100% 0 0)}
+.fa-h::after{content:"";position:absolute;inset:-.7cqw;border:.35cqw solid var(--peri);border-radius:.8cqw;opacity:0}
+
+/* timeline */
+.fa .fa-type{animation:faType var(--fa-t) steps(19) infinite}
+.fa .fa-send{animation:faSend var(--fa-t) var(--ease) infinite}
+.fa .fa-ph{animation:faIn22 var(--fa-t) var(--ease) infinite}
+.fa .s1{animation:faIn27 var(--fa-t) var(--ease) infinite}
+.fa .s2{animation:faIn36 var(--fa-t) var(--ease) infinite}
+.fa .s3{animation:faIn45 var(--fa-t) var(--ease) infinite}
+.fa .s1 i::after{animation:faChk34 var(--fa-t) var(--ease) infinite}
+.fa .s2 i::after{animation:faChk43 var(--fa-t) var(--ease) infinite}
+.fa .s3 i::after{animation:faChk52 var(--fa-t) var(--ease) infinite}
+.fa .p1{animation:faPage1 var(--fa-t) var(--ease) infinite}
+.fa .p2{animation:faPage2 var(--fa-t) var(--ease) infinite}
+.fa .p3{animation:faPage3 var(--fa-t) var(--ease) infinite}
+.fa .p1 > div{animation:faBar1 var(--fa-t) var(--ease) infinite}
+.fa .p2 > div{animation:faBar2 var(--fa-t) var(--ease) infinite}
+.fa .p3 > div{animation:faBar3 var(--fa-t) var(--ease) infinite}
+.fa .fa-pub{animation:faPub var(--fa-t) var(--ease) infinite}
+.fa .fa-edit{animation:faEdit var(--fa-t) var(--ease) infinite}
+.fa .fa-type2{animation:faType2 var(--fa-t) steps(21) infinite}
+.fa .p1 .fa-h::after{animation:faSel var(--fa-t) var(--ease) infinite}
+.fa .p1 .fa-h{animation:faBar1 var(--fa-t) var(--ease) infinite,faHl var(--fa-t) var(--ease) infinite}
+@keyframes faType{0%,3%{clip-path:inset(0 100% 0 0)}17%,94%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 100% 0 0)}}
+@keyframes faSend{0%,18%{transform:none}20%{transform:scale(.8)}23%,100%{transform:none}}
+@keyframes faIn22{0%,22%{opacity:0;transform:translateY(1cqw)}26%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes faIn27{0%,27%{opacity:0;transform:translateY(1cqw)}31%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes faIn36{0%,36%{opacity:0;transform:translateY(1cqw)}40%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes faIn45{0%,45%{opacity:0;transform:translateY(1cqw)}49%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes faChk34{0%,34%{transform:scale(0)}37%{transform:scale(1.15)}39%,94%{transform:scale(.55)}100%{transform:scale(0)}}
+@keyframes faChk43{0%,43%{transform:scale(0)}46%{transform:scale(1.15)}48%,94%{transform:scale(.55)}100%{transform:scale(0)}}
+@keyframes faChk52{0%,52%{transform:scale(0)}55%{transform:scale(1.15)}57%,94%{transform:scale(.55)}100%{transform:scale(0)}}
+@keyframes faPage1{0%,27%{opacity:0;transform:translateY(2cqw)}32%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes faPage2{0%,36%{opacity:0;transform:translateY(2cqw)}41%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes faPage3{0%,45%{opacity:0;transform:translateY(2cqw)}50%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes faBar1{0%,29%{transform:scaleX(0)}35%,96%{transform:none}100%{transform:scaleX(0)}}
+@keyframes faBar2{0%,38%{transform:scaleX(0)}44%,96%{transform:none}100%{transform:scaleX(0)}}
+@keyframes faBar3{0%,47%{transform:scaleX(0)}53%,96%{transform:none}100%{transform:scaleX(0)}}
+@keyframes faPub{0%,55%{opacity:0;transform:translate(-50%,-40%) scale(.92)}59%,68%{opacity:1;transform:translate(-50%,-50%) scale(1)}72%,100%{opacity:0;transform:translate(-50%,-55%) scale(.98)}}
+@keyframes faEdit{0%,73%{opacity:0;transform:translateY(1.5cqw)}77%,90%{opacity:1;transform:none}94%,100%{opacity:0}}
+@keyframes faType2{0%,77%{clip-path:inset(0 100% 0 0)}84%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes faSel{0%,72%{opacity:0}75%,92%{opacity:1}95%,100%{opacity:0}}
+@keyframes faHl{0%,85%{background:#2e2e36}88%,95%{background:#F2D46B}100%{background:#2e2e36}}
+.fa-fig{margin:6px 0 26px}
+@media (prefers-reduced-motion:reduce){.fa *{animation:none!important}.fa .fa-type,.fa .fa-type2{clip-path:none}.fa .fa-page,.fa .fa-step,.fa .fa-ph{opacity:1;transform:none}.fa .fa-page>div{transform:none}.fa-step i::after{transform:none}}
