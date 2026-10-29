@@ -55,6 +55,7 @@
     <a href="#design">Design</a>
     <a href="#impact">Impact</a>
     <a href="#learned">What I learned</a>
+    <a href="#deck">Full case study</a>
   </nav>
 
   <div>
@@ -136,6 +137,15 @@
       <p>It also taught me to design with engineers from day one. Writing the spec myself meant fewer surprises, and the 319 tests mean the design we agreed on is the design that ships.</p>
     </section>
 
+    <section class="chapter cs-deck" id="deck">
+      <span class="eyebrow">Full case study</span>
+      <h2>The full case study, page by page</h2>
+      <p>Research, information architecture, brand, UI system and the key decisions, page by page. Tap a page to read it full size.</p>
+      <div class="cs-grid"><button type="button" class="cs-pg" data-i="0" aria-label="Open page 1: Overview & problem"><img src="assets/edv-cs/thumbs/cs-1.webp" alt="Case study page 1: Overview & problem" width="520" height="736" loading="lazy" decoding="async"><span><b>1</b> Overview & problem</span></button><button type="button" class="cs-pg" data-i="1" aria-label="Open page 2: Role & research"><img src="assets/edv-cs/thumbs/cs-2.webp" alt="Case study page 2: Role & research" width="520" height="736" loading="lazy" decoding="async"><span><b>2</b> Role & research</span></button><button type="button" class="cs-pg" data-i="2" aria-label="Open page 3: Information architecture"><img src="assets/edv-cs/thumbs/cs-3.webp" alt="Case study page 3: Information architecture" width="520" height="736" loading="lazy" decoding="async"><span><b>3</b> Information architecture</span></button><button type="button" class="cs-pg" data-i="3" aria-label="Open page 4: Brand: logo"><img src="assets/edv-cs/thumbs/cs-4.webp" alt="Case study page 4: Brand: logo" width="520" height="736" loading="lazy" decoding="async"><span><b>4</b> Brand: logo</span></button><button type="button" class="cs-pg" data-i="4" aria-label="Open page 5: Brand: colour & type"><img src="assets/edv-cs/thumbs/cs-5.webp" alt="Case study page 5: Brand: colour & type" width="520" height="736" loading="lazy" decoding="async"><span><b>5</b> Brand: colour & type</span></button><button type="button" class="cs-pg" data-i="5" aria-label="Open page 6: Look & feel"><img src="assets/edv-cs/thumbs/cs-6.webp" alt="Case study page 6: Look & feel" width="520" height="736" loading="lazy" decoding="async"><span><b>6</b> Look & feel</span></button><button type="button" class="cs-pg" data-i="6" aria-label="Open page 7: Voice & decisions"><img src="assets/edv-cs/thumbs/cs-7.webp" alt="Case study page 7: Voice & decisions" width="520" height="736" loading="lazy" decoding="async"><span><b>7</b> Voice & decisions</span></button><button type="button" class="cs-pg" data-i="7" aria-label="Open page 8: Key decisions"><img src="assets/edv-cs/thumbs/cs-8.webp" alt="Case study page 8: Key decisions" width="520" height="736" loading="lazy" decoding="async"><span><b>8</b> Key decisions</span></button></div>
+      <p class="cs-dl"><a class="btn" href="assets/EDVORA-case-study.pdf" target="_blank" rel="noopener">Open the PDF (5 MB) <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></p>
+      <dialog class="cs-lb" id="cs-lb" aria-label="Case study page viewer"><div class="cs-lb-bar"><span id="cs-n">1 / 8</span><div><button type="button" id="cs-prev" aria-label="Previous page">&#8249;</button><button type="button" id="cs-next" aria-label="Next page">&#8250;</button><button type="button" id="cs-close" aria-label="Close">&#10005;</button></div></div><div class="cs-lb-body"><img id="cs-img" alt="" decoding="async"></div></dialog>
+    </section>
+
     <div class="next rv">
       <div><span class="eyebrow">See it live</span><h3>EDVORA is live at edvora.pro</h3></div>
       <a class="btn primary" href="https://edvora.pro" target="_blank" rel="noopener">Visit edvora.pro <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
@@ -147,6 +157,16 @@
 <footer>
   <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px"><span>© 2026 Angga · Yogyakarta, Indonesia</span><span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="mailto:aaegraphic@gmail.com">aaegraphic@gmail.com</a></span></div>
 </footer>
+<script>
+(function(){var lb=document.getElementById('cs-lb');if(!lb||!lb.showModal)return;var img=document.getElementById('cs-img'),n=document.getElementById('cs-n'),pgs=[].slice.call(document.querySelectorAll('.cs-pg')),i=0,op=null;
+function show(k){i=(k+pgs.length)%pgs.length;img.src='assets/edv-cs/cs-'+(i+1)+'.webp';img.alt=pgs[i].querySelector('img').alt;n.textContent=(i+1)+' / '+pgs.length;lb.querySelector('.cs-lb-body').scrollTop=0;var nx=new Image();nx.src='assets/edv-cs/cs-'+((i+1)%pgs.length+1)+'.webp'}
+pgs.forEach(function(b,k){b.addEventListener('click',function(){op=b;show(k);lb.showModal();document.documentElement.classList.add('pm-open')})});
+lb.addEventListener('close',function(){document.documentElement.classList.remove('pm-open');if(op)op.focus()});
+document.getElementById('cs-close').onclick=function(){lb.close()};document.getElementById('cs-prev').onclick=function(){show(i-1)};document.getElementById('cs-next').onclick=function(){show(i+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});lb.addEventListener('keydown',function(e){if(e.key==='ArrowRight')show(i+1);if(e.key==='ArrowLeft')show(i-1)});
+var sx=null;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',function(e){if(sx===null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>60)show(i+(d<0?1:-1));sx=null});
+})();
+</script>
 <script src="assets/main.js"></script>
 </body>
 </html>
