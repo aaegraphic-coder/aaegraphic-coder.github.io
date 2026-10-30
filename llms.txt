@@ -1,0 +1,32 @@
+# Angga Ady Ermawan – Senior Product Designer
+
+> Senior Product Designer based in Yogyakarta, Indonesia (GMT+7) with 10+ years in SaaS, ERP, e-commerce and fintech, and 7+ years working fully remote with teams in the UK, Germany and Singapore. Available for remote product design roles, full-time or long-term contract (including via Deel).
+
+## Profile
+- Name: Angga Ady Ermawan
+- Role: Senior Product Designer (product UX, design systems, AI-assisted design)
+- Location: Yogyakarta, Indonesia (GMT+7), works remotely
+- Education: Bachelor's degree in Visual Communication Design, Indonesian Institute of the Arts (ISI Yogyakarta)
+- Contact: aaegraphic@gmail.com
+- LinkedIn: https://www.linkedin.com/in/awanae/
+- GitHub: https://github.com/aaegraphic-coder
+
+## Experience
+- EDVORA (2026–present): Founder & Product Designer. Took a multi-tenant SaaS for Indonesian training centres (LPK) sending participants to Japan from research to launch-ready (5 delivery phases, 319 automated tests).
+- Funnelish, London (2024–2026): Senior Product Designer, remote. Funnelish AI (funnels generated on demand), checkout and Smart Payment Routing, funnel store redesign while users grew 845 to 3,000+, Figma design tokens.
+- top.legal, Germany (2024): Senior Product Designer, contract. AI contract assistant that flags risky clauses inside the document; UI for long German text.
+- SEVIMA, Indonesia (2023–2024): Senior Product Designer. Design system with Figma tokens and code-ready components (+30% production quality); academic ERP; university leadership dashboard.
+- Talentvis, Singapore (2018–2023): Senior UI/UX Designer, remote. Website redesign (+40% Gen Z sign-ups); talent dashboard for five divisions.
+- SKYSHI Digital (2016–2018): UI/UX Designer. Early version of ruparupa.com (Kawan Lama Group).
+
+## Skills
+Product UX, complex workflows, information architecture, data-rich dashboards, e-commerce checkout and payment UX, design systems and tokens, AI product design, user research, prototyping (including coded prototypes), Figma, design handoff.
+
+## Pages
+- [Portfolio home](https://aaegraphic.com/): overview, projects, results, FAQ
+- [EDVORA case study](https://aaegraphic.com/edvora.html): full 0→1 product design case study
+- [Stablecoin wallet concepts](https://aaegraphic.com/wallet-concepts/): six clickable USDT wallet prototypes
+- [EDVORA case study PDF](https://aaegraphic.com/assets/EDVORA-case-study.pdf)
+
+## Notes
+Work from previous companies is under NDA; visuals on the site are recreated and labelled. EDVORA and the wallet concepts are the designer's own products.
