@@ -1287,3 +1287,15 @@ html{scroll-padding-top:76px}
 @keyframes lgDone{0%,82%{opacity:0;transform:translateY(.6cqw)}85%,95%{opacity:1;transform:none}99%,100%{opacity:0}}
 @keyframes lgSum{0%,63%{opacity:0}66%,95%{opacity:1}99%,100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){.lg *{animation:none!important}.lg .lg-b,.lg .lg-ai,.lg .lg-sum{opacity:1;transform:none}}
+
+/* ===== welcome intro on load: stars first, then mountains, then the text one line at a time, nav last ===== */
+@keyframes introFade{from{opacity:0}to{opacity:1}}
+@keyframes introStars{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+@keyframes introRise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.hero-bg.stars{animation:introStars 1.8s cubic-bezier(.22,.61,.36,1) both}
+.mtn{animation:introRise 1.6s cubic-bezier(.22,.61,.36,1) .5s both}
+.hero.story [data-s]{transition-duration:1.2s,1.2s,1.2s;transition-delay:calc(1.1s + var(--i,0) * 170ms)}
+.nav{animation:introFade 1s ease 2s both}
+.hero .scroll-cue{animation:introFade 1s ease 2.6s both}
+.story-dots{animation:introFade 1s ease 2.6s both}
+@media (prefers-reduced-motion:reduce){.hero-bg.stars,.mtn,.nav,.hero .scroll-cue,.story-dots{animation:none}.hero.story [data-s]{transition-delay:0s}}
