@@ -27,7 +27,7 @@
   // hero constellation: soft glowing points, faint links between neighbours, slow drift
   var cv=document.getElementById('stars');
   if(cv && cv.getContext){
-    var ctx=cv.getContext('2d'), W=0,H=0,dpr=1, pts=[], mx=0,my=0, tx=0,ty=0, raf=0, running=false, px=-999,py=-999, pa=0, pt=0, R=170;
+    var ctx=cv.getContext('2d'), W=0,H=0,dpr=1, pts=[], mx=0,my=0, tx=0,ty=0, raf=0, running=false, px=-999,py=-999, pa=0, pt=0, R=170, trail=[], hx=-999, hy=-999;
     function size(){
       var r=cv.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=r.width;H=r.height;
       cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
@@ -57,11 +57,22 @@
         var A=pts[a],B=pts[b],dx=A.sx-B.sx,dy=A.sy-B.sy,dd=dx*dx+dy*dy;
         if(dd<L*L){var o=(1-Math.sqrt(dd)/L)*.18*Math.min(1,Math.max(.2,((A.sx+B.sx)/2/W-.15)*1.6))*Math.min(1,Math.max(0,(H-(A.sy+B.sy)/2)/(H*.22)));ctx.strokeStyle='rgba(190,198,255,'+o+')';ctx.beginPath();ctx.moveTo(A.sx,A.sy);ctx.lineTo(B.sx,B.sy);ctx.stroke()}
       }
+      // shooting-star head: eases toward the pointer and leaves a fading tail
+      if(hx<-900){hx=px;hy=py}
+      hx+=(px-hx)*.22;hy+=(py-hy)*.22;
+      trail.push({x:hx,y:hy});if(trail.length>36)trail.shift();
+      if(pa>.01&&trail.length>2){
+        ctx.lineCap='round';
+        for(var ti=1;ti<trail.length;ti++){var a0=trail[ti-1],a1=trail[ti],k=ti/trail.length;
+          ctx.strokeStyle='rgba(205,200,255,'+(k*k*.9*pa)+')';ctx.lineWidth=.4+k*3;
+          ctx.beginPath();ctx.moveTo(a0.x,a0.y);ctx.lineTo(a1.x,a1.y);ctx.stroke()}
+        ctx.lineCap='butt';
+      }
       // cursor links: the pointer becomes a star that connects to its neighbours
       if(pa>.01){
-        for(var c=0;c<pts.length;c++){var Q=pts[c];if(Q.near>0){ctx.strokeStyle='rgba(205,200,255,'+(Q.near*.55)+')';ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(Q.sx,Q.sy);ctx.stroke()}}
-        var g=ctx.createRadialGradient(px,py,0,px,py,26);g.addColorStop(0,'rgba(200,190,255,'+(.35*pa)+')');g.addColorStop(1,'rgba(200,190,255,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(px,py,26,0,6.283);ctx.fill();
-        ctx.fillStyle='rgba(255,255,255,'+(.95*pa)+')';ctx.shadowColor='rgba(180,170,255,1)';ctx.shadowBlur=12;ctx.beginPath();ctx.arc(px,py,2.2,0,6.283);ctx.fill();ctx.shadowBlur=0;
+        for(var c=0;c<pts.length;c++){var Q=pts[c];if(Q.near>0){ctx.strokeStyle='rgba(205,200,255,'+(Q.near*.55)+')';ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(hx,hy);ctx.lineTo(Q.sx,Q.sy);ctx.stroke()}}
+        var g=ctx.createRadialGradient(hx,hy,0,hx,hy,26);g.addColorStop(0,'rgba(200,190,255,'+(.35*pa)+')');g.addColorStop(1,'rgba(200,190,255,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(hx,hy,26,0,6.283);ctx.fill();
+        ctx.fillStyle='rgba(255,255,255,'+(.95*pa)+')';ctx.shadowColor='rgba(180,170,255,1)';ctx.shadowBlur=12;ctx.beginPath();ctx.arc(hx,hy,2.4,0,6.283);ctx.fill();ctx.shadowBlur=0;
       }
       pa+=((pt?1:0)-pa)*.08;
       for(var k=0;k<pts.length;k++){var q=pts[k],tw=.55+.45*Math.sin(q.t);
@@ -76,7 +87,7 @@
     var hero=document.querySelector('.hero');
     hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5;
       var c=cv.getBoundingClientRect();px=e.clientX-c.left;py=e.clientY-c.top;pt=1});
-    hero.addEventListener('pointerleave',function(){pt=0});
+    hero.addEventListener('pointerleave',function(){pt=0});hero.addEventListener('pointerenter',function(e){var c=cv.getBoundingClientRect();hx=e.clientX-c.left;hy=e.clientY-c.top;trail=[]});
     hero.addEventListener('pointerup',function(e){if(e.pointerType!=='mouse')pt=0});
     R=Math.min(190,Math.max(120,innerWidth*.12));
     if(reduce){draw()}
