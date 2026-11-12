@@ -23,6 +23,7 @@
 Product UX, complex workflows, information architecture, data-rich dashboards, e-commerce checkout and payment UX, design systems and tokens, AI product design, user research, prototyping (including coded prototypes), Figma, design handoff.
 
 ## Pages
+- [CodingZones](https://codingzones.com): own product, mobile-first learning web app (PWA) with 20 logic and early-coding games for kids aged 3–10; designed end to end
 - [Portfolio home](https://aaegraphic.com/): overview, projects, results, FAQ
 - [EDVORA case study](https://aaegraphic.com/edvora.html): full 0→1 product design case study
 - [Stablecoin wallet concepts](https://aaegraphic.com/wallet-concepts/): six clickable USDT wallet prototypes
