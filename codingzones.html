@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CodingZones Case Study – Kids Learning App Product Design | Angga Ady Ermawan</title>
+<meta name="description" content="Product design case study: how I designed and shipped CodingZones, a mobile-first learning web app with 20 short logic and early-coding games for children in Indonesia.">
+<link rel="canonical" href="https://aaegraphic.com/codingzones.html">
+<meta name="author" content="Angga Ady Ermawan">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Angga Ady Ermawan">
+<meta property="og:title" content="CodingZones case study – Angga Ady Ermawan">
+<meta property="og:description" content="Turning screen time into thinking time: designing 20 learning games for kids on low-end phones.">
+<meta property="og:url" content="https://aaegraphic.com/codingzones.html">
+<meta property="og:image" content="https://aaegraphic.com/assets/og-codingzones.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CodingZones case study – Angga Ady Ermawan">
+<meta name="twitter:description" content="How I designed and shipped a learning web app for kids on low-end phones.">
+<meta name="twitter:image" content="https://aaegraphic.com/assets/og-codingzones.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "@id": "https://aaegraphic.com/codingzones.html#article", "headline": "CodingZones: turning screen time into thinking time", "description": "Case study: how Angga Ady Ermawan designed and shipped CodingZones, a mobile-first learning web app with 20 short games for children in Indonesia.", "url": "https://aaegraphic.com/codingzones.html", "image": "https://aaegraphic.com/assets/og-codingzones.jpg", "inLanguage": "en", "dateModified": "2026-11-12T15:00:00+07:00", "author": {"@type": "Person", "@id": "https://aaegraphic.com/#person", "name": "Angga Ady Ermawan", "url": "https://aaegraphic.com/"}}</script>
+<meta name="theme-color" content="#08080A">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="bg-aura" aria-hidden="true"></div>
+<a class="skip" href="#challenge">Skip to case study</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Angga, home"><span class="mark mark-a"><img src="assets/logo-a.svg" alt="" width="20" height="20"></span><img class="logo-name" src="assets/logo-name.svg" alt="Angga" width="94" height="36"></a>
+    <nav class="links" aria-label="Main">
+      <a class="opt" href="index.html#work">Work</a>
+      <a class="opt" href="index.html#about">About</a>
+      <a class="btn sm" href="index.html#contact">Let's talk</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="m-menu" aria-label="Open menu"><b class="mb-t"><i>Menu</i><i>Close</i></b><span class="mb-ic"><span></span><span></span></span></button>
+  </div>
+<div class="m-menu" id="m-menu" hidden><nav aria-label="Mobile"><a href="index.html#work" style="--i:0">Work</a><a href="index.html#about" style="--i:1">About</a></nav><a class="btn primary m-cta-btn" href="index.html#contact">Let's talk <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><p class="m-mail">aaegraphic@gmail.com</p></div>
+</header>
+
+<main>
+<section class="case-hero">
+  <div class="wrap">
+    <a class="back" href="index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5m5-5-5 5 5 5"/></svg>All projects</a>
+    <h1>CodingZones: turning screen time into thinking time</h1>
+    <p class="lede">A mobile-first learning web app for children in Indonesia. Twenty short games train logic, patterns, early coding and AI thinking. Five games are free, and the rest unlock with an affordable monthly code. I designed and shipped it end to end.</p>
+    <div class="facts">
+      <div><small>My role</small><b>Product designer, end to end</b></div>
+      <div><small>Team</small><b>Me, with an AI coding assistant</b></div>
+      <div><small>Platform</small><b>Mobile-first web app (PWA)</b></div>
+      <div><small>Status</small><b>Live at codingzones.com</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <figure class="cover shot rv"><img src="assets/cz/cover.webp" alt="Three CodingZones screens: an animal guessing game, the personalised home screen and a robot coding puzzle" width="1600" height="900"></figure>
+</div>
+
+<div class="wrap case-body">
+  <nav class="toc" aria-label="On this page">
+    <a href="#challenge" class="on">Challenge</a>
+    <a href="#decisions">Key decisions</a>
+    <a href="#system">One system</a>
+    <a href="#games">The games</a>
+    <a href="#brand">Brand & motion</a>
+    <a href="#build">Building it</a>
+    <a href="#outcome">Outcome</a>
+    <a href="#learned">What I learned</a>
+  </nav>
+
+  <div>
+    <section class="chapter" id="challenge">
+      <span class="eyebrow">The challenge</span>
+      <h2>Two users, one cheap phone</h2>
+      <p>Parents want screen time that is actually useful, not another hour of scrolling short videos. Children want something fun that they can play without help, often before they can read. And in most Indonesian homes, both of them share one low-end Android phone with limited data.</p>
+      <div class="grid2">
+        <div class="box"><b>The parent</b><p>Wants to trust the app before paying, worries about ads, top-ups and data use, and needs a way to stop the session.</p></div>
+        <div class="box"><b>The child</b><p>Can't type or read well, taps fast, loses interest quickly and needs clear, instant feedback.</p></div>
+      </div>
+      <div class="callout"><small>The question I started with</small><b>How might a child learn real logic in a few minutes a day, on a cheap phone, without needing an adult to help or a reason for the parent to worry?</b></div>
+    </section>
+
+    <section class="chapter" id="decisions">
+      <span class="eyebrow">Key decisions</span>
+      <h2>Six decisions that shaped the product</h2>
+      <div class="grid2">
+        <div class="box"><b>1. No sign-up</b><p>Open the app and play in seconds. There is no account, email or password standing between a child and the first game.</p></div>
+        <div class="box"><b>2. Play before pay</b><p>Five games are free forever, and premium games have a trial mode, so parents see the value before any purchase. No ads, no top-ups.</p></div>
+        <div class="box"><b>3. Voice-first UI</b><p>Every prompt can be read aloud, and controls are big touch targets, so children who can't read yet can still play alone.</p></div>
+        <div class="box"><b>4. One system, twenty games</b><p>A shared engine, level picker and feedback pattern. Learn one game and you know how to play them all.</p></div>
+        <div class="box"><b>5. A parental brake</b><p>A per-session time limit with a lock screen, and a simple math gate that only an adult can pass.</p></div>
+        <div class="box"><b>6. Built for low-end phones</b><p>No frameworks, 6–25 KB per game and about 7 MB for the whole app, with offline support as a PWA.</p></div>
+      </div>
+      <div class="cz-row">
+        <figure class="cz-ph"><img src="assets/cz/landing.webp" alt="Landing page: headline, Try free now button, a button for schools and tutoring centres, and the promises: 5 free games, no ads and no top-ups, light on data" width="540" height="1129"><figcaption>The promise up front: free to try, no ads, light on data, plus a separate path for schools.</figcaption></figure>
+        <figure class="cz-ph"><img src="assets/cz/home.webp" alt="Personalised home screen with age group, stars, play count, last played game and games suited to the age" loading="lazy" width="540" height="1129"><figcaption>Home adapts to the child: age group, stars earned and one tap back into the last game.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="chapter" id="system">
+      <span class="eyebrow">One system</span>
+      <h2>Designing a system, not twenty one-off games</h2>
+      <p>With one designer and twenty games, consistency had to come from the system. Every game shares the same frame: a top bar with the game name, stars, help, settings and close; a progress bar for rounds or levels; the play area; and a voice prompt with a speaker button. Trial games carry a clear "COBA" (trial) badge in the same place.</p>
+      <p>The library works the same way. Parents can filter by type (coding, AI, online safety, design, websites, little ones, logic), by free or premium access and by age, and switch between a grid and a list. Each card shows the difficulty, the play time and the age range, so a parent can choose in seconds.</p>
+      <div class="cz-row">
+        <figure class="cz-ph"><img src="assets/cz/filter.webp" alt="Game library with the type filter open: All, Coding, AI, Safety, Design, Website, Little ones, Logic" loading="lazy" width="540" height="1129"><figcaption>Filters by type, access and age. Questions and maps are shuffled, so each play is different.</figcaption></figure>
+        <figure class="cz-ph"><img src="assets/cz/list.webp" alt="List view of games with category, title, one-line description, difficulty, minutes and age range" loading="lazy" width="540" height="1129"><figcaption>List view: difficulty, minutes and age on every card, and a clear Free label.</figcaption></figure>
+        <figure class="cz-ph"><img src="assets/cz/level.webp" alt="Level picker with the robot guide, a short note for parents and two levels: easy and medium" loading="lazy" width="540" height="1129"><figcaption>Every game starts the same way: Zozo, a note for parents and a simple level choice.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="chapter" id="games">
+      <span class="eyebrow">The games</span>
+      <h2>Small games, real thinking skills</h2>
+      <p>Each game targets one skill and fits into a few minutes. The interaction is always the simplest one a small hand can do: tap a big answer, drag a shape, or press an arrow.</p>
+      <div class="cz-row cz-row-4">
+        <figure class="cz-ph"><img src="assets/cz/cilukba.webp" alt="Animal guessing game: a voxel monkey celebrates a correct answer with confetti and the voice line This is a monkey" loading="lazy" width="540" height="1129"><figcaption>Cilukba: match animals to their shadows, with a voice line and a small celebration.</figcaption></figure>
+        <figure class="cz-ph"><img src="assets/cz/mudik.webp" alt="Coding puzzle: the player queues arrow commands to move a robot to its house, then presses Run" loading="lazy" width="540" height="1129"><figcaption>Mudik: plan a sequence of steps, then press Run. The first idea of coding.</figcaption></figure>
+        <figure class="cz-ph"><img src="assets/cz/kereta.webp" alt="Pattern game: blue and yellow train carriages and a question mark, with three carriage colours to choose from" loading="lazy" width="540" height="1129"><figcaption>Kereta: spot the colour pattern and pick the next carriage.</figcaption></figure>
+        <figure class="cz-ph"><img src="assets/cz/panen.webp" alt="Counting game: pick three pears from a voxel tree into a basket" loading="lazy" width="540" height="1129"><figcaption>Panen: count while picking fruit. Trial games show a COBA badge.</figcaption></figure>
+      </div>
+      <div class="cz-row">
+        <figure class="cz-ph"><img src="assets/cz/siluet.webp" alt="Shape matching game: move and resize a sailboat over its silhouette, with a match meter" loading="lazy" width="540" height="1129"><figcaption>Siluet: move and resize a shape until it fits its silhouette.</figcaption></figure>
+        <figure class="cz-ph"><img src="assets/cz/kubik.webp" alt="Block puzzle: fit coloured block pieces into the empty spaces of a grid" loading="lazy" width="540" height="1129"><figcaption>Kubik: spatial reasoning with block pieces.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="chapter" id="brand">
+      <span class="eyebrow">Brand & motion</span>
+      <h2>A cheerful voxel world</h2>
+      <p>I built a world children already find familiar and fun: blocky voxel landscapes, two child characters and Zozo, the robot guide who introduces every game. Animals and fruit are animated, correct answers get a short celebration, and the copy is 100% Bahasa Indonesia.</p>
+      <p>Sound is part of the interface, not decoration. Every voice line was scripted, recorded and levelled so that prompts are clear on a cheap phone speaker. Short launch videos for parents are labelled wherever AI footage is used.</p>
+    </section>
+
+    <section class="chapter" id="build">
+      <span class="eyebrow">Building it</span>
+      <h2>Designer as product owner, AI as engineering partner</h2>
+      <p>I directed an AI coding assistant as my engineering partner: I set the structure, the shared components and the performance budget, reviewed every change and owned QA. Each release was tested at phone and desktop widths before it went live.</p>
+      <div class="grid3">
+        <div class="box"><span class="big">20</span><b>Games shipped</b><p>Across logic, patterns, early coding, AI thinking and online safety.</p></div>
+        <div class="box"><span class="big">230+</span><b>Versions released</b><p>Small, frequent releases, each one tested on phone and desktop widths.</p></div>
+        <div class="box"><span class="big">~7 MB</span><b>Whole app</b><p>6–25 KB per game, no frameworks, and it works offline.</p></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="outcome">
+      <span class="eyebrow">Outcome</span>
+      <h2>Live, and learning what makes parents pay</h2>
+      <p>CodingZones is live with 20 games, a free tier and premium access by monthly code, plus a separate offer for schools and tutoring centres. The next step is measuring which games children come back to and which channel brings paying parents.</p>
+    </section>
+
+    <section class="chapter" id="learned">
+      <span class="eyebrow">What I learned</span>
+      <h2>Design for the child, sell to the parent</h2>
+      <p>The child decides whether a game is fun, but the parent decides whether to pay. Designing for both changed every screen: playful and wordless for the child, clear and reassuring for the adult.</p>
+      <p>I also learned that paid ads are not a shortcut. Early ads brought visitors but not enough paying parents to cover their cost. That is why I'm now focusing on schools and tutoring centres, where one decision reaches a whole class.</p>
+    </section>
+
+    <div class="next rv">
+      <div><span class="eyebrow">See it live</span><h3>Play the free games at codingzones.com</h3></div>
+      <a class="btn primary" href="https://codingzones.com" target="_blank" rel="noopener">Visit codingzones.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px"><span>© 2026 Angga · Yogyakarta, Indonesia</span><span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="mailto:aaegraphic@gmail.com">aaegraphic@gmail.com</a></span></div>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>
