@@ -8,18 +8,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="./assets/index-BvB1Z-K7.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-ByUrj0nj.css">
+  <script type="module" crossorigin src="./assets/index-DJuiN8PY.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-ZK-Wewml.css">
 </head>
 <body>
 <main class="page">
   <header class="intro">
     <p class="eyebrow">A Video.js v10 skin</p>
     <h1>Atelier</h1>
-    <p class="lede">Quiet, glass-smooth controls that stay out of the picture until you reach for them.</p>
+    <p class="lede">A cinematic, glass-smooth player skin. The picture stays the hero; the controls appear when you reach for them and step back when you don't.</p>
   </header>
 
-  <video-player class="atelier" content-title="Weekend roll">
+  <video-player class="atelier" content-title="The quiet hour">
     <media-container class="atelier-container">
       <video src="media/skate.mp4" poster="media/poster.jpg" playsinline preload="metadata" crossorigin="anonymous">
         <track kind="chapters" src="media/chapters.vtt" srclang="en" label="Chapters" default>
@@ -114,7 +114,7 @@
             </button>
             <media-tooltip trigger="at-chapters" side="top" class="atelier-tip"><span>Chapters</span></media-tooltip>
 
-            <span class="atelier-spacer" aria-hidden="true"></span>
+            <span class="atelier-spacer"><span class="atelier-scene" aria-hidden="true"></span></span>
 
             <media-mute-button class="atelier-btn at-fold" id="at-mute" commandfor="at-volume">
               <svg class="i-vol" viewBox="0 0 24 24"><path d="M4 9.5v5h3.2L12 18.6V5.4L7.2 9.5z" class="fill"/><path class="w1" d="M15.5 9.5a3.5 3.5 0 0 1 0 5"/><path class="w2" d="M18 7a7 7 0 0 1 0 10"/></svg>
@@ -193,38 +193,163 @@
   </video-player>
 
   <section class="notes">
+    <nav class="toc" aria-label="Design notes">
+      <a href="#summary">Summary</a><a href="#review">Review</a><a href="#principles">Principles</a><a href="#layout">Layout</a><a href="#states">States</a><a href="#a11y">Accessibility</a><a href="#visual">Visual system</a><a href="#copy">Microcopy</a><a href="#risks">Risks</a><a href="#spec">Spec</a>
+    </nav>
 
-    <div class="grid">
-      <article>
-        <h2>One glass dock</h2>
-        <p>Every control lives in a single floating capsule of soft, frosted glass. A light edge highlight and deep blur keep it legible over bright and dark footage without a heavy overlay.</p>
-      </article>
-      <article>
-        <h2>Three-frame preview</h2>
-        <p>Hovering the timeline floats three frames above it: the moment under your pointer in the middle, larger and sharper, with its neighbours on either side. They glide as you move, like scrubbing film.</p>
-      </article>
-      <article>
-        <h2>Calm motion</h2>
-        <p>Controls glide in with one spring-like curve, and seek and volume changes answer with small glass pills. Everything goes still when reduced motion is on.</p>
-      </article>
-    </div>
+    <section class="doc" id="summary">
+      <p class="doc-eyebrow">Design notes</p>
+      <h2>The brief, in five lines</h2>
+      <ol class="doc-list">
+        <li>A cinematic player for a calm, dark-teal film, <em>The quiet hour</em>. The picture is always the hero.</li>
+        <li>Minimal and Apple-like in finish: soft glass, one motion curve, nothing decorative.</li>
+        <li>Chapters exist, but they live behind one icon. The timeline only shows where they begin and end.</li>
+        <li>Hover tells you <em>where you would go</em>; the playhead tells you <em>where you are</em>. The two must never look alike.</li>
+        <li>It has to work with a mouse, a thumb and a keyboard, on desktop and phone.</li>
+      </ol>
+      <p class="doc-note"><b>Assumptions.</b> The film is short-form (under 30 minutes), has 3 to 8 chapters, and is hosted with a storyboard for previews. Quality switching only appears when the stream offers more than one rendition (for example via Mux); the demo file has one, so the setting is hidden rather than faked.</p>
+    </section>
 
-    <div class="keys">
-      <h2>Keyboard</h2>
-      <ul>
-        <li><kbd>Space</kbd>/<kbd>K</kbd> Play</li>
-        <li><kbd>←</kbd><kbd>→</kbd> 5s</li>
-        <li><kbd>J</kbd><kbd>L</kbd> 10s</li>
-        <li><kbd>↑</kbd><kbd>↓</kbd> Volume</li>
-        <li><kbd>M</kbd> Mute</li>
-        <li><kbd>F</kbd> Fullscreen</li>
-        <li><kbd>C</kbd> Captions</li>
-        <li><kbd>I</kbd> Picture-in-picture</li>
-        <li><kbd>D</kbd> Compact dock</li>
-        <li><kbd>0–9</kbd> Jump</li>
-      </ul>
-    </div>
-    <p class="credit">Designed by Angga Ady Ermawan · Built with Video.js v10</p>
+    <section class="doc" id="review">
+      <h2>What works, and what could confuse</h2>
+      <div class="cols">
+        <div class="card"><h3>Strong</h3>
+          <ul><li>Chapters in a popover keep the timeline clean.</li><li>Auto-hiding controls protect the picture.</li><li>Frame preview plus timestamp makes seeking confident.</li><li>A subtle scene name gives context without a label bar.</li></ul>
+        </div>
+        <div class="card"><h3>Could confuse</h3>
+          <ul><li>A chapter icon is less familiar than play or volume: it needs a tooltip and a clear accessible name.</li><li>Hover preview and playhead can blur together if they share a style.</li><li>Popovers that open over the timeline or subtitles hide what people came to see.</li><li>Speed and quality buried together under a cog can feel like a guessing game.</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="doc" id="principles">
+      <h2>Principles and hierarchy</h2>
+      <div class="cols three">
+        <div class="card"><h3>Picture first</h3><p>Controls use the least surface they need, sit away from the edges and fade while you watch.</p></div>
+        <div class="card"><h3>Where, then what</h3><p>Position in time is read first, actions second. The timeline sits above the dock and spans the width.</p></div>
+        <div class="card"><h3>Honest states</h3><p>Every control shows its state in place: icon change, fill or check. No hidden modes.</p></div>
+      </div>
+      <ol class="hier">
+        <li><b>1</b> Video</li>
+        <li><b>2</b> Play / pause and the playhead</li>
+        <li><b>3</b> Timeline with time elapsed and remaining</li>
+        <li><b>4</b> Active scene name (quiet)</li>
+        <li><b>5</b> Secondary controls: chapters, volume, captions, settings, fullscreen</li>
+      </ol>
+    </section>
+
+    <section class="doc" id="layout">
+      <h2>Layout</h2>
+      <div class="cols">
+        <div class="card"><h3>Desktop</h3>
+          <ul><li>Top left: title. Top right: picture-in-picture.</li><li>Above the dock: elapsed time, full-width timeline, remaining time.</li><li>Glass dock: play and chapters on the left, the active scene name in the middle, volume, captions, settings, fullscreen and compact on the right.</li><li>Popovers open above the timeline row, never over it.</li></ul>
+        </div>
+        <div class="card"><h3>Mobile</h3>
+          <ul><li>Centre: play with 10-second skip on either side; double-tap left or right to skip.</li><li>Tap toggles controls instead of pausing.</li><li>Dock keeps play, volume, captions and fullscreen; chapters and settings fold away below 460px.</li><li>All touch targets are at least 44 × 44px.</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="doc" id="states">
+      <h2>Control states</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Control</th><th>Default</th><th>Hover / focus</th><th>Active</th><th>Loading</th><th>Error</th><th>Ended</th></tr></thead>
+          <tbody>
+            <tr><th>Play / pause</th><td>Play icon; centre orb while paused</td><td>Orb lifts and brightens; focus ring</td><td>Icon morphs to pause; orb fades</td><td>Spinner replaces orb</td><td>Error sheet with retry</td><td>Replay icon</td></tr>
+            <tr><th>Timeline</th><td>Thin segmented track, white fill</td><td>Track thickens; framed preview, scene and time above the pointer</td><td>Knob follows the pointer while dragging</td><td>Buffer shown in a lighter tint</td><td>Disabled</td><td>Full; seeking still allowed</td></tr>
+            <tr><th>Chapters</th><td>Icon with tooltip</td><td>Tooltip “Chapters”</td><td>Popover; current chapter marked</td><td>Hidden until cues load</td><td>Hidden</td><td>Last chapter marked</td></tr>
+            <tr><th>Volume</th><td>Icon reflects level</td><td>Vertical slider opens</td><td>Fill follows; on-video pill shows %</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><th>Captions</th><td>CC outline</td><td>Tooltip with shortcut C</td><td>Filled CC</td><td>—</td><td>Hidden if no track</td><td>—</td></tr>
+            <tr><th>Settings</th><td>Cog</td><td>Tooltip “Speed”</td><td>Popover with checked option</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><th>Fullscreen</th><td>Expand icon</td><td>Tooltip with shortcut F</td><td>Collapse icon</td><td>—</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="doc" id="a11y">
+      <h2>Icons, labels and keyboard</h2>
+      <div class="cols">
+        <div class="card"><h3>Labels and focus</h3>
+          <ul><li>Every icon button has an accessible name; icon-only buttons also show a tooltip on hover and focus.</li><li>Menus use menu and menuitemradio roles with a checked state; arrow keys move, Esc closes and returns focus.</li><li>A visible focus ring stays on and controls stay shown while anything inside them has focus.</li><li>Reduced motion and reduced transparency are respected.</li></ul>
+          <p class="doc-note">Tested with keyboard only and with automated browser checks. A screen reader audit and a formal WCAG review are still to do, so no conformance is claimed.</p>
+        </div>
+        <div class="card"><h3>Shortcuts</h3>
+          <ul class="keys-list">
+            <li><kbd>Space</kbd><kbd>K</kbd> Play / pause</li>
+            <li><kbd>←</kbd><kbd>→</kbd> 5 seconds</li>
+            <li><kbd>J</kbd><kbd>L</kbd> 10 seconds</li>
+            <li><kbd>↑</kbd><kbd>↓</kbd> Volume</li>
+            <li><kbd>M</kbd> Mute</li>
+            <li><kbd>C</kbd> Captions</li>
+            <li><kbd>F</kbd> Fullscreen</li>
+            <li><kbd>I</kbd> Picture-in-picture</li>
+            <li><kbd>D</kbd> Compact dock</li>
+            <li><kbd>0</kbd>–<kbd>9</kbd> Jump to 0–90%</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="doc" id="visual">
+      <h2>Visual system</h2>
+      <div class="cols three">
+        <div class="card"><h3>Type</h3><p>Inter, system fallback. Times use tabular numerals so they never jitter. 12–14px in controls, 15px title.</p></div>
+        <div class="card"><h3>Colour</h3><p>White on deep-teal glass. Fill is solid white; buffer and unplayed track step down in opacity, not hue.</p></div>
+        <div class="card"><h3>Glass</h3><p>Blur 28px, saturation 180%, a 1px top-lit edge and a soft shadow. Solid fallback when transparency is reduced.</p></div>
+        <div class="card"><h3>Radius</h3><p>Capsules for the dock and pills, 16–20px for cards and menus, 12px for thumbnails.</p></div>
+        <div class="card"><h3>Shadow</h3><p>One soft drop shadow for floating surfaces; the hover frame adds a thin white ring to separate it from the video.</p></div>
+        <div class="card"><h3>Motion</h3><p>One spring curve (0.32, 0.72, 0, 1). 140ms to appear, 300–600ms to settle. Instant while scrubbing.</p></div>
+      </div>
+    </section>
+
+    <section class="doc" id="copy">
+      <h2>Microcopy</h2>
+      <div class="cols">
+        <div class="card"><h3>English</h3><ul class="copy"><li>Play · Pause · Replay</li><li>Chapters</li><li>Speed · Normal</li><li>Captions on · Captions off</li><li>Couldn't play this video. Try again.</li><li>Jump to Side by side</li></ul></div>
+        <div class="card"><h3>Bahasa Indonesia</h3><ul class="copy"><li>Putar · Jeda · Putar lagi</li><li>Bab</li><li>Kecepatan · Normal</li><li>Teks aktif · Teks mati</li><li>Video tidak bisa diputar. Coba lagi.</li><li>Lompat ke Side by side</li></ul></div>
+      </div>
+    </section>
+
+    <section class="doc" id="risks">
+      <h2>Risks and fixes</h2>
+      <div class="table-wrap">
+        <table class="risks">
+          <thead><tr><th>Risk</th><th>Fix</th></tr></thead>
+          <tbody>
+            <tr><td>Glass loses contrast over bright footage</td><td>Tinted glass, scrim gradient behind controls, text shadow on times; check over bright and dark scenes.</td></tr>
+            <tr><td>Hover preview mistaken for the playhead</td><td>Playhead is a solid knob on the track; hover is a framed card with a hairline above it.</td></tr>
+            <tr><td>Chapter icon not understood</td><td>Tooltip, accessible name and the scene name in the dock as a hint that chapters exist.</td></tr>
+            <tr><td>Popovers cover the timeline or subtitles</td><td>Menus anchor above the timeline row and close on Esc, outside click or when controls hide.</td></tr>
+            <tr><td>Controls vanish while someone is reading them</td><td>Controls stay while hovered, focused or a menu is open.</td></tr>
+            <tr><td>Small targets on phones</td><td>44px minimum, tap to show controls, double-tap to skip.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="doc" id="spec">
+      <h2>Inspiration and Figma spec</h2>
+      <div class="cols">
+        <div class="card"><h3>Borrowed patterns</h3><p>From Iris Player and Apple players: chapters behind a single button, a thumbnail preview while seeking, elapsed and remaining time at either end of the bar.</p></div>
+        <div class="card"><h3>Designed for Atelier</h3><p>The split between a full-width timeline and a separate glass dock, the framed preview with its hairline, segmented chapter gaps, the quiet scene name in the dock and the compact mode.</p></div>
+      </div>
+      <div class="table-wrap">
+        <table class="spec">
+          <tbody>
+            <tr><th>Frame</th><td>16:9, radius 24, container queries at 640 / 520 / 460 / 340px</td></tr>
+            <tr><th>Timeline row</th><td>Bottom 86px, width min(100% − 40, 1100), track 5px → 7px hover → 10px chapter, gap 6px between chapters, knob 18px</td></tr>
+            <tr><th>Dock</th><td>Height 56, capsule, padding 8, buttons 38px (44px touch), icons 20px / stroke 1.8</td></tr>
+            <tr><th>Hover card</th><td>Thumbnail max 220 × 116, radius 16, 2px white ring; pill 13px semibold; hairline 1.5 × 14</td></tr>
+            <tr><th>Glass</th><td>Fill rgb(18 38 42 / 0.38), blur 28, saturate 180%, edge white 16%</td></tr>
+            <tr><th>Text</th><td>White 100% primary, 66% secondary; Inter 12 / 13 / 14 / 15</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="credit">Designed by Angga Ady Ermawan · Built with Video.js v10 · Sample footage used for the demo</p>
   </section>
 </main>
 </body>
