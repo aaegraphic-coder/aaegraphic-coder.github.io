@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="./assets/index-CO7MDxLH.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CyJ7aeA0.css">
+  <script type="module" crossorigin src="./assets/index-BvB1Z-K7.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-ByUrj0nj.css">
 </head>
 <body>
 <main class="page">
@@ -73,27 +73,8 @@
             </media-seek-button>
           </media-controls-group>
 
-          <div class="atelier-dock">
-            <media-play-button class="atelier-btn" id="at-play">
-              <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.6v12.8a.8.8 0 0 0 1.2.7l10.2-6.4a.8.8 0 0 0 0-1.4L9.2 4.9A.8.8 0 0 0 8 5.6z" class="fill"/></svg>
-              <svg class="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.6" height="14" rx="1.2" class="fill"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2" class="fill"/></svg>
-              <svg class="i-replay" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>
-            </media-play-button>
-            <media-tooltip trigger="at-play" side="top" class="atelier-tip"><media-tooltip-label></media-tooltip-label><media-tooltip-shortcut class="atelier-kbd"></media-tooltip-shortcut></media-tooltip>
-
-            <div class="atelier-clock">
-              <media-time class="atelier-time" type="current"></media-time>
-              <span class="atelier-clock-sep at-fold" aria-hidden="true">/</span>
-              <media-time class="atelier-time atelier-duration at-fold" type="duration"></media-time>
-            </div>
-
-            <span class="atelier-sep at-fold" aria-hidden="true"></span>
-            <button type="button" class="atelier-btn atelier-chapters-btn at-fold" id="at-chapters" aria-haspopup="true" aria-expanded="false" aria-controls="at-chapters-menu" aria-label="Chapters" hidden>
-              <svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="11" height="12" rx="2"/><path d="M5.5 6v12M10.5 6v12M2.5 9.5h3M2.5 14.5h3M10.5 9.5h3M10.5 14.5h3M16.5 9h5M16.5 12h5M16.5 15h5"/></svg>
-            </button>
-            <media-tooltip trigger="at-chapters" side="top" class="atelier-tip"><span>Chapters</span></media-tooltip>
-            <span class="atelier-sep at-fold" aria-hidden="true"></span>
-
+          <div class="atelier-scrub">
+            <media-time class="atelier-scrub-time" type="current"></media-time>
             <media-time-slider class="atelier-timeline">
               <media-time-slider-chapters class="atelier-chapters">
                 <template>
@@ -105,19 +86,35 @@
                   </div>
                 </template>
               </media-time-slider-chapters>
-              <div class="atelier-marks" aria-hidden="true"></div>
               <media-slider-thumb class="atelier-knob"></media-slider-thumb>
-              <span class="atelier-now" aria-hidden="true"></span>
               <media-slider-preview class="atelier-preview">
                 <div class="atelier-card">
                   <media-slider-thumbnail class="atelier-thumb"><img alt="" aria-hidden="true" decoding="async"></media-slider-thumbnail>
-                  <media-time-slider-chapter-title class="atelier-card-chapter"></media-time-slider-chapter-title>
-                  <media-slider-value class="atelier-card-time" type="pointer"></media-slider-value>
+                  <div class="atelier-pill">
+                    <media-time-slider-chapter-title class="atelier-card-chapter"></media-time-slider-chapter-title>
+                    <media-slider-value class="atelier-card-time" type="pointer"></media-slider-value>
+                  </div>
+                  <i class="atelier-stem" aria-hidden="true"></i>
                 </div>
               </media-slider-preview>
             </media-time-slider>
+            <media-time class="atelier-scrub-time atelier-remaining" type="remaining"></media-time>
+          </div>
 
-            <span class="atelier-sep at-fold" aria-hidden="true"></span>
+          <div class="atelier-dock">
+            <media-play-button class="atelier-btn" id="at-play">
+              <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.6v12.8a.8.8 0 0 0 1.2.7l10.2-6.4a.8.8 0 0 0 0-1.4L9.2 4.9A.8.8 0 0 0 8 5.6z" class="fill"/></svg>
+              <svg class="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.6" height="14" rx="1.2" class="fill"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2" class="fill"/></svg>
+              <svg class="i-replay" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>
+            </media-play-button>
+            <media-tooltip trigger="at-play" side="top" class="atelier-tip"><media-tooltip-label></media-tooltip-label><media-tooltip-shortcut class="atelier-kbd"></media-tooltip-shortcut></media-tooltip>
+
+            <button type="button" class="atelier-btn atelier-chapters-btn at-fold" id="at-chapters" aria-haspopup="true" aria-expanded="false" aria-controls="at-chapters-menu" aria-label="Chapters" hidden>
+              <svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="11" height="12" rx="2"/><path d="M5.5 6v12M10.5 6v12M2.5 9.5h3M2.5 14.5h3M10.5 9.5h3M10.5 14.5h3M16.5 9h5M16.5 12h5M16.5 15h5"/></svg>
+            </button>
+            <media-tooltip trigger="at-chapters" side="top" class="atelier-tip"><span>Chapters</span></media-tooltip>
+
+            <span class="atelier-spacer" aria-hidden="true"></span>
 
             <media-mute-button class="atelier-btn at-fold" id="at-mute" commandfor="at-volume">
               <svg class="i-vol" viewBox="0 0 24 24"><path d="M4 9.5v5h3.2L12 18.6V5.4L7.2 9.5z" class="fill"/><path class="w1" d="M15.5 9.5a3.5 3.5 0 0 1 0 5"/><path class="w2" d="M18 7a7 7 0 0 1 0 10"/></svg>
