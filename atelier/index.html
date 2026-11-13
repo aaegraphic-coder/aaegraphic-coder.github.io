@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="./assets/index-DJuiN8PY.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-ZK-Wewml.css">
+  <script type="module" crossorigin src="./assets/index-0SB-dP_Q.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BqPWT82i.css">
 </head>
 <body>
 <main class="page">
@@ -73,6 +73,7 @@
             </media-seek-button>
           </media-controls-group>
 
+          <div class="atelier-dock">
           <div class="atelier-scrub">
             <media-time class="atelier-scrub-time" type="current"></media-time>
             <media-time-slider class="atelier-timeline">
@@ -100,14 +101,16 @@
             </media-time-slider>
             <media-time class="atelier-scrub-time atelier-remaining" type="remaining"></media-time>
           </div>
-
-          <div class="atelier-dock">
+          <span class="atelier-divider at-fold" aria-hidden="true"></span>
+          <div class="atelier-bar">
             <media-play-button class="atelier-btn" id="at-play">
+              <svg class="atelier-ring" viewBox="0 0 48 48" aria-hidden="true"><circle class="ring-bg" cx="24" cy="24" r="21"/><circle class="ring-fg" cx="24" cy="24" r="21" pathLength="100"/></svg>
               <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.6v12.8a.8.8 0 0 0 1.2.7l10.2-6.4a.8.8 0 0 0 0-1.4L9.2 4.9A.8.8 0 0 0 8 5.6z" class="fill"/></svg>
               <svg class="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.6" height="14" rx="1.2" class="fill"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2" class="fill"/></svg>
               <svg class="i-replay" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>
             </media-play-button>
             <media-tooltip trigger="at-play" side="top" class="atelier-tip"><media-tooltip-label></media-tooltip-label><media-tooltip-shortcut class="atelier-kbd"></media-tooltip-shortcut></media-tooltip>
+            <span class="atelier-csep" aria-hidden="true"></span>
 
             <button type="button" class="atelier-btn atelier-chapters-btn at-fold" id="at-chapters" aria-haspopup="true" aria-expanded="false" aria-controls="at-chapters-menu" aria-label="Chapters" hidden>
               <svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="11" height="12" rx="2"/><path d="M5.5 6v12M10.5 6v12M2.5 9.5h3M2.5 14.5h3M10.5 9.5h3M10.5 14.5h3M16.5 9h5M16.5 12h5M16.5 15h5"/></svg>
@@ -127,10 +130,12 @@
               </media-volume-slider>
             </media-volume-popover>
 
-            <media-captions-button class="atelier-btn atelier-cc at-fold" id="at-cc">
+            <media-captions-button class="atelier-btn atelier-cc" id="at-cc">
               <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3.2"/><path d="M10.4 10.2a2.2 2.2 0 1 0 0 3.6M16.6 10.2a2.2 2.2 0 1 0 0 3.6"/></svg>
             </media-captions-button>
             <media-tooltip trigger="at-cc" side="top" class="atelier-tip"><media-tooltip-label></media-tooltip-label><media-tooltip-shortcut class="atelier-kbd"></media-tooltip-shortcut></media-tooltip>
+            <span class="atelier-csep" aria-hidden="true"></span>
+            <span class="atelier-quality" aria-label="Quality"></span>
 
             <button type="button" class="atelier-btn atelier-settings-btn at-fold" id="at-settings" aria-haspopup="true" aria-expanded="false" aria-controls="at-settings-menu" aria-label="Playback speed">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
@@ -143,11 +148,12 @@
             </media-fullscreen-button>
             <media-tooltip trigger="at-fs" side="top" class="atelier-tip"><media-tooltip-label></media-tooltip-label><media-tooltip-shortcut class="atelier-kbd"></media-tooltip-shortcut></media-tooltip>
 
-            <button type="button" class="atelier-btn atelier-compact-toggle" id="at-compact" aria-pressed="false" aria-label="Compact controls">
-              <svg class="i-shrink" viewBox="0 0 24 24"><path d="M5 9h4V5M19 9h-4V5M5 15h4v4M19 15h-4v4"/></svg>
-              <svg class="i-grow" viewBox="0 0 24 24"><path d="M9 5H5v4M15 5h4v4M9 19H5v-4M15 19h4v-4"/></svg>
+            <span class="atelier-vsep" aria-hidden="true"></span>
+            <button type="button" class="atelier-btn atelier-compact-toggle" id="at-compact" aria-expanded="true" aria-label="Collapse controls">
+              <svg viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></svg>
             </button>
-            <media-tooltip trigger="at-compact" side="top" class="atelier-tip"><span class="at-compact-label">Compact</span><span class="atelier-kbd">D</span></media-tooltip>
+            <media-tooltip trigger="at-compact" side="top" class="atelier-tip"><span class="at-compact-label">Collapse</span><span class="atelier-kbd">D</span></media-tooltip>
+          </div>
           </div>
 
           <div class="atelier-menu atelier-chapters-menu" id="at-chapters-menu" role="menu" aria-label="Chapters" hidden></div>
