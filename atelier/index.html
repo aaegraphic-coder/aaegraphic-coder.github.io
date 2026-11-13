@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="./assets/index-BXvni8bn.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-C9SfXu0h.css">
+  <script type="module" crossorigin src="./assets/index-Qb3jCCk6.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BVMacDfV.css">
 </head>
 <body>
 <main class="page">
@@ -154,7 +154,7 @@
 
             <span class="atelier-vsep" aria-hidden="true"></span>
             <button type="button" class="atelier-btn atelier-compact-toggle" id="at-compact" aria-expanded="true" aria-label="Collapse controls">
-              <svg viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M14.5 6l-6 6 6 6"/></svg>
             </button>
             <media-tooltip trigger="at-compact" side="top" class="atelier-tip"><span class="at-compact-label">Collapse</span><span class="atelier-kbd">D</span></media-tooltip>
           </div>
@@ -178,7 +178,11 @@
               <button type="button" class="mini-text mini-open" data-open="quality" aria-label="Quality"><span class="mini-quality"></span></button>
               <button type="button" class="mini-text mini-open" data-open="speed" aria-label="Speed"><span class="mini-speed">1×</span></button>
               <span class="mini-sep" aria-hidden="true"></span>
-              <button type="button" class="atelier-btn mini-expand" aria-label="Expand controls"><svg viewBox="0 0 24 24"><path d="M6 14.5l6-6 6 6"/></svg></button>
+              <media-fullscreen-button class="atelier-btn mini-fs">
+                <svg class="i-enter" viewBox="0 0 24 24"><path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"/></svg>
+                <svg class="i-exit" viewBox="0 0 24 24"><path d="M9 4v3.5A1.5 1.5 0 0 1 7.5 9H4M20 9h-3.5A1.5 1.5 0 0 1 15 7.5V4M15 20v-3.5a1.5 1.5 0 0 1 1.5-1.5H20M4 15h3.5A1.5 1.5 0 0 1 9 16.5V20"/></svg>
+              </media-fullscreen-button>
+              <button type="button" class="atelier-btn mini-expand" aria-label="Expand controls"><svg viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></svg></button>
             </div>
 
             <div class="mini-view" data-name="volume" role="group" aria-label="Volume">
@@ -192,8 +196,6 @@
                 <media-slider-thumb class="mini-volume-thumb"></media-slider-thumb>
               </media-volume-slider>
               <span class="mini-pct" aria-hidden="true">100%</span>
-              <span class="mini-sep" aria-hidden="true"></span>
-              <button type="button" class="atelier-btn mini-expand" aria-label="Expand controls"><svg viewBox="0 0 24 24"><path d="M6 14.5l6-6 6 6"/></svg></button>
             </div>
 
             <div class="mini-view mini-scrub-view" data-name="scrub" aria-hidden="true">
@@ -209,14 +211,10 @@
 
             <div class="mini-view" data-name="quality" role="radiogroup" aria-label="Quality">
               <div class="mini-chips mini-quality-chips"></div>
-              <span class="mini-sep" aria-hidden="true"></span>
-              <button type="button" class="atelier-btn mini-expand" aria-label="Expand controls"><svg viewBox="0 0 24 24"><path d="M6 14.5l6-6 6 6"/></svg></button>
             </div>
 
             <div class="mini-view" data-name="speed" role="radiogroup" aria-label="Speed">
               <div class="mini-chips mini-speed-chips"></div>
-              <span class="mini-sep" aria-hidden="true"></span>
-              <button type="button" class="atelier-btn mini-expand" aria-label="Expand controls"><svg viewBox="0 0 24 24"><path d="M6 14.5l6-6 6 6"/></svg></button>
             </div>
           </div>
           </div>
