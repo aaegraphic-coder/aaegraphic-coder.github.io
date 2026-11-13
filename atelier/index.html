@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier · A Video.js v10 skin</title>
+<meta name="description" content="Atelier is a premium, gallery-inspired skin for the Video.js v10 player, designed by Angga Ady Ermawan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/index-DSgxfrIb.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-iX9k7vmE.css">
+</head>
+<body>
+<main class="page">
+  <header class="intro">
+    <p class="eyebrow">A Video.js v10 skin</p>
+    <h1>Atelier</h1>
+    <p class="lede">Quiet, glass-smooth controls that stay out of the picture until you reach for them.</p>
+  </header>
+
+  <video-player class="atelier" content-title="The quiet hour">
+    <media-container class="atelier-container">
+      <mux-video src="https://stream.mux.com/BV3YZtogl89mg9VcNBhhnHm02Y34zI1nlMuMQfAbl3dM.m3u8" playsinline crossorigin="anonymous"></mux-video>
+
+      <media-poster class="atelier-poster"><img alt=""></media-poster>
+
+      <media-buffering-indicator class="atelier-buffering" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/></svg>
+      </media-buffering-indicator>
+
+      <media-seek-indicator class="atelier-seek-indicator" aria-hidden="true">
+        <span class="atelier-seek-sign"></span><media-seek-indicator-value></media-seek-indicator-value>
+      </media-seek-indicator>
+
+      <media-volume-indicator class="atelier-volume-indicator" aria-hidden="true">
+        <media-volume-indicator-fill class="atelier-volume-indicator-fill">
+          <media-volume-indicator-value class="atelier-volume-indicator-value"></media-volume-indicator-value>
+        </media-volume-indicator-fill>
+      </media-volume-indicator>
+
+      <media-controls class="atelier-controls">
+        <media-controls-backdrop class="atelier-scrim"></media-controls-backdrop>
+        <media-controls-content class="atelier-content">
+          <media-tooltip-group>
+
+          <div class="atelier-top">
+            <div class="atelier-heading">
+              <media-title class="atelier-title"></media-title>
+            </div>
+            <media-pip-button class="atelier-btn atelier-ghost" id="at-pip">
+              <svg class="i-on" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><rect x="12" y="11.5" width="6.5" height="5" rx="1.4" class="fill"/></svg>
+              <svg class="i-off" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M9 15l6-6m-4 0h4v4"/></svg>
+            </media-pip-button>
+            <media-tooltip trigger="at-pip" side="bottom" class="atelier-tip"><media-tooltip-label></media-tooltip-label><media-tooltip-shortcut class="atelier-kbd"></media-tooltip-shortcut></media-tooltip>
+          </div>
+
+          <media-controls-group class="atelier-center">
+            <media-seek-button seconds="-10" class="atelier-btn atelier-orb-sm">
+              <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg><span>10</span>
+            </media-seek-button>
+            <media-play-button class="atelier-orb">
+              <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.6v12.8a.8.8 0 0 0 1.2.7l10.2-6.4a.8.8 0 0 0 0-1.4L9.2 4.9A.8.8 0 0 0 8 5.6z" class="fill"/></svg>
+              <svg class="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.6" height="14" rx="1.2" class="fill"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2" class="fill"/></svg>
+              <svg class="i-replay" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>
+            </media-play-button>
+            <media-seek-button seconds="10" class="atelier-btn atelier-orb-sm">
+              <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.4-5.7M20 4v4h-4"/></svg><span>10</span>
+            </media-seek-button>
+          </media-controls-group>
+
+          <div class="atelier-dock">
+            <media-play-button class="atelier-btn" id="at-play">
+              <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.6v12.8a.8.8 0 0 0 1.2.7l10.2-6.4a.8.8 0 0 0 0-1.4L9.2 4.9A.8.8 0 0 0 8 5.6z" class="fill"/></svg>
+              <svg class="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.6" height="14" rx="1.2" class="fill"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2" class="fill"/></svg>
+              <svg class="i-replay" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>
+            </media-play-button>
+            <media-tooltip trigger="at-play" side="top" class="atelier-tip"><media-tooltip-label></media-tooltip-label><media-tooltip-shortcut class="atelier-kbd"></media-tooltip-shortcut></media-tooltip>
+
+            <media-time class="atelier-time" type="current"></media-time>
+
+            <media-time-slider class="atelier-timeline">
+              <media-slider-track class="atelier-track">
+                <media-slider-buffer class="atelier-buffer"></media-slider-buffer>
+                <media-slider-fill class="atelier-fill"></media-slider-fill>
+              </media-slider-track>
+              <media-slider-thumb class="atelier-needle"></media-slider-thumb>
+              <media-slider-preview class="atelier-preview">
+                <div class="atelier-reel" aria-hidden="true">
+                  <div class="atelier-reel-strip"><figure class="reel-frame"><media-thumbnail class="reel-thumb"><img alt="" aria-hidden="true" decoding="async"></media-thumbnail></figure><figure class="reel-frame"><media-thumbnail class="reel-thumb"><img alt="" aria-hidden="true" decoding="async"></media-thumbnail></figure><figure class="reel-frame"><media-thumbnail class="reel-thumb"><img alt="" aria-hidden="true" decoding="async"></media-thumbnail></figure><figure class="reel-frame"><media-thumbnail class="reel-thumb"><img alt="" aria-hidden="true" decoding="async"></media-thumbnail></figure><figure class="reel-frame"><media-thumbnail class="reel-thumb"><img alt="" aria-hidden="true" decoding="async"></media-thumbnail></figure></div>
+                </div>
+                <media-slider-value class="atelier-preview-time" type="pointer"></media-slider-value>
+              </media-slider-preview>
+            </media-time-slider>
+
+            <media-time class="atelier-time atelier-duration at-fold" type="duration"></media-time>
+
+            <media-mute-button class="atelier-btn at-fold" id="at-mute" commandfor="at-volume">
+              <svg class="i-vol" viewBox="0 0 24 24"><path d="M4 9.5v5h3.2L12 18.6V5.4L7.2 9.5z" class="fill"/><path class="w1" d="M15.5 9.5a3.5 3.5 0 0 1 0 5"/><path class="w2" d="M18 7a7 7 0 0 1 0 10"/></svg>
+              <svg class="i-muted" viewBox="0 0 24 24"><path d="M4 9.5v5h3.2L12 18.6V5.4L7.2 9.5z" class="fill"/><path d="M16 9.5l5 5m0-5l-5 5"/></svg>
+            </media-mute-button>
+            <media-volume-popover id="at-volume" open-on-hover delay="150" close-delay="120" side="top" class="atelier-volume-pop">
+              <media-volume-slider class="atelier-volume" orientation="vertical">
+                <media-slider-track class="atelier-volume-track"><media-slider-fill class="atelier-volume-fill"></media-slider-fill></media-slider-track>
+                <media-slider-thumb class="atelier-volume-thumb"></media-slider-thumb>
+              </media-volume-slider>
+            </media-volume-popover>
+
+            <media-captions-button class="atelier-btn atelier-cc at-fold" id="at-cc">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3.2"/><path d="M10.4 10.2a2.2 2.2 0 1 0 0 3.6M16.6 10.2a2.2 2.2 0 1 0 0 3.6"/></svg>
+            </media-captions-button>
+            <media-tooltip trigger="at-cc" side="top" class="atelier-tip"><media-tooltip-label></media-tooltip-label><media-tooltip-shortcut class="atelier-kbd"></media-tooltip-shortcut></media-tooltip>
+
+            <media-fullscreen-button class="atelier-btn at-fold" id="at-fs">
+              <svg class="i-enter" viewBox="0 0 24 24"><path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"/></svg>
+              <svg class="i-exit" viewBox="0 0 24 24"><path d="M9 4v3.5A1.5 1.5 0 0 1 7.5 9H4M20 9h-3.5A1.5 1.5 0 0 1 15 7.5V4M15 20v-3.5a1.5 1.5 0 0 1 1.5-1.5H20M4 15h3.5A1.5 1.5 0 0 1 9 16.5V20"/></svg>
+            </media-fullscreen-button>
+            <media-tooltip trigger="at-fs" side="top" class="atelier-tip"><media-tooltip-label></media-tooltip-label><media-tooltip-shortcut class="atelier-kbd"></media-tooltip-shortcut></media-tooltip>
+
+            <button type="button" class="atelier-btn atelier-compact-toggle" id="at-compact" aria-pressed="false" aria-label="Compact controls">
+              <svg class="i-shrink" viewBox="0 0 24 24"><path d="M5 9h4V5M19 9h-4V5M5 15h4v4M19 15h-4v4"/></svg>
+              <svg class="i-grow" viewBox="0 0 24 24"><path d="M9 5H5v4M15 5h4v4M9 19H5v-4M15 19h4v-4"/></svg>
+            </button>
+            <media-tooltip trigger="at-compact" side="top" class="atelier-tip"><span class="at-compact-label">Compact</span><span class="atelier-kbd">D</span></media-tooltip>
+          </div>
+
+          </media-tooltip-group>
+        </media-controls-content>
+      </media-controls>
+
+      <media-hotkey keys="Space" action="togglePaused"></media-hotkey>
+      <media-hotkey keys="k" action="togglePaused"></media-hotkey>
+      <media-hotkey keys="m" action="toggleMuted"></media-hotkey>
+      <media-hotkey keys="f" action="toggleFullscreen"></media-hotkey>
+      <media-hotkey keys="c" action="toggleSubtitles"></media-hotkey>
+      <media-hotkey keys="i" action="togglePictureInPicture"></media-hotkey>
+      <media-hotkey keys="ArrowLeft" action="seekStep" value="-5"></media-hotkey>
+      <media-hotkey keys="ArrowRight" action="seekStep" value="5"></media-hotkey>
+      <media-hotkey keys="j" action="seekStep" value="-10"></media-hotkey>
+      <media-hotkey keys="l" action="seekStep" value="10"></media-hotkey>
+      <media-hotkey keys="ArrowUp" action="volumeStep" value="0.05"></media-hotkey>
+      <media-hotkey keys="ArrowDown" action="volumeStep" value="-0.05"></media-hotkey>
+      <media-hotkey keys="0-9" action="seekToPercent"></media-hotkey>
+      <media-hotkey keys="Shift+>" action="speedUp"></media-hotkey>
+      <media-hotkey keys="Shift+<" action="speedDown"></media-hotkey>
+
+      <media-gesture type="tap" action="togglePaused" pointer="mouse" region="center"></media-gesture>
+      <media-gesture type="tap" action="toggleControls" pointer="touch"></media-gesture>
+      <media-gesture type="doubletap" action="seekStep" value="-10" region="left"></media-gesture>
+      <media-gesture type="doubletap" action="seekStep" value="10" region="right"></media-gesture>
+
+      <media-status-announcer></media-status-announcer>
+
+      <media-error-dialog>
+        <media-dialog-popup class="atelier-error">
+          <media-dialog-title class="atelier-error-title"></media-dialog-title>
+          <media-dialog-description class="atelier-error-desc"></media-dialog-description>
+          <media-dialog-close class="atelier-error-close"></media-dialog-close>
+        </media-dialog-popup>
+      </media-error-dialog>
+    </media-container>
+  </video-player>
+
+  <section class="notes">
+
+    <div class="grid">
+      <article>
+        <h2>One glass dock</h2>
+        <p>Every control lives in a single floating capsule of soft, frosted glass. A light edge highlight and deep blur keep it legible over bright and dark footage without a heavy overlay.</p>
+      </article>
+      <article>
+        <h2>Three-frame preview</h2>
+        <p>Hovering the timeline floats three frames above it: the moment under your pointer in the middle, larger and sharper, with its neighbours on either side. They glide as you move, like scrubbing film.</p>
+      </article>
+      <article>
+        <h2>Calm motion</h2>
+        <p>Controls glide in with one spring-like curve, and seek and volume changes answer with small glass pills. Everything goes still when reduced motion is on.</p>
+      </article>
+    </div>
+
+    <div class="keys">
+      <h2>Keyboard</h2>
+      <ul>
+        <li><kbd>Space</kbd>/<kbd>K</kbd> Play</li>
+        <li><kbd>←</kbd><kbd>→</kbd> 5s</li>
+        <li><kbd>J</kbd><kbd>L</kbd> 10s</li>
+        <li><kbd>↑</kbd><kbd>↓</kbd> Volume</li>
+        <li><kbd>M</kbd> Mute</li>
+        <li><kbd>F</kbd> Fullscreen</li>
+        <li><kbd>C</kbd> Captions</li>
+        <li><kbd>I</kbd> Picture-in-picture</li>
+        <li><kbd>D</kbd> Compact dock</li>
+        <li><kbd>0–9</kbd> Jump</li>
+      </ul>
+    </div>
+    <p class="credit">Designed by Angga Ady Ermawan · Built with Video.js v10</p>
+  </section>
+</main>
+</body>
+</html>
