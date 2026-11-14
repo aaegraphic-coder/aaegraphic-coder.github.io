@@ -9,13 +9,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <script type="module" crossorigin src="./assets/index-dpBtDeHC.js"></script>
+  <script type="module" crossorigin src="./assets/index-BpUCaIhj.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-BIPLFIiF.css">
 </head>
 <body>
 <main class="page">
   <header class="intro">
-    <p class="eyebrow">A Video.js v10 skin · by Angga Ady Ermawan</p>
+    <p class="eyebrow">Built on Video.js v10 + Mux HLS · by Angga Ady Ermawan</p>
     <h1>Atelier</h1>
     <p class="lede">A cinematic player that keeps the picture first. Controls live in one soft glass bar, step back while you watch, and shrink to a small pill when you want even less.</p>
     <ul class="pills" aria-label="Highlights">
@@ -23,9 +23,9 @@
     </ul>
   </header>
 
-  <video-player class="atelier" content-title="The quiet hour" data-renditions='[{"label":"480p","src":"media/skate-480.mp4"},{"label":"720p","src":"media/skate-720.mp4"},{"label":"1080p","src":"media/skate.mp4"}]'>
+  <video-player class="atelier" content-title="Brunette to blonde" data-mux-playback-id="DE3edfRfpi7k1F00WEbUk01KboC4ZcxB9VLWufKX5AArU">
     <media-container class="atelier-container">
-      <video src="media/skate-720.mp4" poster="media/poster.jpg" style="object-fit:cover" playsinline preload="metadata" crossorigin="anonymous">
+      <video data-fallback="media/salon-720.mp4" poster="media/poster.jpg" style="object-fit:cover" playsinline preload="metadata" crossorigin="anonymous">
         <track kind="chapters" src="media/chapters.vtt" srclang="en" label="Chapters" default>
         <track kind="metadata" src="media/storyboard.vtt" label="thumbnails" default>
         <track kind="captions" src="media/captions.vtt" srclang="en" label="English">
@@ -324,8 +324,8 @@
       <div class="cards two-col">
         <figure class="card"><img src="shots/02-preview.webp" alt="Timeline hover showing a framed thumbnail with chapter name and time" loading="lazy"><figcaption><b>Preview with a pointer</b><span>Framed frame, chapter name and time, linked to the cursor by a hairline.</span></figcaption></figure>
         <figure class="card"><img src="shots/03-chapters.webp" alt="Chapters popover with thumbnails, a green progress rail and a hovered chapter highlighted on the timeline" loading="lazy"><figcaption><b>Chapters with live progress</b><span>The rail fills as the film plays. Hovering a chapter lights up its span on the rail and the timeline.</span></figcaption></figure>
-        <figure class="card"><img src="shots/04-settings.webp" alt="Settings popover listing Quality 1080p and Speed Normal" loading="lazy"><figcaption><b>Settings at a glance</b><span>Current values are visible before you open anything.</span></figcaption></figure>
-        <figure class="card"><img src="shots/05-settings-quality.webp" alt="Quality list with 1080p checked" loading="lazy"><figcaption><b>One step deeper</b><span>A focused list with a clear check; it returns to the overview after a choice.</span></figcaption></figure>
+        <figure class="card"><img src="shots/04-settings.webp" alt="Settings popover listing Quality Auto and Speed Normal" loading="lazy"><figcaption><b>Settings at a glance</b><span>Current values are visible before you open anything.</span></figcaption></figure>
+        <figure class="card"><img src="shots/05-settings-quality.webp" alt="Quality list with Auto checked" loading="lazy"><figcaption><b>One step deeper</b><span>A focused list with a clear check; it returns to the overview after a choice.</span></figcaption></figure>
         <figure class="card"><img src="shots/07-mini-volume.webp" alt="Mini pill morphed into a volume slider with a percentage" loading="lazy"><figcaption><b>Pill that morphs</b><span>Volume, quality and speed open inside the pill and close half a second after you let go.</span></figcaption></figure>
         <figure class="card"><img src="shots/09-dock-top.webp" alt="Glass bar moved to the top of the frame, title moved to the bottom" loading="lazy"><figcaption><b>Bar on top</b><span>Drag or double-click the bar to move it; the choice is remembered.</span></figcaption></figure>
         <figure class="card"><img src="shots/10-captions.webp" alt="Caption shown above the glass bar" loading="lazy"><figcaption><b>Captions above the bar</b><span>Drawn by the skin so they never hide behind controls, and settle lower when controls fade.</span></figcaption></figure>
@@ -366,7 +366,7 @@
     <section id="credits" class="block credits">
       <p class="kicker">07 · Credits</p>
       <p><b>Inspired by</b> the calm, glass-like feel of Apple's media controls. Everything else is original to Atelier: the bar-to-pill morph, the progress ring, hold-to-scrub, the chapter panel with live progress and hover mapping, the drill-down settings and the movable bar.</p>
-      <p>Design and build by <b>Angga Ady Ermawan</b>, built on Video.js v10 with an AI coding assistant. Sample footage is used for the demo only.</p>
+      <p>Design and build by <b>Angga Ady Ermawan</b>, built on Video.js v10 with an AI coding assistant. Video streams from Mux as adaptive HLS (with a local MP4 fallback). Demo footage is an AI-generated salon clip made by the designer with Google Gemini.</p>
     </section>
   </article>
 </main>
