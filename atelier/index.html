@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atelier · A Video.js v10 skin</title>
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="Atelier is a premium, gallery-inspired skin for the Video.js v10 player, designed by Angga Ady Ermawan.">
+<meta name="description" content="Atelier is a Video.js v10 skin for creative studios and salons: a quiet glass player that keeps the work in focus, from the before to the reveal. Designed by Angga Ady Ermawan.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -17,9 +17,9 @@
   <header class="intro">
     <p class="eyebrow">Built on Video.js v10 + Mux HLS · by Angga Ady Ermawan</p>
     <h1>Atelier</h1>
-    <p class="lede">A cinematic player that keeps the picture first. Controls live in one soft glass bar, step back while you watch, and shrink to a small pill when you want even less.</p>
+    <p class="lede">A player for studios that sell their craft. Salons, makeup artists and makers show the before, the process and the reveal. Atelier keeps that work in focus: controls live in one soft glass bar that steps back while you watch and shrinks to a small pill when you want even less.</p>
     <ul class="pills" aria-label="Highlights">
-      <li>Glass bar &amp; mini pill</li><li>Chapters with live progress</li><li>Hold to scrub</li><li>Move the bar up or down</li><li>Keyboard &amp; touch</li>
+      <li>Glass bar &amp; mini pill</li><li>Chapters for every step</li><li>Hold to scrub</li><li>Move the bar off the face</li><li>Brand themes</li><li>Keyboard &amp; touch</li>
     </ul>
   </header>
 
@@ -273,7 +273,7 @@
     </media-container>
   </video-player>
 
-  <p class="try">Try it: hover the timeline · open <b>Chapters</b> · press <kbd>D</kbd> to minimize · hold the play button in the pill and slide · drag the bar to the top</p>
+  <p class="try">Try it: hover the timeline · open <b>Chapters</b> · press <kbd>D</kbd> to minimize · hold the play button in the pill and slide · drag the bar to the top · pick a theme in <b>Settings</b></p>
 
   <article class="story">
     <nav class="toc" aria-label="On this page">
@@ -282,22 +282,22 @@
 
     <section id="problem" class="block">
       <p class="kicker">01 · Problem</p>
-      <h2>Most player controls compete with the film</h2>
+      <h2>Generic controls hide the work a studio is trying to show</h2>
       <div class="two">
-        <p>Default players stack a dark gradient, a full-width bar and a row of icons over the bottom of the frame. On calm, cinematic footage that strip becomes the loudest thing on screen, and on a phone it can cover a third of the picture.</p>
+        <p>A salon reel, a makeup tutorial or a maker&rsquo;s process video lives on detail: the tone of the hair, the finish of a surface, the face at the reveal. Default players stack a dark gradient and a full-width bar over the bottom of the frame, right where hands, hair and faces usually are. On a phone that strip can cover a third of the picture.</p>
         <ul class="list">
-          <li><b>Visual noise.</b> Heavy bars and gradients hide part of the frame, even while nobody is touching them.</li>
-          <li><b>Hidden structure.</b> Chapters are either missing or crammed into the timeline as labels.</li>
-          <li><b>Guesswork.</b> Hover and playhead often look the same, so seeking feels uncertain.</li>
-          <li><b>One size for all.</b> The bar is always in the same place, even when it covers subtitles or a face.</li>
+          <li><b>Visual noise.</b> Heavy bars and gradients sit on top of the work, even while nobody is touching them.</li>
+          <li><b>Hidden story.</b> Transformation videos have clear steps (before, process, reveal), yet most players show one flat timeline.</li>
+          <li><b>Guesswork.</b> Hover and playhead look the same, so jumping straight to the reveal feels uncertain.</li>
+          <li><b>Off-brand.</b> One fixed look in one fixed place, even when the bar covers a face or clashes with the studio&rsquo;s brand.</li>
         </ul>
       </div>
     </section>
 
     <section id="concept" class="block">
       <p class="kicker">02 · Concept</p>
-      <h2>One quiet surface, three sizes</h2>
-      <p class="wide">Atelier treats the controls as a single piece of glass that changes size with your intent. The video stays the hero; the interface appears when you reach for it.</p>
+      <h2>A display case for the work: one quiet surface, three sizes</h2>
+      <p class="wide"><i>Atelier</i> is French for the workshop where craft is made. The player behaves like a good display case: the work is the hero, and the glass only appears when you reach for it. Controls are one piece of glass that changes size with your intent, chapters tell the story of the process, and a studio can tint the glass to match its brand.</p>
       <div class="cards three">
         <figure class="card"><img src="shots/01-expanded.webp" alt="Expanded glass bar with time, chaptered timeline and controls in one row" loading="lazy"><figcaption><b>Full bar</b><span>Everything in one row: play, time, chaptered timeline and the essentials.</span></figcaption></figure>
         <figure class="card"><img src="shots/06-minimized.webp" alt="Minimized pill with a progress ring around play, volume, captions, quality, speed and fullscreen" loading="lazy"><figcaption><b>Mini pill</b><span>Press <kbd>D</kbd> or the chevron. Progress lives in a ring around play.</span></figcaption></figure>
@@ -311,10 +311,11 @@
       <div class="rows">
         <div class="row"><b>Glass instead of a gradient</b><p>A blurred, tinted capsule keeps controls legible over bright and dark scenes without darkening the whole bottom of the frame.</p></div>
         <div class="row"><b>One bar, then a pill</b><p>The full bar is for exploring; the pill is for watching. The change is one smooth morph, so people always know where controls went.</p></div>
-        <div class="row"><b>Chapters behind one button</b><p>The timeline only shows where chapters begin and end. Names, thumbnails and a live progress rail sit in a popover, so the bar stays clean.</p></div>
+        <div class="row"><b>Chapters tell the process</b><p>Before, colour, wash, blow-dry, reveal. The timeline only marks where each step begins; names, thumbnails and a live progress rail sit behind one button, so the bar stays clean and viewers can jump straight to the moment they care about.</p></div>
         <div class="row"><b>Hover ≠ playhead</b><p>The playhead is a solid knob on a green fill. Hover is a framed thumbnail with a hairline pointing at the exact time, so the two never look alike.</p></div>
         <div class="row"><b>Settings as a short list</b><p>Quality and Speed show their current value; one tap opens a focused list. Fewer choices on screen, the same power one step away.</p></div>
-        <div class="row"><b>Let viewers move it</b><p>If the bar covers subtitles or a face, drag it to the top (or press <kbd>T</kbd>). Popovers, previews and the title follow.</p></div>
+        <div class="row"><b>Let viewers move it</b><p>If the bar covers a face, the hair being shown or the captions, drag it to the top (or press <kbd>T</kbd>). Popovers, previews and the title follow.</p></div>
+        <div class="row"><b>One signature, room for a brand</b><p>Atelier teal is the signature look. Ten more tints, from Onyx to Lagoon, let a studio match its own brand. Every tint follows the same contrast rules, so icons and time stay readable over bright and dark footage.</p></div>
       </div>
     </section>
 
@@ -329,6 +330,7 @@
         <figure class="card"><img src="shots/07-mini-volume.webp" alt="Mini pill morphed into a volume slider with a percentage" loading="lazy"><figcaption><b>Pill that morphs</b><span>Volume, quality and speed open inside the pill and close half a second after you let go.</span></figcaption></figure>
         <figure class="card"><img src="shots/09-dock-top.webp" alt="Glass bar moved to the top of the frame, title moved to the bottom" loading="lazy"><figcaption><b>Bar on top</b><span>Drag or double-click the bar to move it; the choice is remembered.</span></figcaption></figure>
         <figure class="card"><img src="shots/10-captions.webp" alt="Caption shown above the glass bar" loading="lazy"><figcaption><b>Captions above the bar</b><span>Drawn by the skin so they never hide behind controls, and settle lower when controls fade.</span></figcaption></figure>
+        <figure class="card"><img src="shots/13-themes.webp" alt="Theme picker in settings showing eleven colour dots, Navy selected" loading="lazy"><figcaption><b>Brand themes</b><span>Settings → Theme tints the glass, progress and play orb together. The choice is remembered.</span></figcaption></figure>
         <figure class="card phone"><img src="shots/11-mobile.webp" alt="Phone layout with a compact bar" loading="lazy"><figcaption><b>Phone</b><span>Smaller bar, 44px touch areas, tap to show controls, double-tap to skip, auto-landscape in fullscreen on Android.</span></figcaption></figure>
       </div>
     </section>
@@ -354,8 +356,8 @@
       <p class="kicker">06 · Visual system</p>
       <h2>A small set of rules, used everywhere</h2>
       <div class="spec">
-        <div><b>Glass</b><span>Tinted teal-grey, blur 28px, saturation 180%, a 1px top-lit edge</span></div>
-        <div><b>Progress</b><span>One green (#7EE07A) for every kind of progress: timeline, ring, chapter rail</span></div>
+        <div><b>Glass</b><span>Atelier teal-grey by default (plus 10 brand tints), blur 28px, saturation 180%, a 1px top-lit edge</span></div>
+        <div><b>Progress</b><span>One accent per theme for every kind of progress: timeline, ring, chapter rail (Atelier green #7EE07A)</span></div>
         <div><b>Shape</b><span>Capsules for bars and pills, 22–24px radius for popovers, 12–16px for thumbnails</span></div>
         <div><b>Type</b><span>Inter with tabular numbers, so times never jitter</span></div>
         <div><b>Motion</b><span>One spring curve (0.32, 0.72, 0, 1); instant while scrubbing</span></div>
