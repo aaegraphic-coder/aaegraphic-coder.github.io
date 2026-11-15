@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Chess Duo</title>
+  <meta name="description" content="Chess Duo is a UI concept by Angga Ady Ermawan: playing chess with a friend that actually works, in Liquid Glass style, designed for folded and unfolded foldable phones. Concept, not affiliated with Chess.com or Apple.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">UI concept · by Angga Ady Ermawan</p>
+      <h1>Chess Duo</h1>
+      <p class="lede">Playing chess with a friend should take three taps, not a guess. A light, ad-free flow with clear challenge status, a share-link fallback, and a layout that opens up when a foldable phone does.</p>
+      <p class="badge">Concept · not affiliated with Chess.com or Apple</p>
+    </header>
+
+    <section class="stage-wrap" aria-label="Interactive prototype">
+      <div class="controls" role="toolbar" aria-label="Prototype controls">
+        <div class="seg" role="radiogroup" aria-label="Phone posture">
+          <button type="button" role="radio" aria-checked="true" data-posture="folded">Folded · 5.4″</button>
+          <button type="button" role="radio" aria-checked="false" data-posture="open">Unfolded · 7.6″</button>
+        </div>
+        <button type="button" class="ghost" id="restart">Restart demo</button>
+      </div>
+
+      <div class="stage">
+        <div class="device" id="device" data-posture="folded">
+          <div class="screen" id="screen">
+            <div class="wall" aria-hidden="true"></div>
+
+            <!-- status island -->
+            <div class="island" id="island" role="status" aria-live="polite" hidden>
+              <span class="island-dot"></span><span class="island-text"></span>
+              <button type="button" class="island-act" hidden></button>
+            </div>
+
+            <!-- HOME -->
+            <section class="view" data-view="home" aria-label="Home">
+              <header class="top">
+                <div>
+                  <p class="hello">Good evening</p>
+                  <h2>Ready for a game?</h2>
+                </div>
+                <span class="me" aria-label="You">A</span>
+              </header>
+
+              <div class="home-body">
+                <div class="col">
+                  <button type="button" class="hero glass" id="play-friend">
+                    <span class="hero-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 2c-2.7 0-6 1.3-6 3.5V19h12v-2.5C14 14.3 10.7 13 8 13Zm8 0c-.3 0-.7 0-1.1.1 1.3.9 2.1 2 2.1 3.4V19h5v-2.5c0-2.2-3.3-3.5-6-3.5Z"/></svg></span>
+                    <span><b>Play a friend</b><small>Invite in three taps · no ads in game</small></span>
+                    <span class="chev" aria-hidden="true">›</span>
+                  </button>
+
+                  <h3 class="label">Friends</h3>
+                  <ul class="friends glass" id="friends"></ul>
+                </div>
+
+                <div class="col col-side">
+                  <h3 class="label">Recent</h3>
+                  <ul class="recent glass">
+                    <li><span class="res win">W</span><span>vs Dimas · 5+0</span><small>Checkmate</small></li>
+                    <li><span class="res loss">L</span><span>vs Sari · 3+2</span><small>Time</small></li>
+                    <li><span class="res draw">½</span><span>vs Dimas · 10+0</span><small>Agreed</small></li>
+                  </ul>
+                  <div class="tip glass">
+                    <b>Why this exists</b>
+                    <p>Players report challenges stuck on “Challenge sent” and friends shown offline while sitting in the same room. Chess Duo shows every step and always offers a link that works.</p>
+                  </div>
+                </div>
+              </div>
+
+              <nav class="tabbar glass" aria-label="Tabs">
+                <button type="button" aria-current="page"><svg viewBox="0 0 24 24"><path d="M12 3 3 10v11h6v-6h6v6h6V10z"/></svg><span>Home</span></button>
+                <button type="button"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 3 9v1h-6v-1a5 5 0 0 1 3-9Zm-4 12h8l1 4H7Zm-2 5h12v3H6Z"/></svg><span>Play</span></button>
+                <button type="button"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4Z"/></svg><span>Chats</span></button>
+              </nav>
+            </section>
+
+            <!-- LOBBY -->
+            <section class="view" data-view="lobby" aria-label="Lobby" hidden>
+              <div class="lobby">
+                <p class="hello">Friendly game · <span id="lobby-tc">5+0</span></p>
+                <div class="duel">
+                  <div class="pcard glass"><span class="av av-me">A</span><b>You</b><small>White</small><span class="ready-tag" id="ready-me">Not ready</span></div>
+                  <span class="vs">vs</span>
+                  <div class="pcard glass"><span class="av" id="lobby-av">D</span><b id="lobby-name">Dimas</b><small>Black</small><span class="ready-tag on">Ready</span></div>
+                </div>
+                <button type="button" class="cta" id="btn-ready">I’m ready</button>
+                <button type="button" class="link-btn" id="btn-leave">Leave lobby</button>
+                <p class="count" id="count" aria-live="assertive"></p>
+              </div>
+            </section>
+
+            <!-- GAME -->
+            <section class="view" data-view="game" aria-label="Game" hidden>
+              <div class="game">
+                <div class="board-col">
+                  <div class="clock glass" id="clock-top"><span class="av sm" id="opp-av">D</span><b id="opp-name">Dimas</b><span class="time" id="t-black">5:00</span></div>
+                  <div class="board-wrap">
+                    <div class="board" id="board" role="grid" aria-label="Chess board"></div>
+                    <div class="toast glass" id="toast" aria-live="polite"></div>
+                  </div>
+                  <div class="clock glass me-clock" id="clock-bottom"><span class="av sm av-me">A</span><b>You</b><span class="time" id="t-white">5:00</span></div>
+                  <div class="game-actions">
+                    <button type="button" class="pill glass" id="btn-chat" aria-label="Open chat"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4Z"/></svg><span class="unread" id="unread" hidden></span></button>
+                    <button type="button" class="pill glass" id="btn-moves" aria-label="Show moves"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></button>
+                    <button type="button" class="pill glass" id="btn-resign">Resign</button>
+                  </div>
+                </div>
+
+                <aside class="side glass" id="side" aria-label="Moves and chat">
+                  <div class="side-tabs" role="tablist">
+                    <button type="button" role="tab" aria-selected="true" data-tab="moves">Moves</button>
+                    <button type="button" role="tab" aria-selected="false" data-tab="chat">Chat</button>
+                  </div>
+                  <ol class="moves" id="moves" data-pane="moves"></ol>
+                  <div class="chat" data-pane="chat" hidden>
+                    <ul class="msgs" id="msgs"></ul>
+                    <div class="quick" id="quick">
+                      <button type="button">Good luck!</button><button type="button">Nice move 👏</button><button type="button">Oops 😅</button><button type="button">GG</button>
+                    </div>
+                  </div>
+                  <button type="button" class="sheet-close" id="side-close" aria-label="Close">Done</button>
+                </aside>
+              </div>
+            </section>
+
+            <!-- INVITE SHEET -->
+            <div class="scrim" id="scrim" hidden></div>
+            <div class="sheet glass" id="invite" role="dialog" aria-modal="true" aria-labelledby="invite-title" hidden>
+              <span class="grab" aria-hidden="true"></span>
+              <h3 id="invite-title">Invite a friend</h3>
+              <p class="sub">Time control</p>
+              <div class="chips" id="tc" role="radiogroup" aria-label="Time control">
+                <button type="button" role="radio" aria-checked="false" data-tc="3+2">3+2</button>
+                <button type="button" role="radio" aria-checked="true" data-tc="5+0">5+0</button>
+                <button type="button" role="radio" aria-checked="false" data-tc="10+0">10+0</button>
+              </div>
+              <p class="sub">Send to</p>
+              <ul class="pick" id="pick"></ul>
+              <button type="button" class="share" id="share-link">
+                <svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                <span><b>Share a link</b><small>Works on WhatsApp, even if they’re not on your list</small></span>
+              </button>
+              <button type="button" class="cta" id="send" disabled>Choose a friend</button>
+            </div>
+
+            <!-- RESULT -->
+            <div class="result glass" id="result" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
+              <span class="trophy" aria-hidden="true">♔</span>
+              <h3 id="result-title">You won</h3>
+              <p id="result-sub">by checkmate</p>
+              <div class="result-actions">
+                <button type="button" class="cta" id="rematch">Rematch</button>
+                <button type="button" class="link-btn" id="go-home">Back home</button>
+              </div>
+            </div>
+          </div>
+          <span class="hinge" aria-hidden="true"></span>
+        </div>
+      </div>
+      <p class="hint">Try: <b>Play a friend</b> → pick <b>Dimas</b> (online) or <b>Bayu</b> (offline) → watch the status → play a few moves → switch to <b>Unfolded</b> mid-game.</p>
+    </section>
+
+    <article class="story">
+      <section>
+        <p class="kicker">01 · Problem</p>
+        <h2>“Challenge sent”… and then nothing</h2>
+        <p>On the Chess.com forum, players describe friends shown as offline “even though some of us are in the same room”, challenges that never arrive, and a sender stuck on “Challenge sent”. App reviews add a second theme: too many ads for people who just want a quick game with a friend.</p>
+      </section>
+      <section>
+        <p class="kicker">02 · Ideas</p>
+        <div class="grid">
+          <div><b>Status you can trust</b><p>One glass island walks through Sent → Delivered → Seen → Accepted. If a friend is offline, it says so right away and offers a fix.</p></div>
+          <div><b>A link that always works</b><p>Share a game link on WhatsApp. No friend list, no rating filters, no guessing.</p></div>
+          <div><b>Quiet while you play</b><p>No ads in game. Clocks and actions float on glass; the board stays solid and readable.</p></div>
+          <div><b>Opens with the phone</b><p>Folded: the board fills the screen. Unfolded: the board grows and moves and chat appear together below it, without interrupting the game.</p></div>
+        </div>
+      </section>
+      <section>
+        <p class="kicker">03 · Foldable layout</p>
+        <p>Designed around the iPhone Duo’s two displays: 5.4″ outer (1398 × 2034) and 7.6″ inner (1878 × 2670). Both share nearly the same proportions, so the game simply continues when the phone opens: the board grows and the moves and chat panel rises in.</p>
+      </section>
+      <section>
+        <p class="kicker">04 · Glass, used with care</p>
+        <p>Inspired by Apple’s Liquid Glass (iOS 26): glass is only for controls that float over content: tab bar, sheet, status island, clocks, result card. The board is solid. With Reduce Transparency the glass turns opaque; with Reduce Motion the morphs become fades.</p>
+      </section>
+      <section class="credits">
+        <p>UI concept, design and prototype by <b>Angga Ady Ermawan</b>, built with an AI coding assistant. Friends and games are simulated. Chess rules by <a href="https://github.com/jhlywa/chess.js">chess.js</a> (BSD-2). Piece artwork by Cburnett, via <a href="https://github.com/shaack/cm-chessboard">cm-chessboard</a>, licensed <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Not affiliated with Chess.com or Apple.</p>
+      </section>
+    </article>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
