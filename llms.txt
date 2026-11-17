@@ -24,6 +24,7 @@ Product UX, complex workflows, information architecture, data-rich dashboards, e
 
 ## Pages
 - [CodingZones case study](https://aaegraphic.com/codingzones.html) and live app (https://codingzones.com): own product, mobile-first learning web app (PWA) with 20 logic and early-coding games for kids aged 3–10; designed end to end
+- [Atelier case study](https://aaegraphic.com/atelier.html) and live demo (https://aaegraphic.com/atelier/): concept, simple glass video player skin for Video.js v10 with Mux HLS; full bar, mini pill, hold-to-scrub, chapters, movable bar, themes; designed and built with an AI coding assistant
 - [Portfolio home](https://aaegraphic.com/): overview, projects, results, FAQ
 - [EDVORA case study](https://aaegraphic.com/edvora.html): full 0→1 product design case study
 - [Stablecoin wallet concepts](https://aaegraphic.com/wallet-concepts/): six clickable USDT wallet prototypes

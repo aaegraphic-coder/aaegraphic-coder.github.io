@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier Case Study – Simple Glass Video Player Design | Angga Ady Ermawan</title>
+<meta name="description" content="Product design case study: Atelier, a simple glass video player skin for Video.js v10 with Mux HLS. One clear bar when you need it, a small pill when you don't.">
+<link rel="canonical" href="https://aaegraphic.com/atelier.html">
+<meta name="author" content="Angga Ady Ermawan">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Angga Ady Ermawan">
+<meta property="og:title" content="Atelier case study – Angga Ady Ermawan">
+<meta property="og:description" content="A simple glass video player that stays out of the way, built on Video.js v10 and Mux.">
+<meta property="og:url" content="https://aaegraphic.com/atelier.html">
+<meta property="og:image" content="https://aaegraphic.com/assets/atelier/01-expanded.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atelier case study – Angga Ady Ermawan">
+<meta name="twitter:description" content="A simple glass video player that stays out of the way, built on Video.js v10 and Mux.">
+<meta name="twitter:image" content="https://aaegraphic.com/assets/atelier/01-expanded.webp">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "@id": "https://aaegraphic.com/atelier.html#article", "headline": "Atelier: a simple glass video player", "description": "Case study: how Angga Ady Ermawan designed and built Atelier, a simple glass video player skin for Video.js v10 with Mux HLS.", "url": "https://aaegraphic.com/atelier.html", "image": "https://aaegraphic.com/assets/atelier/01-expanded.webp", "inLanguage": "en", "dateModified": "2026-11-17T16:30:00+07:00", "author": {"@type": "Person", "@id": "https://aaegraphic.com/#person", "name": "Angga Ady Ermawan", "url": "https://aaegraphic.com/"}}</script>
+<meta name="theme-color" content="#08080A">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .at-row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+  .at-row.three{grid-template-columns:repeat(3,1fr)}
+  .at-row figure{margin:0}
+  .at-row img,.at-wide img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line2)}
+  .at-row figcaption,.at-wide figcaption{margin-top:8px;font-size:13.5px;line-height:1.5;color:var(--text2)}
+  .at-wide{margin:20px 0 0}
+  @media (max-width:760px){.at-row,.at-row.three{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bg-aura" aria-hidden="true"></div>
+<a class="skip" href="#challenge">Skip to case study</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Angga, home"><span class="mark mark-a"><img src="assets/logo-a.svg" alt="" width="20" height="20"></span><img class="logo-name" src="assets/logo-name.svg" alt="Angga" width="94" height="36"></a>
+    <nav class="links" aria-label="Main">
+      <a class="opt" href="index.html#work">Work</a>
+      <a class="opt" href="index.html#about">About</a>
+      <a class="btn sm" href="index.html#contact">Let's talk</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="m-menu" aria-label="Open menu"><b class="mb-t"><i>Menu</i><i>Close</i></b><span class="mb-ic"><span></span><span></span></span></button>
+  </div>
+<div class="m-menu" id="m-menu" hidden><nav aria-label="Mobile"><a href="index.html#work" style="--i:0">Work</a><a href="index.html#about" style="--i:1">About</a></nav><a class="btn primary m-cta-btn" href="index.html#contact">Let's talk <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><p class="m-mail">aaegraphic@gmail.com</p></div>
+</header>
+
+<main>
+<section class="case-hero">
+  <div class="wrap">
+    <a class="back" href="index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5m5-5-5 5 5 5"/></svg>All projects</a>
+    <h1>Atelier: a simple glass video player</h1>
+    <p class="lede">A video player skin for Video.js v10 that stays out of the way. One clear glass bar when you need it, a small pill when you don't, and nothing between you and the video. Streams from Mux as adaptive HLS. I designed and built it end to end as a challenge entry.</p>
+    <div class="facts">
+      <div><small>My role</small><b>Product designer and builder</b></div>
+      <div><small>Team</small><b>Me, with an AI coding assistant</b></div>
+      <div><small>Stack</small><b>Video.js v10, Mux HLS, Vite</b></div>
+      <div><small>Status</small><b>Live demo</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <figure class="cover shot rv"><img src="assets/atelier/01-expanded.webp" alt="Atelier player with one glass control bar: play, time, a chaptered timeline, chapters, volume, captions, settings, fullscreen and minimize" width="1600" height="901"></figure>
+</div>
+
+<div class="wrap case-body">
+  <nav class="toc" aria-label="On this page">
+    <a href="#challenge" class="on">Challenge</a>
+    <a href="#concept">Concept</a>
+    <a href="#decisions">Key decisions</a>
+    <a href="#mobile">Mobile</a>
+    <a href="#quality">Access & speed</a>
+    <a href="#learned">What I learned</a>
+  </nav>
+
+  <div>
+    <section class="chapter" id="challenge">
+      <span class="eyebrow">The challenge</span>
+      <h2>Most players add noise on top of the video</h2>
+      <p>Default players stack a dark gradient and a full-width bar over the bottom of the frame, often right where the subject is. On a phone that strip can cover a third of the picture, even when nobody is touching it.</p>
+      <div class="grid2">
+        <div class="box"><b>Visual noise</b><p>Heavy bars and gradients sit on top of the video while nobody is using them.</p></div>
+        <div class="box"><b>Flat timeline</b><p>Most videos have clear parts, yet the timeline is one undivided line, so jumping to a moment is guesswork.</p></div>
+        <div class="box"><b>One fixed place</b><p>The bar always sits in the same spot, even when it covers a face or the captions.</p></div>
+        <div class="box"><b>Too many choices</b><p>Settings menus show every option at once, so simple changes take more effort than they should.</p></div>
+      </div>
+      <div class="callout"><small>The question I started with</small><b>How might a player give people every control they need, while asking for as little of the screen as possible?</b></div>
+    </section>
+
+    <section class="chapter" id="concept">
+      <span class="eyebrow">Concept</span>
+      <h2>One clear surface, three sizes</h2>
+      <p>Atelier follows one rule: the video comes first. Controls live on a single piece of clear glass that appears when you reach for it and changes size with your intent. Anything not needed right now is removed or one step away.</p>
+      <div class="at-row three">
+        <figure><img src="assets/atelier/01-expanded.webp" alt="Full glass bar" loading="lazy" width="1600" height="901"><figcaption><b>Full bar.</b> Play, time, chaptered timeline and the essentials in one row.</figcaption></figure>
+        <figure><img src="assets/atelier/06-minimized.webp" alt="Minimized pill with a progress ring around play" loading="lazy" width="1600" height="901"><figcaption><b>Mini pill.</b> Press D or the chevron. Progress becomes a ring around play.</figcaption></figure>
+        <figure><img src="assets/atelier/08-hold-scrub.webp" alt="Pill turned into a scrubber with a preview frame" loading="lazy" width="1600" height="901"><figcaption><b>Hold to scrub.</b> Hold play in the pill and slide: it becomes a timeline with a preview.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="chapter" id="decisions">
+      <span class="eyebrow">Key decisions</span>
+      <h2>Small choices that keep it clear</h2>
+      <div class="grid2">
+        <div class="box"><b>1. Chapters on the timeline</b><p>The timeline is split into named parts with a preview, so people can jump straight to the moment they want.</p></div>
+        <div class="box"><b>2. Settings as a short list</b><p>Quality and Speed show their current value. One tap opens a focused list instead of a crowded menu.</p></div>
+        <div class="box"><b>3. Let viewers move the bar</b><p>If the bar covers a face or the captions, drag it to the top or press T. Popovers and previews follow.</p></div>
+        <div class="box"><b>4. One look, simple tints</b><p>Atelier teal by default, plus ten tints in Settings. Every tint keeps the same contrast rules over bright and dark footage.</p></div>
+      </div>
+      <div class="at-row">
+        <figure><img src="assets/atelier/03-chapters.webp" alt="Chapters list with thumbnails" loading="lazy" width="1600" height="901"><figcaption>Chapters with thumbnails: jump to any part in one tap.</figcaption></figure>
+        <figure><img src="assets/atelier/09-dock-top.webp" alt="Glass bar moved to the top of the video" loading="lazy" width="1600" height="901"><figcaption>The bar moved to the top, so it no longer covers the subject.</figcaption></figure>
+      </div>
+      <figure class="at-wide"><img src="assets/atelier/13-themes.webp" alt="Theme picker with eleven colour tints" loading="lazy" width="1600" height="901"><figcaption>Themes live in Settings as simple swatches with short names.</figcaption></figure>
+    </section>
+
+    <section class="chapter" id="mobile">
+      <span class="eyebrow">Mobile</span>
+      <h2>The same rules on a small screen</h2>
+      <p>The layout responds to the player's own width, not the page, so it works in a feed, a sidebar or full screen. Touch targets grow on phones, and the pill keeps only what a thumb needs.</p>
+      <div class="at-row">
+        <figure><img src="assets/atelier/11-mobile.webp" alt="Atelier on a phone with the full bar" loading="lazy" width="1074" height="606"><figcaption>Phone layout with the full bar.</figcaption></figure>
+        <figure><img src="assets/atelier/12-mobile-mini.webp" alt="Atelier on a phone with the mini pill" loading="lazy" width="1074" height="606"><figcaption>The mini pill on a phone: more picture, same controls one tap away.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="chapter" id="quality">
+      <span class="eyebrow">Access & speed</span>
+      <h2>Clear for everyone, light to load</h2>
+      <div class="grid3">
+        <div class="box"><b>Keyboard and touch</b><p>Every control works by keyboard, with visible focus and shortcuts such as D, T and arrow keys.</p></div>
+        <div class="box"><b>Captions and motion</b><p>Captions stay readable on glass, and Reduce Motion turns movement into simple fades.</p></div>
+        <div class="box"><b>Adaptive streaming</b><p>Video streams from Mux as adaptive HLS, loaded after the page, with a local MP4 fallback.</p></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="learned">
+      <span class="eyebrow">What I learned</span>
+      <h2>Simplicity is a lot of small decisions</h2>
+      <p>Removing things was harder than adding them. Each control had to earn its place on the glass, and every animation had to help people understand what changed. Building it myself with an AI coding assistant let me test those decisions in a real, working player instead of a static mockup.</p>
+      <p class="small" style="color:var(--text2)">Demo footage is an AI-generated clip made with Google Gemini.</p>
+    </section>
+
+    <div class="next rv">
+      <div><span class="eyebrow">Try it live</span><h3>Play with the Atelier demo</h3></div>
+      <a class="btn primary" href="atelier/">Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px"><span>© 2026 Angga · Yogyakarta, Indonesia</span><span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="mailto:aaegraphic@gmail.com">aaegraphic@gmail.com</a></span></div>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>
