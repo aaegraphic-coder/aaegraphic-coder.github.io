@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <script type="module" crossorigin src="./assets/index-kDlDQbB1.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CrlR21lQ.css">
+  <script type="module" crossorigin src="./assets/index-BwgI-wE_.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-mthLBqsx.css">
 </head>
 <body>
 <main class="page">
@@ -23,6 +23,12 @@
     </ul>
   </header>
 
+  <div class="dv-bar" role="radiogroup" aria-label="Preview size">
+    <button type="button" role="radio" aria-checked="true" data-dv="desktop"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Desktop</button>
+    <button type="button" role="radio" aria-checked="false" data-dv="tablet"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M11 18h2"/></svg>Tablet</button>
+    <button type="button" role="radio" aria-checked="false" data-dv="mobile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg>Mobile</button>
+  </div>
+  <div class="dv-stage" data-dv="desktop">
   <video-player class="atelier" content-title="Brunette to blonde" data-mux-playback-id="DE3edfRfpi7k1F00WEbUk01KboC4ZcxB9VLWufKX5AArU">
     <media-container class="atelier-container">
       <video data-fallback="media/salon-720.mp4" poster="media/salon/poster.jpg" style="object-fit:cover" playsinline preload="metadata" crossorigin="anonymous">
@@ -272,6 +278,7 @@
       </media-error-dialog>
     </media-container>
   </video-player>
+  </div>
 
   <p class="try">Try it: hover the timeline · open <b>Chapters</b> · press <kbd>D</kbd> to minimize · hold the play button in the pill and slide · drag the bar to the top · pick a theme in <b>Settings</b></p>
 
