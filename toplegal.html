@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>top.legal Case Study – AI Contract Assistant Product Design | Angga Ady Ermawan</title>
+<meta name="description" content="Product design case study: how I designed improvements to top.legal's AI contract assistant, which flags one-sided and non-compliant clauses right inside the agreement.">
+<link rel="canonical" href="https://aaegraphic.com/toplegal.html">
+<meta name="author" content="Angga Ady Ermawan">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Angga Ady Ermawan">
+<meta property="og:title" content="top.legal case study – Angga Ady Ermawan">
+<meta property="og:description" content="Know if a contract is fair without waiting days for someone to review it.">
+<meta property="og:url" content="https://aaegraphic.com/toplegal.html">
+<meta property="og:image" content="https://aaegraphic.com/assets/og-portfolio.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="top.legal case study – Angga Ady Ermawan">
+<meta name="twitter:description" content="Know if a contract is fair without waiting days for someone to review it.">
+<meta name="twitter:image" content="https://aaegraphic.com/assets/og-portfolio.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "@id": "https://aaegraphic.com/toplegal.html#article", "headline": "top.legal: know if a contract is fair, right inside the document", "description": "Case study: how Angga Ady Ermawan designed improvements to the AI contract assistant at top.legal.", "url": "https://aaegraphic.com/toplegal.html", "inLanguage": "en", "dateModified": "2026-11-17T21:00:00+07:00", "author": {"@type": "Person", "@id": "https://aaegraphic.com/#person", "name": "Angga Ady Ermawan", "url": "https://aaegraphic.com/"}}</script>
+<meta name="theme-color" content="#08080A">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/ps-anim.css">
+<style>
+  .fn-cover{position:relative;padding:22px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .fn-cover .nda-tag{position:absolute;top:14px;right:14px;z-index:2}
+  .fn-cover figcaption,.fn-fig figcaption{margin-top:12px;font-size:13.5px;line-height:1.5;color:var(--text2)}
+  .fn-fig{margin:22px 0 0}
+  .fn-steps{counter-reset:s;display:grid;gap:12px;margin:18px 0 0;padding:0;list-style:none}
+  .fn-steps li{counter-increment:s;position:relative;padding:14px 16px 14px 52px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .fn-steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:600 12px var(--body);background:rgba(185,166,255,.16);color:#d9cfff}
+  .fn-steps b{display:block;margin-bottom:2px;color:var(--text)}
+  .fn-steps p{margin:0;color:var(--text2)}
+  .fn-note{display:flex;gap:10px;align-items:flex-start;margin-top:22px;padding:14px 16px;border-radius:14px;border:1px dashed var(--line2);font-size:13.5px;line-height:1.55;color:var(--text2)}
+  .fn-note svg{flex:none;width:18px;height:18px;margin-top:1px}
+</style>
+</head>
+<body>
+<div class="bg-aura" aria-hidden="true"></div>
+<a class="skip" href="#challenge">Skip to case study</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Angga, home"><span class="mark mark-a"><img src="assets/logo-a.svg" alt="" width="20" height="20"></span><img class="logo-name" src="assets/logo-name.svg" alt="Angga" width="94" height="36"></a>
+    <nav class="links" aria-label="Main">
+      <a class="opt" href="index.html#work">Work</a>
+      <a class="opt" href="index.html#about">About</a>
+      <a class="btn sm" href="index.html#contact">Let's talk</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="m-menu" aria-label="Open menu"><b class="mb-t"><i>Menu</i><i>Close</i></b><span class="mb-ic"><span></span><span></span></span></button>
+  </div>
+<div class="m-menu" id="m-menu" hidden><nav aria-label="Mobile"><a href="index.html#work" style="--i:0">Work</a><a href="index.html#about" style="--i:1">About</a></nav><a class="btn primary m-cta-btn" href="index.html#contact">Let's talk <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><p class="m-mail">aaegraphic@gmail.com</p></div>
+</header>
+
+<main>
+<section class="case-hero">
+  <div class="wrap">
+    <a class="back" href="index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5m5-5-5 5 5 5"/></svg>All projects</a>
+    <h1>top.legal: know if a contract is fair, right inside the document</h1>
+    <p class="lede">top.legal is a Germany-based legal-tech platform where people review and agree on contracts. Reviewing used to mean comparing the contract between the parties by hand, with no AI help, and waiting for answers. I designed improvements to the AI contract assistant so it flags one-sided and non-compliant clauses directly inside the agreement and recommends a fair alternative.</p>
+    <div class="facts">
+      <div><small>My role</small><b>Senior Product Designer</b></div>
+      <div><small>Company</small><b>top.legal, Germany (remote)</b></div>
+      <div><small>Scope</small><b>AI assistant, localisation, responsive UI</b></div>
+      <div><small>Period</small><b>Mar – Jul 2024 · Contract</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="fn-cover rv"><span class="nda-tag">Recreated · NDA</span>
+    <figure class="pm-video lg-fig"><div class="lg" aria-hidden="true"><div class="lg-win"><div class="tx-tabs"><span class="tx-tab a">1 · Before: review every clause</span><span class="tx-tab b">2 · After: AI flags what matters</span></div><div class="lg-a"><div class="lg-doc da"><div class="lg-dh"><b>Supplier agreement.pdf</b><span>DE · 24 pages</span></div><div class="lg-row r1"><span class="lg-ck"></span><span class="lg-t">§ 3.1 Scope of services</span><i></i><i class="s"></i></div><div class="lg-row r2"><span class="lg-ck"></span><span class="lg-t">§ 4.2 Payment terms</span><i></i><i class="s"></i></div><div class="lg-row r3"><span class="lg-ck"></span><span class="lg-t">§ 5.1 Term & termination</span><i></i><i class="s"></i></div><div class="lg-row r4"><span class="lg-ck"></span><span class="lg-t">§ 6.3 Confidentiality</span><i></i><i class="s"></i></div><div class="lg-row r5 risk"><span class="lg-ck"></span><span class="lg-t">§ 7.2 Liability</span><i></i><i class="s"></i></div><div class="lg-row r6"><span class="lg-ck"></span><span class="lg-t">§ 9.1 Governing law</span><i></i><i class="s"></i></div></div><span class="lg-hand"></span><div class="lg-meta"><div class="lg-clock"><i></i></div><b class="lg-time">Hours</b><small>per contract, reading clause by clause</small><span class="lg-miss">1 risky clause missed</span></div></div><div class="lg-b"><div class="lg-doc db"><div class="lg-dh"><b>Supplier agreement.pdf</b><span>DE · 24 pages</span></div><div class="lg-row r1"><span class="lg-ck"></span><span class="lg-t">§ 3.1 Scope of services</span><i></i><i class="s"></i></div><div class="lg-row r2"><span class="lg-ck"></span><span class="lg-t">§ 4.2 Payment terms</span><i></i><i class="s"></i></div><div class="lg-row r3"><span class="lg-ck"></span><span class="lg-t">§ 5.1 Term & termination</span><i></i><i class="s"></i></div><div class="lg-row r4"><span class="lg-ck"></span><span class="lg-t">§ 6.3 Confidentiality</span><i></i><i class="s"></i></div><div class="lg-row r5 risk"><span class="lg-ck"></span><span class="lg-t">§ 7.2 Liability</span><i></i><i class="s"></i></div><div class="lg-row r6"><span class="lg-ck"></span><span class="lg-t">§ 9.1 Governing law</span><i></i><i class="s"></i></div></div><span class="lg-scan"></span><div class="lg-ai"><small><b>&#10022;</b> AI review</small><b class="lg-ai-h">§ 7.2 Liability is one-sided</b><span class="lg-ai-p">Supplier excludes all liability. Suggest: cap liability at the contract value.</span><div class="lg-ai-b"><span class="lg-acc">Accept</span><span>Edit</span></div><span class="lg-done">Clause balanced</span></div><div class="lg-sum"><b>5 safe</b><span>1 to review</span></div></div></div></div><figcaption>Rough, Lottie-style recreation (NDA-safe): instead of reading every clause by hand, the AI scans the contract, flags the one-sided clause inside the document and suggests a fix the lawyer can accept or edit.</figcaption></figure>
+  </div>
+</div>
+
+<div class="wrap case-body">
+  <nav class="toc" aria-label="On this page">
+    <a href="#role" class="on">My role</a>
+    <a href="#challenge">Challenge</a>
+    <a href="#approach">Approach</a>
+    <a href="#flow">The flow</a>
+    <a href="#decisions">Key decisions</a>
+    <a href="#german">Long German text</a>
+    <a href="#outcome">Outcome</a>
+    <a href="#learned">What I learned</a>
+  </nav>
+
+  <div>
+    <section class="chapter" id="role">
+      <span class="eyebrow">My role</span>
+      <h2>What I owned as Senior Product Designer</h2>
+      <p>I joined top.legal as a contract Senior Product Designer, working remotely with a Germany-based team. I owned the design of the AI contract assistant improvements and the rework for long German text, from concept to build, together with international engineers and stakeholders.</p>
+      <figure class="ill rv"><div class="own" style="--n:4"><div class="own-c" style="--i:0"><h4>Understand</h4><ul><li>How people compared contracts by hand, with no AI help</li><li>Where long German text broke the UI</li></ul></div><div class="own-c" style="--i:1"><h4>Define</h4><ul><li>AI should recommend, not overwrite</li><li>Flags belong inside the agreement</li></ul><span class="lead">Owned</span></div><div class="own-c" style="--i:2"><h4>Design</h4><ul><li>Flag, explain and suggest a fair fix</li><li>Layouts and typography for long German strings</li></ul><span class="lead">Owned</span></div><div class="own-c" style="--i:3"><h4>Deliver</h4><ul><li>Responsive, accessible UI</li><li>Concept to build with engineers and stakeholders</li></ul></div></div><figcaption>What I owned across the project. Each stage lights up in turn.</figcaption></figure>
+      <figure class="ill rv"><div class="col" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><line class="col-ln" x1="50" y1="50" x2="18" y2="22" vector-effect="non-scaling-stroke" style="stroke-dasharray:4 5;animation:colDash 1.6s linear infinite"/><line class="col-ln" x1="50" y1="50" x2="82" y2="22" vector-effect="non-scaling-stroke" style="stroke-dasharray:4 5;animation:colDash 1.6s linear infinite"/><line class="col-ln" x1="50" y1="50" x2="50" y2="86" vector-effect="non-scaling-stroke" style="stroke-dasharray:4 5;animation:colDash 1.6s linear infinite"/></svg><div class="col-n" style="left:18%;top:22%">International engineers<small>concept to build</small></div><div class="col-n" style="left:82%;top:22%">Stakeholders<small>Germany</small></div><div class="col-n" style="left:50%;top:86%">Contract users<small>who I design for</small></div><div class="col-n me" style="left:50%;top:50%">Me<small style="color:#cfc4ff">Senior Product Designer</small></div></div><figcaption>Who I worked with as the contract senior designer.</figcaption></figure>
+    </section>
+
+    <section class="chapter" id="challenge">
+      <span class="eyebrow">The challenge</span>
+      <h2>Is this contract fair? Nobody could tell quickly</h2>
+      <p>When two or more parties negotiated a contract, each side compared the clauses and changes by hand. There was no AI help. To find out whether a clause was fair, people had to read everything line by line, or wait for a lawyer or the other party to respond. Long German contracts made this even slower.</p>
+      <div class="grid2">
+        <div class="box"><b>The person reviewing</b><p>Has to read every clause to find the few that matter, and can still miss a one-sided one.</p></div>
+        <div class="box"><b>The deal</b><p>Every round of waiting for review slows down the agreement for everyone involved.</p></div>
+      </div>
+      <figure class="ps rv" aria-label="Animation: problem and solution">
+        <div class="ps-win" aria-hidden="true">
+          <div class="ps-tabs"><span class="ps-tab p">1 · The problem</span><span class="ps-tab s">2 · My solution</span></div>
+          <div class="ps-sc a"><div class="tz-a">
+            <div class="ps-card tz-doc"><div class="tz-who"><i></i>Party A</div><span class="ps-k">Contract v1</span><span class="ps-ln"></span><span class="ps-ln tz-hl" style="width:85%"></span><span class="ps-ln"></span><span class="ps-ln" style="width:70%"></span><span class="ps-ln tz-hl d2"></span><span class="ps-ln" style="width:60%"></span></div>
+            <div class="tz-mid"><svg class="tz-arrow" viewBox="0 0 120 30"><path d="M4 10 H116 M104 2 L116 10 L104 18"/><path d="M116 22 H4 M16 14 L4 22 L16 30"/></svg><span>Compare by hand</span><span class="tz-q">?</span><span>Is it fair?</span></div>
+            <div class="ps-card tz-doc r"><div class="tz-who"><i></i>Party B</div><span class="ps-k">Contract v2</span><span class="ps-ln"></span><span class="ps-ln tz-hl" style="width:80%"></span><span class="ps-ln"></span><span class="ps-ln" style="width:75%"></span><span class="ps-ln tz-hl d2"></span><span class="ps-ln" style="width:55%"></span></div>
+          </div></div>
+          <div class="ps-sc b"><div class="tz-b">
+            <div class="ps-card tz-doc2"><span class="ps-k">Supply agreement</span><span class="tz-beam"></span>
+              <div class="tz-clause" style="animation:none">§ 4.1 Payment within 30 days</div>
+              <div class="tz-clause" style="animation:none">§ 5.2 Term and notice</div>
+              <div class="tz-clause flag"><span class="old">§ 7.2 Supplier excludes all liability</span><span class="new">§ 7.2 Liability capped for both sides</span></div>
+              <div class="tz-clause" style="animation:none">§ 9.1 Governing law</div>
+            </div>
+            <div>
+              <div class="ps-card tz-ai"><span class="ps-k">&#10022; AI review</span><span class="ps-pill ps-bad">One-sided</span><b>§ 7.2 Liability</b><p>Only one party carries the risk. Suggest a mutual liability cap.</p><div class="tz-btns"><span class="acc">Accept</span><span>Edit</span></div></div>
+              <div class="tz-fair"><span class="ps-pill ps-good">&#10003; Now you know it&rsquo;s fair</span></div>
+            </div>
+          </div></div>
+          <div class="ps-cap"><span class="c1">Problem: parties compare clauses by hand, with no AI help, and wait to find out if the contract is fair.</span><span class="c2">Solution: AI flags the one-sided clause inside the contract, explains why and suggests a fair fix.</span></div>
+        </div>
+        <figcaption>Problem and solution in one loop (simplified, NDA-safe).</figcaption>
+      </figure>
+      <div class="callout"><small>The question I started with</small><b>How might people know whether a contract is fair in minutes, right where they read it, instead of comparing clauses by hand and waiting for answers?</b></div>
+    </section>
+
+    <section class="chapter" id="approach">
+      <span class="eyebrow">Approach</span>
+      <h2>From comparing by hand to an AI recommendation</h2>
+      <p>The goal was not to replace the person&rsquo;s judgement. It was to remove the slow part: finding the clauses that need attention. The AI reads the whole agreement, points to the risky clauses and recommends a fairer version. The person still reviews and decides.</p>
+      <figure class="pm-video tl-fig"><div class="tl" aria-hidden="true"><div class="tl-win"><div class="tx-tabs"><span class="tx-tab a">1 · Before: clause by clause</span><span class="tx-tab b">2 · After: AI flags what matters</span></div><div class="tl-a"><div class="tl-doc d1"><small>Liefervertrag.docx</small><b class="tl-h"></b><span class="tl-ln" style="width:92%"></span><span class="tl-ln" style="width:80%"></span><span class="tl-ln r1"></span><span class="tl-ln" style="width:86%"></span><span class="tl-ln" style="width:70%"></span><span class="tl-ln r2"></span><span class="tl-ln" style="width:90%"></span><span class="tl-ln" style="width:64%"></span><span class="tl-ln r3"></span><span class="tl-ln" style="width:84%"></span></div><span class="tl-lens"></span><div class="tl-meter"><small>Manual review</small><b><span class="tl-c1">Clause 3 / 48</span><span class="tl-c2">Clause 9 / 48</span><span class="tl-c3">Clause 17 / 48</span></b><div class="tl-bar"><i></i></div><span class="tl-miss">Risky clause missed</span></div></div><div class="tl-b"><div class="tl-doc d2"><small>Liefervertrag.docx</small><b class="tl-h"></b><span class="tl-ln" style="width:92%"></span><span class="tl-ln" style="width:80%"></span><span class="tl-ln r1"></span><span class="tl-ln" style="width:86%"></span><span class="tl-ln" style="width:70%"></span><span class="tl-ln r2"></span><span class="tl-ln" style="width:90%"></span><span class="tl-ln" style="width:64%"></span><span class="tl-ln r3"></span><span class="tl-ln" style="width:84%"></span></div><span class="tl-beam"></span><div class="tl-ai"><small><i>&#10022;</i> AI review · 48 clauses in seconds</small><div class="tl-rec k1"><em class="hi">High</em><b>§ 7.2 Liability</b><span>One-sided: suggest a mutual cap</span><div><u class="ok">Accept</u><u>Edit</u></div></div><div class="tl-rec k2"><em class="md">Med</em><b>§ 4.1 Payment</b><span>Late fee not defined</span></div><div class="tl-rec k3"><em class="lo">Low</em><b>§ 11 Termination</b><span>Notice period unclear</span></div></div><span class="tl-done">Lawyer decides in minutes</span></div></div></div><figcaption>Rough, Lottie-style recreation (NDA-safe): instead of reading every clause one by one, the AI scans the whole contract, ranks risky clauses and suggests a fix, so the lawyer only reviews and decides.</figcaption></figure>
+    </section>
+
+    <section class="chapter" id="flow">
+      <span class="eyebrow">The flow</span>
+      <h2>Scan, flag, explain, decide</h2>
+      <figure class="ill rv"><div class="pl" style="--n:4" aria-hidden="true"><div class="pl-s" style="--i:0"><i>1</i><span><b>Scan</b>every clause at once</span></div><div class="pl-s" style="--i:1"><i>2</i><span><b>Flag</b>inside the document</span></div><div class="pl-s" style="--i:2"><i>3</i><span><b>Explain</b>why it is a risk</span></div><div class="pl-s" style="--i:3"><i>4</i><span><b>Decide</b>accept or edit</span></div></div><figcaption>Scan, flag, explain, decide: the person stays in control at the last step.</figcaption></figure>
+      <ol class="fn-steps">
+        <li><b>Scan the agreement</b><p>The assistant reviews every clause of the contract at once.</p></li>
+        <li><b>Flag in context</b><p>One-sided or non-compliant clauses are marked right inside the document, where the person is already reading.</p></li>
+        <li><b>Explain and recommend</b><p>Each flag says why the clause is a problem and suggests a fairer alternative.</p></li>
+        <li><b>The person decides</b><p>Accept the suggestion or edit it. Nothing changes without a human choice.</p></li>
+      </ol>
+    </section>
+
+    <section class="chapter" id="decisions">
+      <span class="eyebrow">Key decisions</span>
+      <h2>Making an AI recommendation easy to trust</h2>
+      <div class="grid2">
+        <div class="box"><b>1. Inside the agreement</b><p>Flags live in the document, not in a separate report, so people never lose their place.</p></div>
+        <div class="box"><b>2. Say why, not just what</b><p>Every flag explains what makes the clause one-sided or non-compliant.</p></div>
+        <div class="box"><b>3. Recommend, don&rsquo;t overwrite</b><p>The AI suggests a fairer version, and the person accepts or edits it.</p></div>
+        <div class="box"><b>4. Focus on what matters</b><p>Instead of a long list, the clauses that need attention stand out first.</p></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="german">
+      <span class="eyebrow">Long German text</span>
+      <h2>Designing for the longest words in Europe</h2>
+      <p>German legal terms are long, and the product had layouts that broke with them: truncated labels, overflowing buttons and cramped tables. I reworked layouts and typography so long German strings stay readable across screens, and delivered responsive, accessible UI with international engineering and stakeholder teams, from concept to build.</p>
+      <figure class="ill rv"><div class="de" aria-hidden="true">
+        <div class="de-c bad"><small>Before <b>cut off</b></small><div class="de-box"><div class="de-lbl">Haftungsbeschränkungsvereinbarung</div><div class="de-btn">Vertragsbedingungen akzeptieren</div></div></div>
+        <div class="de-c good"><small>After <b>readable</b></small><div class="de-box"><div class="de-lbl" lang="de">Haftungsbeschränkungsvereinbarung</div><div class="de-btn" lang="de">Vertragsbedingungen akzeptieren</div></div></div>
+      </div><figcaption>As the screen gets narrower, long German words were cut off before. After the rework, they wrap cleanly and buttons grow with the text.</figcaption></figure>
+      <div class="grid3">
+        <div class="box"><b>No truncation</b><p>Labels and headings wrap cleanly instead of being cut off.</p></div>
+        <div class="box"><b>No overflow</b><p>Buttons, tables and panels grow with the text instead of breaking.</p></div>
+        <div class="box"><b>Responsive</b><p>The same rules hold on large screens and small ones.</p></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="outcome">
+      <span class="eyebrow">Outcome</span>
+      <h2>A recommendation instead of a waiting game</h2>
+      <p>With the assistant, people no longer had to compare a contract clause by clause or wait for someone else to review it. They could see right away whether a contract was fair, which clauses needed attention, and what a fairer version would look like, then decide for themselves.</p>
+  <figure class="ill rv"><div class="wt" aria-hidden="true">
+        <div class="wt-r slow"><span><b>Before</b><br>compare by hand, wait</span><div class="wt-bar"><i></i></div><span class="wt-t"></span></div>
+        <div class="wt-r fast"><span><b>After</b><br>AI recommendation</span><div class="wt-bar"><i></i></div><span class="wt-t">&#10003; know it&rsquo;s fair</span></div>
+      </div><figcaption>Illustrative, not measured: the point is that people no longer wait for a review to know if a contract is fair.</figcaption></figure>
+        </section>
+
+    <section class="chapter" id="learned">
+      <span class="eyebrow">What I learned</span>
+      <h2>In legal work, AI earns trust by explaining itself</h2>
+      <p>People reading a contract are careful by nature. A flag without a reason is just noise. The design work that mattered most was making every recommendation explain itself and leaving the final decision with the person.</p>
+      <p class="fn-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Product screens are under NDA, so the visuals here are rough recreations. I&rsquo;m happy to walk through the real work in an interview.</span></p>
+    </section>
+
+    <div class="next rv">
+      <div><span class="eyebrow">Want the full story?</span><h3>Ask for a live walkthrough</h3></div>
+      <a class="btn primary" href="index.html#contact">Get in touch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px"><span>© 2026 Angga · Yogyakarta, Indonesia</span><span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="mailto:aaegraphic@gmail.com">aaegraphic@gmail.com</a></span></div>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>
