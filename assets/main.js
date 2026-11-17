@@ -263,3 +263,14 @@
     Object.keys(map).forEach(function(id){io.observe(document.getElementById(id))});
   }
 })();
+
+/* case study header: keep the active section link visible when the nav scrolls sideways */
+(function(){
+  var bar=document.querySelector('.cs-links');if(!bar||!('MutationObserver' in window))return;
+  function edge(){var o=bar.scrollWidth>bar.clientWidth+1;bar.classList.toggle('is-over',o);bar.classList.toggle('at-end',o&&bar.scrollLeft+bar.clientWidth>=bar.scrollWidth-2)}
+  edge();addEventListener('resize',edge);bar.addEventListener('scroll',edge,{passive:true});
+  new MutationObserver(function(){var a=bar.querySelector('a.opt.on');if(!a||bar.scrollWidth<=bar.clientWidth)return;
+    var l=a.offsetLeft-bar.offsetLeft,r=l+a.offsetWidth;
+    if(l<bar.scrollLeft+8||r>bar.scrollLeft+bar.clientWidth-8)bar.scrollTo({left:l-bar.clientWidth/2+a.offsetWidth/2,behavior:'smooth'});
+  }).observe(bar,{subtree:true,attributes:true,attributeFilter:['class']});
+})();

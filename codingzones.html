@@ -20,7 +20,7 @@
 <meta name="twitter:title" content="CodingZones case study – Angga Ady Ermawan">
 <meta name="twitter:description" content="How I designed and shipped a learning web app for kids on low-end phones.">
 <meta name="twitter:image" content="https://aaegraphic.com/assets/og-codingzones.jpg">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "@id": "https://aaegraphic.com/codingzones.html#article", "headline": "CodingZones: turning screen time into thinking time", "description": "Case study: how Angga Ady Ermawan designed and shipped CodingZones, a mobile-first learning web app with 20 short games for children in Indonesia.", "url": "https://aaegraphic.com/codingzones.html", "image": "https://aaegraphic.com/assets/og-codingzones.jpg", "inLanguage": "en", "dateModified": "2026-11-12T15:00:00+07:00", "author": {"@type": "Person", "@id": "https://aaegraphic.com/#person", "name": "Angga Ady Ermawan", "url": "https://aaegraphic.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "@id": "https://aaegraphic.com/codingzones.html#article", "headline": "CodingZones: turning screen time into thinking time", "description": "Case study: how Angga Ady Ermawan designed and shipped CodingZones, a mobile-first learning web app with 20 short games for children in Indonesia.", "url": "https://aaegraphic.com/codingzones.html", "image": "https://aaegraphic.com/assets/og-codingzones.jpg", "inLanguage": "en", "dateModified": "2026-11-17T23:30:00+07:00", "author": {"@type": "Person", "@id": "https://aaegraphic.com/#person", "name": "Angga Ady Ermawan", "url": "https://aaegraphic.com/"}}</script>
 <meta name="theme-color" content="#08080A">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -30,17 +30,24 @@
 <body>
 <div class="bg-aura" aria-hidden="true"></div>
 <a class="skip" href="#challenge">Skip to case study</a>
-<header class="nav">
+<header class="nav cs-nav">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="Angga, home"><span class="mark mark-a"><img src="assets/logo-a.svg" alt="" width="20" height="20"></span><img class="logo-name" src="assets/logo-name.svg" alt="Angga" width="94" height="36"></a>
-    <nav class="links" aria-label="Main">
-      <a class="opt" href="index.html#work">Work</a>
-      <a class="opt" href="index.html#about">About</a>
-      <a class="btn sm" href="index.html#contact">Let's talk</a>
+    <a class="logo cs-back" href="index.html#work" aria-label="Back to all projects" title="Back to all projects"><span class="mark mark-a"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg></span><span class="cs-name">CodingZones</span></a>
+    <nav class="links cs-links" aria-label="CodingZones case study">
+      <a class="opt" href="#challenge">Challenge</a>
+      <a class="opt" href="#decisions">Key decisions</a>
+      <a class="opt" href="#system">One system</a>
+      <a class="opt" href="#games">The games</a>
+      <a class="opt" href="#growth">Growth check</a>
+      <a class="opt" href="#brand">Brand & motion</a>
+      <a class="opt" href="#build">Building it</a>
+      <a class="opt" href="#outcome">Outcome</a>
+      <a class="opt" href="#learned">What I learned</a>
     </nav>
+    <a class="btn sm cs-cta" href="index.html#contact">Let's talk</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="m-menu" aria-label="Open menu"><b class="mb-t"><i>Menu</i><i>Close</i></b><span class="mb-ic"><span></span><span></span></span></button>
   </div>
-<div class="m-menu" id="m-menu" hidden><nav aria-label="Mobile"><a href="index.html#work" style="--i:0">Work</a><a href="index.html#about" style="--i:1">About</a></nav><a class="btn primary m-cta-btn" href="index.html#contact">Let's talk <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><p class="m-mail">aaegraphic@gmail.com</p></div>
+<div class="m-menu" id="m-menu" hidden><nav aria-label="CodingZones sections"><a href="#challenge" style="--i:0">Challenge</a><a href="#decisions" style="--i:1">Key decisions</a><a href="#system" style="--i:2">One system</a><a href="#games" style="--i:3">The games</a><a href="#growth" style="--i:4">Growth check</a><a href="#brand" style="--i:5">Brand & motion</a><a href="#build" style="--i:6">Building it</a><a href="#outcome" style="--i:7">Outcome</a><a href="#learned" style="--i:8">What I learned</a><a href="index.html#work" style="--i:9">&larr; All projects</a></nav><a class="btn primary m-cta-btn" href="index.html#contact">Let's talk <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><p class="m-mail">aaegraphic@gmail.com</p></div>
 </header>
 
 <main>
@@ -68,6 +75,7 @@
     <a href="#decisions">Key decisions</a>
     <a href="#system">One system</a>
     <a href="#games">The games</a>
+    <a href="#growth">Growth check</a>
     <a href="#brand">Brand & motion</a>
     <a href="#build">Building it</a>
     <a href="#outcome">Outcome</a>
@@ -129,6 +137,24 @@
         <figure class="cz-ph"><img src="assets/cz/siluet.webp" alt="Shape matching game: move and resize a sailboat over its silhouette, with a match meter" loading="lazy" width="540" height="1129"><figcaption>Siluet: move and resize a shape until it fits its silhouette.</figcaption></figure>
         <figure class="cz-ph"><img src="assets/cz/kubik.webp" alt="Block puzzle: fit coloured block pieces into the empty spaces of a grid" loading="lazy" width="540" height="1129"><figcaption>Kubik: spatial reasoning with block pieces.</figcaption></figure>
       </div>
+    </section>
+
+    <section class="chapter" id="growth">
+      <span class="eyebrow">New feature</span>
+      <h2>Cek Tumbuh Kembang: a gentle check for parents</h2>
+      <p>CodingZones grew beyond games with a short development check for parents. One simple question at a time, parents tell what their child can already do across areas like social and emotion, language and speech, and thinking. The result is not a score to worry about. It turns into small play ideas parents can try at home, and links back to the games.</p>
+      <div class="cz-row cz-row-4">
+        <figure class="cz-ph"><img src="assets/cz/tk-question.webp" alt="Question 1 of 9 in Social and Emotion: does the child play near other children and sometimes join in, with an illustration, an example and three big answers" loading="lazy" width="392" height="844"><figcaption>One question per screen, with a picture, a real-life example and three big answers.</figcaption></figure>
+        <figure class="cz-ph"><img src="assets/cz/tk-flag.webp" alt="An important question marked in dark: has the child lost a skill they used to have, with answers No, Not sure and Yes" loading="lazy" width="392" height="844"><figcaption>An important question stands out on its own, and the safe answer stays green.</figcaption></figure>
+        <figure class="cz-ph"><img src="assets/cz/tk-ideas.webp" alt="Play ideas to try: each idea opens into steps, when to do it and how to know it worked" loading="lazy" width="392" height="844"><figcaption>Results become play ideas with steps, timing and a clear &ldquo;it worked if&rdquo;.</figcaption></figure>
+      </div>
+      <div class="grid2">
+        <div class="box"><b>Honest answers, not guesses</b><p>&ldquo;Sudah bisa&rdquo;, &ldquo;Belum yakin&rdquo; and &ldquo;Belum&rdquo; give parents a calm middle option, so they never have to guess.</p></div>
+        <div class="box"><b>Examples parents recognise</b><p>Every question comes with an everyday example, like playing with blocks next to a cousin, so it is easy to answer.</p></div>
+        <div class="box"><b>Important questions stand out</b><p>A question about losing a skill gets its own look, and its answers are ordered so green still means &ldquo;all good&rdquo;.</p></div>
+        <div class="box"><b>From result to action</b><p>Results lead to play ideas with simple steps and a clear sign of success, with Hasil, Ide main and Game one tap apart.</p></div>
+      </div>
+      <figure class="rv" style="margin:22px 0 0"><img style="display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--line2)" src="assets/cz/tk-illustrations.webp" alt="A sheet of more than ninety illustrations with the same child, mother and father characters, showing everyday moments from baby to preschool age" loading="lazy" width="1100" height="1100"><figcaption style="margin-top:10px;font-size:13.5px;color:var(--text2)">90+ illustrations with the same characters, so every question feels like part of one family story, from baby to preschool age.</figcaption></figure>
     </section>
 
     <section class="chapter" id="brand">
