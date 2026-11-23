@@ -15,7 +15,7 @@
     ctx.globalAlpha=1}
   var secs=[['intro','Launch'],['about','About'],['work','Work'],['results','Results'],['contact','Contact']].map(function(a){return [document.getElementById(a[0]),a[1]]}).filter(function(a){return a[0]});
   var rail=document.createElement('nav');rail.className='rail';rail.setAttribute('aria-label','Page sections');
-  rail.innerHTML='<span class="rail-line"><i></i></span><span class="rail-rocket" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2c3 2.2 4.5 5.6 4.5 9.6V16l2 2.5V21l-3.2-1.6h-6.6L5.5 21v-2.5l2-2.5v-4.4C7.5 7.6 9 4.2 12 2Z" fill="currentColor"/><circle cx="12" cy="10" r="1.8" fill="#0b0b12"/></svg><b></b></span>'+
+  rail.innerHTML='<span class="rail-line"><i></i></span>'+
     secs.map(function(a,i){return '<a href="#'+a[0].id+'" style="--k:'+(i/(secs.length-1))+'"><span>'+a[1]+'</span></a>'}).join('');
   document.body.appendChild(rail);
   var links=rail.querySelectorAll('a'),tick=false;
