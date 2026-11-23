@@ -5,7 +5,7 @@
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce){caps.forEach(function(c,i){c.classList.toggle('on',i===caps.length-1)});return}
   var dur=0,target=0,cur=0,running=false,loaded=false;
-  function load(){if(loaded)return;loaded=true;v.src=matchMedia('(max-width: 820px)').matches?v.dataset.srcSm:v.dataset.src;v.preload='auto';v.load()}
+  function load(){if(loaded)return;if(document.documentElement.classList.contains('ldr-on')){addEventListener('ldr-done',load,{once:true});return}loaded=true;v.src=window.__vyURL||(matchMedia('(max-width: 820px)').matches?v.dataset.srcSm:v.dataset.src);v.preload='auto';v.load()}
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){load();io.disconnect()}},{rootMargin:'150% 0px'});io.observe(box)}else load();
   function progress(){var r=box.getBoundingClientRect(),max=box.offsetHeight-innerHeight;return Math.min(1,Math.max(0,-r.top/Math.max(1,max)))}
   function show(p){caps.forEach(function(c){c.classList.toggle('on',p>=+c.dataset.from&&p<+c.dataset.to)});box.style.setProperty('--vy-p',p.toFixed(3));box.classList.toggle('vy-end',p>.97)}

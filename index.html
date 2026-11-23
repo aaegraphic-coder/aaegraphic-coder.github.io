@@ -87,13 +87,15 @@ html.ldr-reveal body>*:not(#ldr){animation:ldrReveal .9s cubic-bezier(.2,.8,.2,1
   function tick(){got++}
   A.forEach(function(u){var i=new Image();i.onload=i.onerror=tick;i.src=u});
   /* the voyage video is the heaviest file: warm the cache, but never wait more than the cap below */
-  try{fetch('assets/voyage/'+(small?'voyage-sm':'voyage')+'.mp4').then(function(r){return r.blob()}).then(tick,tick)}catch(e){tick()}
+  /* the voyage video is downloaded in full and handed to the player as a local blob, so scrubbing is smooth from the first scroll */
+  var VW=3;total+=VW-1;   /* the video counts as 3 steps of progress because it is the heaviest file */
+  try{fetch('assets/voyage/'+(small?'voyage-sm':'voyage')+'.mp4').then(function(r){if(!r.ok)throw 0;return r.blob()}).then(function(bl){try{window.__vyURL=URL.createObjectURL(bl)}catch(e){}got+=VW},function(){got+=VW})}catch(e){got+=VW}
   (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(tick,tick);
   if(document.readyState==='complete')tick();else addEventListener('load',tick);
   function frame(){
     var target=Math.min(100,Math.round(got/total*100));
     var t=performance.now()-start;
-    if(t>9000)target=100;                                   /* never block longer than 9s */
+    if(t>30000)target=100;                                  /* hard cap: never block longer than 30s */
     shown+=Math.max(.6,(target-shown)*.12);if(shown>target)shown=target;
     var seg=shown>=100?SEG:Math.floor(shown/100*SEG+.35);fill.style.clipPath='inset(0 '+(100-Math.min(100,seg/SEG*100)).toFixed(3)+'% 0 0)';num.textContent=Math.floor(shown);
     if(shown>=100&&t>900){finish();return}
@@ -107,7 +109,7 @@ html.ldr-reveal body>*:not(#ldr){animation:ldrReveal .9s cubic-bezier(.2,.8,.2,1
     fill.style.clipPath='inset(0 0 0 0)';num.textContent='100';msg.textContent="Ready. Let\u2019s set sail.";
     try{sessionStorage.setItem('aae-loaded','1')}catch(e){}
     setTimeout(function(){
-      el.classList.add('done');root.classList.remove('ldr-on');root.classList.add('ldr-reveal');
+      el.classList.add('done');root.classList.remove('ldr-on');root.classList.add('ldr-reveal');dispatchEvent(new Event('ldr-done'));
       dispatchEvent(new Event('resize'));
       setTimeout(function(){el.remove();root.classList.remove('ldr-reveal')},1100);
     },450);
@@ -189,7 +191,7 @@ html.ldr-reveal body>*:not(#ldr){animation:ldrReveal .9s cubic-bezier(.2,.8,.2,1
         </div>
         <div class="portrait astro" data-s>
           <img src="assets/astronaut.webp" alt="Illustration of an astronaut floating in space, offering a cup of coffee" width="726" height="1000" loading="lazy" decoding="async">
-          <span class="astro-badge">Remote since 2018</span>
+          <img class="remote-badge" src="assets/remote-badge.webp" alt="Remote since 2018" width="640" height="239" loading="lazy" decoding="async">
           <img class="page-rover" src="assets/ill-rover.webp" alt="" aria-hidden="true" width="560" height="374" loading="lazy" decoding="async">
         </div>
         </div>

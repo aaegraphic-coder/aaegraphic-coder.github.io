@@ -418,3 +418,11 @@
   #contact .mail{font-size:clamp(15px,1.25vw,19px)}
   .cta-cockpit{width:48%}
 }
+@media (max-width:1199px){.bio-rover{display:none}}
+
+/* "Remote since 2018" as an illustrated console badge (desktop and mobile) */
+.portrait.astro img.remote-badge{position:absolute;z-index:2;top:auto;right:auto;left:50%;bottom:0;width:min(62%,260px);height:auto;inset:auto auto 0 50%;transform:translateX(-50%);object-fit:contain;animation:none;filter:drop-shadow(0 8px 14px rgba(0,0,0,.45))}
+@media (min-width:1200px){
+  .book .portrait.astro img.remote-badge{inset:auto 0 3% auto;left:auto;transform:none;width:52%;filter:drop-shadow(0 4px 6px rgba(60,40,20,.25));mix-blend-mode:normal}
+}
+@media (min-width:1200px){.book .portrait.astro img.remote-badge{width:57%;bottom:2%}.book .portrait.astro .page-rover{width:38%}}
