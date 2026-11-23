@@ -193,3 +193,157 @@
 :root{--muted:#8b8b96}
 /* Astronaut and rover stay solid in front of the doodles (no multiply blending) */
 @media (min-width:1200px){.book .portrait.astro{isolation:isolate}.book .portrait.astro img,.book .bio-rover{mix-blend-mode:normal}}
+
+/* ---------- Galaxy: Work grid as planets that unfold into project cards (desktop) ---------- */
+.gx-track{display:none}
+.gx-on .gx-track{display:block;position:relative;height:calc(var(--n) * 55vh + 100vh);margin-top:8px}
+.gx-stage{position:sticky;top:0;height:100vh;min-height:640px;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;background:#04050b url(planets/stars.webp) center/cover no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 91%,transparent 100%)}
+.gx-stage::before{content:"";position:absolute;inset:-5%;background:url(planets/stars.webp) center/cover;opacity:.35;transform:scale(calc(1 + var(--gx-p,0) * .06));transition:transform .4s linear;pointer-events:none}
+.gx-route{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.gx-route path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gx-route-bg{stroke:rgba(255,255,255,.14);stroke-width:1.2;stroke-dasharray:3 7}
+.gx-route-fg{stroke:#ffc98a;stroke-width:1.5;opacity:.75;filter:drop-shadow(0 0 4px rgba(255,190,110,.7));transition:stroke-dashoffset .8s cubic-bezier(.2,.8,.2,1)}
+.gx-planets{position:absolute;inset:0;z-index:3;pointer-events:none}
+.gx-planet{position:absolute;width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);padding:0;border:0;background:none;border-radius:50%;cursor:pointer;pointer-events:auto;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .5s,filter .5s}
+.gx-planet img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 14px 24px rgba(0,0,0,.6));animation:gxFloat 9s ease-in-out infinite;animation-delay:calc(var(--d) * -1)}
+@keyframes gxFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(4deg)}}
+.gx-label{position:absolute;left:50%;top:calc(100% + 10px);transform:translateX(-50%);white-space:nowrap;font:500 12.5px/1 var(--body);letter-spacing:.02em;color:rgba(255,255,255,.62);transition:opacity .4s,color .3s}
+.gx-planet:hover .gx-label,.gx-planet.on .gx-label{color:#fff}
+.gx-planet:focus-visible{outline:2px solid #ffc98a;outline-offset:6px}
+.gx-planet.on{transform:scale(1.1);z-index:2}
+.gx-planet.on img{filter:drop-shadow(0 0 26px rgba(255,200,140,.45)) drop-shadow(0 14px 24px rgba(0,0,0,.6))}
+.gx-planet.on .gx-label{opacity:0}
+.has-open .gx-planet:not(.on){opacity:.5;filter:saturate(.7)}
+.has-open .gx-planet:not(.on):hover{opacity:1;filter:none}
+.gx-cards{position:absolute!important;inset:0;display:block!important;z-index:2;pointer-events:none}
+.gx-cards .proj{position:absolute;margin:0;grid-column:auto!important;display:flex!important;flex-direction:column;opacity:0;pointer-events:none;box-shadow:0 30px 80px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08);clip-path:circle(0px at var(--ox,0) var(--oy,0));transform:scale(.94);transform-origin:var(--ox,0) var(--oy,0);transition:clip-path .75s cubic-bezier(.22,.9,.24,1),opacity .35s ease,transform .75s cubic-bezier(.22,.9,.24,1)}
+.gx-cards .proj.gx-open{opacity:1;pointer-events:auto;clip-path:circle(160% at var(--ox,0) var(--oy,0));transform:none}
+.gx-cards .proj.wide .thumb{aspect-ratio:4/3;min-height:0;border-right:0;border-bottom:1px solid var(--line)}
+.gx-cards .proj.wide .body{padding:18px 20px 20px;justify-content:flex-start;gap:6px}
+.gx-cards .proj.wide h3{font-size:inherit;letter-spacing:inherit}
+.gx-cards .proj.wide p{font-size:inherit;max-width:none}
+.gx-hud{position:absolute;left:max(24px,calc(50vw - 600px));bottom:46px;z-index:4;display:flex;flex-direction:column;gap:6px;pointer-events:none}
+.gx-count{font:600 13px/1 var(--body);letter-spacing:.06em;color:#ffd9a8;text-transform:uppercase}
+.gx-hint{font-size:12.5px;color:rgba(255,255,255,.55)}
+.gx-skip{position:absolute;right:max(24px,calc(50vw - 600px));bottom:40px;z-index:4;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(10,10,14,.6);border:1px solid var(--line2);color:var(--text2);font:500 13px/1 var(--body);text-decoration:none;backdrop-filter:blur(8px)}
+.gx-skip svg{width:14px;height:14px}
+.gx-skip:hover{color:var(--text)}
+.gx-reduce .gx-cards .proj,.gx-reduce .gx-planet,.gx-reduce .gx-route-fg{transition:none}
+.gx-reduce .gx-planet img{animation:none}
+/* Layering: idle planets < open card < active planet */
+.gx-planets{z-index:auto}
+.gx-planet{z-index:3}
+.gx-planet.on{z-index:6}
+.gx-cards{z-index:auto!important}
+.gx-cards .proj{z-index:4}
+.gx-cards .proj.gx-open{z-index:5}
+
+/* Galaxy v2: organic spread, small planets until hovered or active, no route line */
+.gx-route{display:none}
+.gx-planet{transition:transform .65s cubic-bezier(.2,.8,.2,1),opacity .5s,filter .5s}
+.gx-planet:hover{transform:scale(1.35)}
+.gx-planet.on{transform:scale(1.9)}
+.gx-planet img{animation-duration:11s}
+.gx-label{top:calc(100% + 8px);font-size:11.5px;color:rgba(255,255,255,.5)}
+.gx-planet:hover .gx-label{opacity:0}
+
+/* Galaxy v3: title sits on the same starfield as the planets (one section, no card) */
+.gx-on #work::before{display:none}
+.gx-on #work .panel{position:relative;isolation:isolate;background:none;border:0;box-shadow:none;padding-bottom:0}
+.gx-on #work .panel::after{display:none}
+.gx-on #work .panel::before{content:"";display:block;position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;z-index:-1;pointer-events:none;background:#04050b url(planets/stars.webp) center top/100vw auto repeat-y;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 160px,#000 calc(100% - 160px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 160px,#000 calc(100% - 160px),transparent 100%)}
+.gx-on #work .sec-head{position:relative;z-index:2;padding-top:clamp(56px,8vh,96px);margin-bottom:0}
+.gx-on #work .sec-head p{color:var(--text2)}
+.gx-on .gx-track{margin-top:-40px}
+.gx-on .gx-stage{background:transparent;-webkit-mask-image:none;mask-image:none}
+.gx-on .gx-stage::before{display:none}
+
+/* Galaxy v4: horizontal voyage - the world slides sideways while you scroll down */
+.gx-world{position:absolute;left:0;top:0;bottom:0;will-change:transform}
+.gx-world .gx-planets{position:absolute;inset:0}
+.gx-sky{position:absolute;inset:0;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
+.gx-sky i{position:absolute;top:0;bottom:0;left:0;width:400vw;background:url(planets/stars.webp) left center/100vw auto repeat-x;will-change:transform}
+.gx-sky .far{opacity:.55;background-size:70vw auto;filter:brightness(.8)}
+.gx-sky .near{opacity:.5;background-size:130vw auto;background-position:30vw center}
+.gx-on #work .panel::before{background-size:100vw auto;opacity:.7}
+
+/* Galaxy performance: no masks or filters on large moving layers, no blur behind moving content */
+.gx-on #work .panel::before{-webkit-mask-image:none;mask-image:none;opacity:1;background:linear-gradient(180deg,var(--bg) 0,rgba(8,8,10,0) 160px,rgba(8,8,10,0) calc(100% - 160px),var(--bg) 100%),#04050b url(planets/stars.webp) center top/100vw auto repeat-y}
+.gx-sky{-webkit-mask-image:none;mask-image:none;contain:strict}
+.gx-sky i{width:auto;right:auto;transform:translateZ(0)}
+.gx-sky .far{filter:none;opacity:.4}
+.gx-stage{contain:layout paint}
+.gx-world{contain:layout style}
+.gx-planet{will-change:transform;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s}
+.gx-planet img{filter:none;will-change:transform}
+.gx-planet::before{content:"";position:absolute;inset:-6%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.55),transparent);transform:translateY(14%);z-index:-1}
+.gx-planet.on::after{content:"";position:absolute;inset:-35%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,200,140,.32),transparent);z-index:-1}
+.gx-planet.on img{filter:none}
+.has-open .gx-planet:not(.on){filter:none;opacity:.45}
+.gx-skip{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(10,10,14,.85)}
+.gx-cards .proj{box-shadow:0 24px 50px -18px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.08)}
+.gx-cards .proj:not(.gx-open){visibility:hidden;transition:clip-path .75s cubic-bezier(.22,.9,.24,1),opacity .35s ease,transform .75s cubic-bezier(.22,.9,.24,1),visibility 0s .75s}
+.gx-cards .proj.gx-open{visibility:visible;transition:clip-path .75s cubic-bezier(.22,.9,.24,1),opacity .35s ease,transform .75s cubic-bezier(.22,.9,.24,1),visibility 0s}
+.gx-idle .gx-planet img{animation-play-state:paused}
+
+/* ---------- About stats: spaceship console with three pixel screens ---------- */
+.stats.console{position:relative;display:block!important;container-type:inline-size;width:100%;max-width:460px;justify-self:center;align-self:center;aspect-ratio:800/1024;gap:0;margin:0 auto}
+.console-bg{position:absolute;inset:0;width:100%;height:100%;display:block;filter:drop-shadow(0 22px 34px rgba(0,0,0,.55))}
+.scr{position:absolute;display:flex;color:#ecebff;font-family:var(--body)}
+.scr b{font-family:"Pixelify Sans",ui-monospace,monospace;font-weight:700;line-height:.9;letter-spacing:.01em;color:#ece8ff;text-shadow:0 0 1.4cqw rgba(170,150,255,.75),0 0 .3cqw rgba(170,150,255,.9)}
+.scr span{font-size:3.15cqw;line-height:1.25;color:#e6e3f7}
+.scr .px{display:block;height:auto;image-rendering:pixelated;filter:drop-shadow(0 0 1cqw rgba(140,120,255,.55))}
+/* top screen: 21.87%..77.48% x, 13.03%..26.94% y */
+.scr-top{left:21.9%;width:55.6%;top:13%;height:13.9%;align-items:center;justify-content:center;gap:2.2cqw;padding:0 4cqw}
+.scr-top .px{width:10cqw}
+.scr-top b{font-size:11cqw}
+.scr-top span{max-width:19cqw}
+/* bottom screens */
+.scr-l,.scr-r{top:59.5%;height:24.5%;width:31.9%;flex-direction:column;justify-content:center;gap:2cqw;padding:0 3.4cqw}
+.scr-l{left:5.2%}
+.scr-r{left:63%}
+.scr-row{display:flex;align-items:center;gap:1.8cqw}
+.scr-l .px{width:9.5cqw}
+.scr-r .px{width:10.5cqw}
+.scr-l b,.scr-r b{font-size:10.5cqw}
+.scr-r span{font-size:2.75cqw}
+.scr-r .cty{display:block}
+@media (min-width:1200px){.about .stats.console{max-width:none}}
+@media (max-width:1199px){.about .stats.console{margin-top:8px;width:min(100%,440px)}}
+@media (prefers-reduced-motion:no-preference){.scr b{animation:scrFlicker 6s steps(1) infinite}}
+@keyframes scrFlicker{0%,96%,100%{opacity:1}97%{opacity:.82}98%{opacity:1}99%{opacity:.9}}
+.scr span{font-size:3.4cqw}
+.scr-top span{max-width:21cqw}
+.scr-r span{font-size:3cqw;line-height:1.2}
+@media (max-width:600px){#about .panel{padding-left:14px;padding-right:14px}.about .stats.console{width:100%}}
+.scr b{display:inline-block;font-variant-numeric:tabular-nums;text-align:left}
+.scr-r .scr-row b{text-align:left}
+.scr b.counting{text-shadow:0 0 2cqw rgba(190,170,255,.95),0 0 .4cqw rgba(190,170,255,1)}
+
+/* ---------- About collage: tilted notebook, console and coffee on the desk ---------- */
+.about-side{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0}
+.about-mug{display:block;width:min(58%,240px);height:auto;filter:drop-shadow(0 18px 24px rgba(0,0,0,.55))}
+@media (min-width:1200px){
+  #about .panel{overflow:visible}
+  .about{grid-template-columns:minmax(0,1.95fr) minmax(0,1fr);gap:clamp(8px,2vw,32px);align-items:start;padding-block:12px 20px}
+  .book{transform:perspective(1600px) rotateX(8deg) rotate(-6deg);transform-origin:55% 60%;margin:clamp(28px,5vw,70px) 0 0 clamp(-56px,-3vw,-20px);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+  .book:hover{transform:perspective(1600px) rotateX(4deg) rotate(-3deg)}
+  .about-side{position:relative;align-items:stretch;gap:0}
+  .about-side .stats.console{width:min(100%,400px);transform:perspective(1400px) rotateX(6deg) rotate(7deg);transform-origin:50% 40%;margin:-12px 0 0 auto;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+  .about-side .stats.console:hover{transform:perspective(1400px) rotateX(3deg) rotate(3deg)}
+  .about-mug{width:min(62%,250px);margin:-6% 0 0 6%;transform:rotate(-8deg)}
+}
+@media (prefers-reduced-motion:no-preference){.about-mug{animation:mugBob 7s ease-in-out infinite}}
+@keyframes mugBob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+.scr-top span{max-width:25cqw;font-size:3.2cqw}
+.scr-top{gap:1.8cqw;padding:0 3cqw}
+@media (max-width:1199px){.about-mug{display:none}}
+
+/* ---------- About (desktop): HUD frame panel with the planet inside ---------- */
+@media (min-width:1200px){
+  #about .panel{position:relative;isolation:isolate;background:none;border:0;border-radius:0;box-shadow:none;padding:clamp(48px,5vw,72px) clamp(52px,5.5vw,84px) clamp(64px,6.5vw,96px)}
+  #about .panel::before{content:"";position:absolute;z-index:-2;left:4.1%;top:5%;right:3.6%;bottom:5.3%;border-radius:18px;background:#0b0a1f url(about-inner.webp) 70% 30%/cover no-repeat}
+  #about .panel::after{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:url(about-frame.webp) 0 0/100% 100% no-repeat}
+  .book{margin-left:0}
+  #about .sec-head p,#about .sec-head .sub{color:#e6e3f7}
+}
