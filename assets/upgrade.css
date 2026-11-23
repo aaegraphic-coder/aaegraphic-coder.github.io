@@ -426,3 +426,11 @@
   .book .portrait.astro img.remote-badge{inset:auto 0 3% auto;left:auto;transform:none;width:52%;filter:drop-shadow(0 4px 6px rgba(60,40,20,.25));mix-blend-mode:normal}
 }
 @media (min-width:1200px){.book .portrait.astro img.remote-badge{width:57%;bottom:2%}.book .portrait.astro .page-rover{width:38%}}
+/* Pen resting on the notebook beside the astronaut page (desktop notebook only) */
+.book-pen{display:none}
+@media (min-width:1200px){
+  .book .book-pen{display:block;position:absolute;z-index:3;right:-3.5%;top:14%;height:66%;width:auto;transform:rotate(16deg);transform-origin:50% 50%;pointer-events:none;filter:drop-shadow(-6px 10px 6px rgba(40,25,10,.35)) drop-shadow(-14px 22px 18px rgba(0,0,0,.35))}
+}
+@media (min-width:1200px){.book .book-pen{right:-10%;top:4%;height:86%;transform:rotate(34deg)}}
+@media (min-width:1200px){.book .book-pen{right:4%;top:58%;height:80%;transform:rotate(62deg)}}
+@media (min-width:1200px){.book .book-pen{right:9%;top:70%;height:78%;transform:rotate(66deg)}}
