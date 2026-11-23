@@ -347,3 +347,74 @@
   .book{margin-left:0}
   #about .sec-head p,#about .sec-head .sub{color:#e6e3f7}
 }
+
+/* Services -> Work: stars rise gradually from behind the skills cards, no hard edge */
+@media (min-width:1000px){
+  .gx-on #work .panel::before{top:0;-webkit-mask-image:none;mask-image:none;background:linear-gradient(180deg,rgba(8,8,10,0) 0,rgba(8,8,10,0) calc(100% - 180px),#08080a 100%),#04050b url(planets/stars.webp) center top/100vw auto repeat-y}
+  .gx-on #work .panel::after{content:"";display:block;position:absolute;left:calc(50% - 50vw);width:100vw;bottom:100%;aspect-ratio:1600/520;z-index:-1;pointer-events:none;background:url(planets/stars-fade.webp) center bottom/100% 100% no-repeat}
+  .gx-on #services{position:relative;z-index:1}
+  .gx-on #work .sec-head{padding-top:clamp(24px,4vh,56px)}
+}
+
+/* ---------- Skills: three glass cards plugged together by two astronaut hands ---------- */
+#services .svc{position:relative;border-radius:24px;border:1px solid rgba(190,170,255,.28);background:linear-gradient(160deg,rgba(78,58,150,.42),rgba(34,26,70,.55) 55%,rgba(22,18,46,.7)),rgba(18,14,38,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 0 1px rgba(120,90,230,.12),0 20px 50px -24px rgba(0,0,0,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#services .svc h3{flex-direction:column;align-items:flex-start;gap:14px;font-size:clamp(19px,1.9vw,26px);font-weight:600;letter-spacing:-.02em;color:#f4f1ff}
+#services .svc .ico{width:clamp(44px,4vw,56px);height:clamp(44px,4vw,56px);border-radius:14px;display:grid;place-items:center;background:linear-gradient(160deg,rgba(150,120,255,.35),rgba(90,60,200,.25));border:1px solid rgba(190,170,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 6px 18px -6px rgba(124,92,255,.6);color:#f1edff}
+#services .svc .ico svg{width:45%;height:45%;stroke-width:1.8}
+#services .svc ul{gap:10px;margin-top:16px}
+#services .svc li{font-size:clamp(14px,1.15vw,16px);color:#e2ddf7;padding-left:22px}
+#services .svc li::before{left:3px;top:.55em;width:8px;height:8px;background:#b897ff;box-shadow:0 0 8px rgba(184,151,255,.7)}
+#services .svc-mid{border-color:rgba(200,175,255,.55);background:linear-gradient(160deg,rgba(110,80,210,.55),rgba(52,36,110,.62) 55%,rgba(30,22,66,.75)),rgba(22,16,48,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 0 1px rgba(150,110,255,.25),0 0 40px -6px rgba(140,100,255,.55),0 24px 60px -24px rgba(0,0,0,.85)}
+#services .svc-mid .ico{background:linear-gradient(160deg,#8f6bff,#6a42e8);border-color:rgba(220,205,255,.6)}
+#services .svc-mid::after{content:"";position:absolute;left:20%;right:20%;bottom:-2px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,#e6d8ff,transparent);box-shadow:0 0 18px 6px rgba(170,130,255,.55)}
+.svc-hands{display:none}
+@media (min-width:900px){
+  .svc-rig{position:relative;padding-bottom:16.8%}
+  #services .services{grid-template-columns:1fr 1.08fr 1fr;gap:2.2%;align-items:stretch}
+  #services .svc-mid{transform:translateY(-18px)}
+  .svc-hands{display:block;position:absolute;left:10.59%;width:78.85%;height:auto;bottom:0;top:auto;z-index:0;filter:drop-shadow(0 18px 24px rgba(0,0,0,.55));pointer-events:none}
+  #services .svc{z-index:1}
+}
+@media (min-width:900px) and (prefers-reduced-motion:no-preference){
+  .svc-rig.in-view .svc-hands{animation:handsIn .9s cubic-bezier(.2,.8,.2,1) both}
+}
+@keyframes handsIn{from{opacity:0;transform:translateY(10%) scale(.96)}to{opacity:1;transform:none}}
+@media (min-width:900px){.svc-hands{z-index:2}}
+
+/* ---------- Contact: cockpit invitation, the astronaut offers you the seat ---------- */
+#contact .cta{border-radius:32px;border:1px solid rgba(170,140,255,.22);background:radial-gradient(70% 120% at 0% 100%,rgba(110,70,230,.14),transparent 60%),linear-gradient(180deg,#0f0d1c,#0b0a14);box-shadow:0 0 0 1px rgba(120,90,230,.08),0 30px 80px -30px rgba(0,0,0,.8);min-height:clamp(420px,38vw,560px);display:flex;flex-direction:column;justify-content:center}
+#contact .cta::before,#contact .cta::after{content:"";position:absolute;left:8%;right:8%;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(190,160,255,.8),transparent)}
+#contact .cta::before{top:0}
+#contact .cta::after{bottom:0;box-shadow:0 0 18px 2px rgba(150,110,255,.55)}
+#contact .cta .beam{display:none}
+#contact .cta h2{z-index:1;max-width:11ch;font-size:clamp(40px,5.4vw,76px);line-height:1.02}
+#contact .cta h2 .dim{background:linear-gradient(90deg,#d8c6ff,#a77bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+#contact .cta-grid{z-index:1;width:min(100%,560px);grid-template-columns:auto auto auto;gap:0;border-top-color:rgba(255,255,255,.12)}
+#contact .cta-grid>div{padding:0 clamp(16px,2.2vw,30px)}
+#contact .cta-grid>div:first-child{padding-left:0}
+#contact .cta-grid>div+div{border-left:1px solid rgba(255,255,255,.1)}
+#contact .cta-grid small{color:#a9a4c4}
+#contact .mail b{font-weight:600}
+#contact .socials a{width:46px;height:46px;background:rgba(20,18,34,.7);border-color:rgba(255,255,255,.16)}
+.cta-cockpit{position:absolute;right:0;top:0;height:100%;width:auto;max-width:58%;object-fit:cover;object-position:left center;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%);mask-image:linear-gradient(90deg,transparent 0,#000 22%)}
+@media (min-width:1101px){#contact .cta-grid{width:min(56%,620px)}}
+@media (max-width:1100px){
+  #contact .cta{min-height:0;justify-content:flex-start}
+  .cta-cockpit{position:relative;display:block;order:3;max-width:none;width:calc(100% + 2*clamp(28px,5vw,56px));height:auto;margin:28px calc(-1*clamp(28px,5vw,56px)) calc(-1*clamp(28px,5vw,56px));-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 25%);mask-image:linear-gradient(180deg,transparent 0,#000 25%)}
+  #contact .cta-grid{width:100%;grid-template-columns:1fr;gap:18px}
+  #contact .cta-grid>div{padding:0}
+  #contact .cta-grid>div+div{border-left:0}
+}
+@media (min-width:761px) and (max-width:1100px){#contact .cta-grid{grid-template-columns:auto auto auto}#contact .cta-grid>div{padding:0 22px}#contact .cta-grid>div:first-child{padding-left:0}#contact .cta-grid>div+div{border-left:1px solid rgba(255,255,255,.1)}}
+@media (min-width:1101px){
+  .cta-cockpit{width:52%;max-width:none;object-fit:cover;object-position:60% 50%;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.6) 14%,#000 30%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.6) 14%,#000 30%)}
+  #contact .cta-grid{width:min(58%,640px)}
+}
+#contact .mail{word-break:normal;white-space:nowrap}
+@media (max-width:420px){#contact .mail{white-space:normal;word-break:break-all}}
+@media (min-width:1101px){
+  #contact .cta-grid{grid-template-columns:max-content max-content max-content;width:auto;max-width:60%}
+  #contact .cta-grid>div{padding:0 clamp(14px,1.6vw,26px)}
+  #contact .mail{font-size:clamp(15px,1.25vw,19px)}
+  .cta-cockpit{width:48%}
+}
