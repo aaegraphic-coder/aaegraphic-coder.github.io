@@ -24,6 +24,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/upgrade.css">
+<link rel="stylesheet" href="assets/ps-anim.css">
 <style>
   .at-row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
   .at-row.three{grid-template-columns:repeat(3,1fr)}
@@ -66,6 +68,7 @@
       <div><small>Stack</small><b>Video.js v10, Mux HLS, Vite</b></div>
       <div><small>Status</small><b>Live demo</b></div>
     </div>
+    <div class="cs-result"><small>The result</small><p><b>One simple glass player, live as a demo.</b> A clear bar with a chaptered timeline when you need it, and a small pill when you don&rsquo;t.</p><div class="cs-jump"><a href="#concept">Jump to the solution <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14m-5-5 5 5 5-5"/></svg></a><a href="#mobile">See it on mobile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14m-5-5 5 5 5-5"/></svg></a></div></div>
   </div>
 </section>
 
@@ -94,6 +97,15 @@
         <div class="box"><b>One fixed place</b><p>The bar always sits in the same spot, even when it covers a face or the captions.</p></div>
         <div class="box"><b>Too many choices</b><p>Settings menus show every option at once, so simple changes take more effort than they should.</p></div>
       </div>
+      <figure class="ps rv" aria-label="Animation: problem and solution">
+        <div class="ps-win" aria-hidden="true">
+          <div class="ps-tabs"><span class="ps-tab p">1 · The problem</span><span class="ps-tab s">2 · My solution</span></div>
+          <div class="ps-sc a"><div class="at-a"><div class="at-fr"><span class="at-subj"></span><span class="at-grad"></span><div class="at-old"><span class="at-line"></span><div class="at-ic"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><span class="at-brk i10"><span>Covers the subject</span></span></div></div></div>
+          <div class="ps-sc b"><div class="at-b"><div class="at-fr"><span class="at-subj"></span><div class="at-glass"><span class="at-play"></span><span class="at-chap"><i></i><i></i><i></i><i></i><b></b></span><span class="at-tm">2:14</span></div><span class="at-pill"><span class="at-play"></span></span><span class="ps-pill ps-good at-tag i70">More of the picture</span></div></div></div>
+          <div class="ps-cap"><span class="c1">Problem: a heavy gradient and a full-width bar sit on top of the video, even when nobody is using them.</span><span class="c2">Solution: one slim glass bar with a chaptered timeline, which shrinks into a small pill when you don&rsquo;t need it.</span></div>
+        </div>
+        <figcaption>Problem and solution in one loop (simplified).</figcaption>
+      </figure>
       <div class="callout"><small>The question I started with</small><b>How might a player give people every control they need, while asking for as little of the screen as possible?</b></div>
     </section>
 

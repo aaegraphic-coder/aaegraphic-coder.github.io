@@ -26,6 +26,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/upgrade.css">
+<link rel="stylesheet" href="assets/ps-anim.css">
 </head>
 <body>
 <div class="bg-aura" aria-hidden="true"></div>
@@ -60,6 +62,7 @@
       <div><small>Platform</small><b>Multi-tenant web app</b></div>
       <div><small>Status</small><b>Launch-ready, early outreach</b></div>
     </div>
+    <div class="cs-result"><small>The result</small><p><b>Launch-ready after 5 delivery phases, with 319 automated tests passing.</b> Built so training centres can see who is ready to fly and who needs help this week.</p><div class="cs-jump"><a href="#solution">Jump to the solution <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14m-5-5 5 5 5-5"/></svg></a><a href="#impact">See the impact <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14m-5-5 5 5 5-5"/></svg></a></div></div>
   </div>
 </section>
 
@@ -84,6 +87,15 @@
       <h2>One missing document can delay a whole departure</h2>
       <p>Every student going to Japan moves through the same long journey: registration, language classes, exams, documents, placement and finally departure. Each step has its own paperwork and deadlines.</p>
       <p>Training centres track all of this in spreadsheets and chat groups. Staff spend their days chasing students for passports, medical checks and visas, and owners have no clear view of what is late across their branches.</p>
+      <figure class="ps rv" aria-label="Animation: problem and solution">
+        <div class="ps-win" aria-hidden="true">
+          <div class="ps-tabs"><span class="ps-tab p">1 · The problem</span><span class="ps-tab s">2 · My solution</span></div>
+          <div class="ps-sc a"><div class="ev-a"><div class="ev-sheet"><span class="h">Student</span><span class="h">Passport</span><span class="h">Medical</span><span class="h">Visa</span><span>Student A</span><span>ok</span><span>ok</span><span class="x">?</span><span>Student B</span><span>ok</span><span class="x">?</span><span>—</span><span>Student C</span><span class="x">?</span><span>—</span><span>—</span><span>Student D</span><span>ok</span><span>ok</span><span>ok</span><span>Student E</span><span>ok</span><span>—</span><span class="x">?</span></div><div class="ev-chat"><span class="ev-msg i10">Has anyone sent the medical check?</span><span class="ev-msg me i18">Which students fly next month?</span><span class="ev-msg i26">Visa still missing for two&hellip;</span><span class="ps-pill ps-bad i34">No clear view of what&rsquo;s late</span></div></div></div>
+          <div class="ps-sc b"><div class="ev-b"><div class="ev-pipe"><span>Register</span><span>Learn</span><span>Exams</span><span class="core">Documents</span><span>Placement</span><span class="core">Departure</span></div><div class="ev-row"><div class="ps-card"><span class="ps-k">Departure documents</span><div class="ev-doc"><span>Passport</span><span class="ev-ok">&#10003;</span></div><div class="ev-doc"><span>Medical check</span><span class="ev-due"><span class="w">Reminder: due soon</span><span class="d">&#10003;</span></span></div><div class="ev-doc"><span>Visa</span><span class="ev-ok">&#10003;</span></div></div><div><div class="ps-card ev-br"><span class="ps-k">Branches</span><div class="ps-row"><span><i class="ev-dot"></i>Branch 1</span><b>on track</b></div><div class="ps-row"><span><i class="ev-dot late"></i>Branch 2</span><span class="ev-due"><span class="w">1 late</span><span class="d">on track</span></span></div></div><div style="margin-top:calc(1.6*var(--u))"><span class="ps-pill ps-good i80">&#10003; Ready to fly</span></div></div></div></div></div>
+          <div class="ps-cap"><span class="c1">Problem: every student is tracked in spreadsheets and chat groups, and nobody sees what is late.</span><span class="c2">Solution: one journey per student, with document status, due-date reminders and every branch in one view.</span></div>
+        </div>
+        <figcaption>Problem and solution in one loop (simplified, sample names).</figcaption>
+      </figure>
       <div class="callout"><small>The question I started with</small><b>How might training centres see, at a glance, who is ready to fly and who needs help this week?</b></div>
     </section>
 
