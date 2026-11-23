@@ -74,3 +74,41 @@
 .vy-stage::after{background:linear-gradient(180deg,rgba(8,8,10,.5) 0%,rgba(8,8,10,0) 30%,rgba(8,8,10,0) 48%,rgba(8,8,10,.72) 80%,rgba(8,8,10,.72) 100%)}
 @media (prefers-reduced-motion:reduce){.voyage{margin-top:0}}
 @media (max-width:600px){.hero .scroll-cue{display:none}}
+
+/* ---------- Voyage captions: centred on screen ---------- */
+.vy-cap{top:50%;bottom:auto;transform:translateY(calc(-50% + 14px))}
+.vy-cap.on{transform:translateY(-50%)}
+.vy-cap::before{content:"";position:absolute;left:50%;top:50%;width:min(900px,96vw);height:150%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(6,7,14,.62),rgba(6,7,14,0));z-index:-1}
+.vy-cap>*{position:relative}
+.vy-credit{left:24px}
+@media (max-width:820px){.vy-cap{bottom:auto}.vy-credit{left:50%}}
+
+/* ---------- Results & experience: soft gradients, glow, timeline ---------- */
+#results .panel{position:relative;overflow:hidden;background:radial-gradient(120% 80% at 0% 0%,rgba(124,108,240,.10),transparent 55%),radial-gradient(90% 70% at 100% 100%,rgba(240,163,94,.07),transparent 60%),linear-gradient(180deg,#0f1020,#0c0c14)}
+#results .panel::after{content:"";position:absolute;right:-380px;top:60px;width:820px;height:820px;border-radius:50%;border:1px solid rgba(255,255,255,.07);pointer-events:none}
+#results .sec-head::after{content:"";position:absolute;right:clamp(140px,14vw,210px);top:86px;width:6px;height:6px;border-radius:50%;background:#ffd49a;box-shadow:0 0 12px 3px rgba(255,190,110,.6);pointer-events:none}
+#results .tk-eyebrow{color:var(--text2)}
+#results .results>*{position:relative;z-index:1}
+#results .r-big,#results .r-s,#results .r-exp{border-radius:22px;transition:transform .4s var(--ease),border-color .3s,box-shadow .3s}
+#results .r-big{padding:clamp(24px,2.6vw,36px);border:1px solid transparent;background:linear-gradient(160deg,#211a3c 0%,#151325 55%,#101019 100%) padding-box,linear-gradient(150deg,rgba(255,196,120,.75),rgba(155,135,255,.55) 45%,rgba(155,135,255,.2)) border-box;box-shadow:0 0 0 1px rgba(0,0,0,.2),0 20px 60px -20px rgba(124,108,240,.45),0 -10px 40px -24px rgba(255,180,100,.5)}
+#results .r-big::after{content:"";position:absolute;right:-60px;bottom:-80px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(200,190,255,.12);pointer-events:none}
+#results .r-big b{font-size:clamp(64px,7.4vw,104px);background:linear-gradient(180deg,#fff 30%,#d9d2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+#results .r-big p{font-size:clamp(15px,1.3vw,18px);line-height:1.45;color:#d7d5e4}
+#results .r-big em{color:#7ee2b8;font-size:15px}
+#results .r-s{padding:clamp(20px,2.2vw,28px);border:1px solid rgba(255,255,255,.09);background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.01) 60%),#11121b}
+#results .r-s b{font-size:clamp(40px,3.6vw,52px)}
+#results .r-s p{font-size:15px;line-height:1.45;color:#d7d5e4}
+#results .r-s small{display:flex;flex-direction:column;gap:14px;padding-top:14px}
+#results .r-s small::before{content:"";width:28px;height:2px;border-radius:2px;background:linear-gradient(90deg,#ffc27a,#f0a35e)}
+#results .r-exp{padding:clamp(20px,2.2vw,28px);border:1px solid rgba(255,255,255,.09);background:linear-gradient(170deg,rgba(124,108,240,.07),rgba(255,255,255,.01) 50%),#11121b}
+#results .r-exp h3{font-size:20px;margin-bottom:12px}
+#results .r-exp ol{position:relative}
+#results .r-exp ol::before{content:"";position:absolute;left:4px;top:26px;bottom:26px;width:1px;background:linear-gradient(180deg,#ffc27a,rgba(155,135,255,.5) 60%,rgba(255,255,255,.12))}
+#results .r-exp li{position:relative;padding:14px 0 14px 34px;border-top:1px solid rgba(255,255,255,.07)}
+#results .r-exp li::before{content:"";position:absolute;left:0;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:#f0a35e;box-shadow:0 0 0 4px rgba(240,163,94,.14)}
+#results .r-exp li:first-child::before{background:#ffd49a;box-shadow:0 0 0 4px rgba(255,212,154,.18),0 0 12px rgba(255,190,110,.7)}
+#results .r-exp li b{font-size:15.5px}
+#results .r-exp li span{color:var(--text2);font-size:13.5px}
+#results .r-exp li time{color:var(--text2);font-size:13.5px}
+@media (hover:hover){#results .r-big:hover,#results .r-s:hover,#results .r-exp:hover{transform:translateY(-3px)}#results .r-s:hover,#results .r-exp:hover{border-color:rgba(255,255,255,.16)}}
+@media (max-width:700px){#results .panel::after,#results .sec-head::after{display:none}}
